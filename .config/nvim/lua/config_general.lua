@@ -17,6 +17,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Backup
+vim.o.swapfile = false
 vim.o.undodir = '/home/jensjp/.config/nvim/undodir/'
 vim.o.undofile = true
 
@@ -37,3 +38,5 @@ vim.o.ttimeoutlen = 0
 -- Remember folds and last position
 vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
 vim.api.nvim_command('autocmd BufWinEnter *.* silent loadview')
+
+
