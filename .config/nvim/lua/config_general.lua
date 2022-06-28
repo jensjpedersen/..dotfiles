@@ -39,4 +39,8 @@ vim.o.ttimeoutlen = 0
 vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
 vim.api.nvim_command('autocmd BufWinEnter *.* silent loadview')
 
+-- Terminal --
+-- Automatic insert mode
+vim.api.nvim_command('autocmd TermOpen term://* startinsert')
+vim.api.nvim_command('autocmd BufEnter term://* startinsert')
 

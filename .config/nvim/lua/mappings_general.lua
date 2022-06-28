@@ -1,29 +1,80 @@
 
 local opts = { noremap=true, silent=false, buffer=0 }
 
+
+vim.keymap.set('n', '<silent> <esc><esc>', ':noh<return><esc>', opts)
+vim.keymap.set('n', '<localleader><localleader>c', ':source $MYVIMRC<CR>', opts)
+vim.keymap.set('n', '<localleader><localleader>s', ':set spell! spelllang=en,nb<CR>', opts)
+
+-- Run bash commands
 vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
--- vim.keymap.set('c', 'w!!', 'w!! w !sudo tee % <CR>', opts) FIXME
 vim.keymap.set('n', '<leader>x', ':w<CR>:bash % <CR>', opts)
+-- vim.keymap.set('c', 'w!!', 'w!! w !sudo tee % <CR>', opts) FIXME
+
+-- Splits
+vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
+vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
+vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
+vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 vim.keymap.set('n', '<C-W>5', 'vertical resize 80<CR>', opts)
 vim.keymap.set('n', '<C-W>6', 'vertical resize 90<CR>', opts)
 vim.keymap.set('n', '<C-W>7', 'vertical resize 100<CR>', opts)
 vim.keymap.set('n', '<C-W>8', 'vertical resize 110<CR>', opts)
 vim.keymap.set('n', '<C-W>9', 'vertical resize 120<CR>', opts)
 
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
--- vim.keymap.set('n', '', '', opts)
+-- Bracets navigation
+vim.keymap.set('i', '(', '()<Esc>:let leavechar=")"<CR>i', opts)
+vim.keymap.set('i', '[', '[]<Esc>:let leavechar="]"<CR>i', opts)
+vim.keymap.set('i', '{', '{}<Esc>:let leavechar="}"<CR>i', opts)
+vim.keymap.set('i', '<C-j>', '<Esc>:exec "normal f" . leavechar<CR>a', opts)
 
+-- Automatic correct spelling
+vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', opts)
+
+-- Terminal
+--vim.api.nvim_command('autocmd BufWinEnter,WinEnter term://* startinsert') -- automitc insert 
+-- vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
+vim.keymap.set('n', '<C-s>', ':buffer term://*<CR>', opts)
+vim.keymap.set('t', '<C-s>', [[<C-\><C-n> :bp<CR>]], { noremap = true })
+
+-- vim.keymap.set('t', '<C-w>h', '<C-\><C-N><C-w>h', opts)
+
+-- Better mappings --
+-- keeping it centered
+vim.keymap.set('n', 'n', 'nzz', opts)
+vim.keymap.set('n', 'N', 'Nzz', opts)
+vim.keymap.set('n', '[[', '[[zz', opts)
+vim.keymap.set('n', ']]', ']]zz', opts)
+vim.keymap.set('n', '<C-I>', '<C-I>zz', opts)
+vim.keymap.set('n', '<C-O>', '<C-O>zz', opts)
+vim.keymap.set('n', 'J', 'mxJ`x', opts)
+
+-- Keep visual mode after indent 
+vim.keymap.set('v', '>', '>gv', opts)
+vim.keymap.set('v', '<', '<gv', opts)
+-- set undo breakpoints for , and . 
+vim.keymap.set('i', ',', ',<C-g>u', opts)
+vim.keymap.set('i', '.', '.<C-g>u', opts)
+
+-- set jumplist mark if momvent bigger than 5 (coutn) lines
+-- -- nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+-- -- nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+-- move text
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+
+-- Quick fix list
+-- Toglle quick fix list
+-- function! ToggleQuickFix()
+--     if empty(filter(getwininfo(), 'v:val.quickfix'))
+--         copen
+--     else
+--         cclose
+--     endif
+-- endfunction
+-- 
+-- nnoremap <leader>c :call ToggleQuickFix()<CR>
+vim.keymap.set('n', '<leader>c', ':copen<CR>', opts)
+vim.keymap.set('n', '<C-n>', ':cn<CR>', opts)
+vim.keymap.set('n', '<C-p>', ':cp<CR>', opts)

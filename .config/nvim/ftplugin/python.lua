@@ -11,11 +11,11 @@ vim.keymap.set('n', '<leader>x', ':!python % <CR>', opts)
 -- nnoremap <leader>k :w<CR>:RunSilent kill $(pgrep -f "python %") <CR>
 
 -- vimux mappings
-vim.keymap.set('n', '<Leader>vp', ':w<CR>:VimuxPromptCommand<CR>')
-vim.keymap.set('n', '<Leader>vl', ':w<CR>:VimuxRunLastCommand<CR>')
-vim.keymap.set('n', '<Leader>vi', ':VimuxInspectRunner<CR>')
-vim.keymap.set('n', '<Leader>vk', ':VimuxInterruptRunner<CR>')
-vim.keymap.set('n', '<leader>vj', ":w<CR>:VimuxRunCommand('python ' . bufname('%'))<CR>")
-vim.keymap.set('n', '<Leader>vz', ':VimuxZoomRunner<CR>')
-vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>')
+vim.keymap.set('n', '<Leader>vp', ':w<CR>:VimuxPromptCommand<CR>', opts)
+vim.keymap.set('n', '<Leader>vl', ':w<CR>:VimuxRunLastCommand<CR>', opts)
+vim.keymap.set('n', '<Leader>vi', ':VimuxInspectRunner<CR>', opts)
+vim.keymap.set('n', '<Leader>vk', ':VimuxInterruptRunner<CR>', opts)
+vim.keymap.set('n', '<leader>vj', ":w<CR>:VimuxRunCommand('python ' . bufname('%'))<CR>", opts)
+vim.keymap.set('n', '<Leader>vz', ':VimuxZoomRunner<CR>', opts)
+vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
 
