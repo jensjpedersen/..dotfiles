@@ -6,9 +6,12 @@ vim.cmd [[packadd packer.nvim]]
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
+
+  -- Lsp
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'hrsh7th/cmp-nvim-lsp'
-  -- cmp
+
+  -- Cmp
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
@@ -29,5 +32,14 @@ require('packer').startup(function()
   -- For snippy users.
   -- use 'dcampos/nvim-snippy'
   -- use 'dcampos/cmp-snippy'
+
+  -- Telescope
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-lua/plenary.nvim' -- requires
+  use 'BurntSushi/ripgrep'
+  use 'nvim-telescope/telescope-fzf-native.nvim'
+
 end)
+
+
 

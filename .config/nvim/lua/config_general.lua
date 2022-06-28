@@ -37,7 +37,7 @@ vim.o.ttimeoutlen = 0
 
 -- Remember folds and last position
 vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
-vim.api.nvim_command('autocmd BufWinEnter *.* silent loadview')
+vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
 
 -- Terminal --
 -- Automatic insert mode

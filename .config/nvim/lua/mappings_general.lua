@@ -33,12 +33,8 @@ vim.keymap.set('i', '<C-j>', '<Esc>:exec "normal f" . leavechar<CR>a', opts)
 vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', opts)
 
 -- Terminal
---vim.api.nvim_command('autocmd BufWinEnter,WinEnter term://* startinsert') -- automitc insert 
--- vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
 vim.keymap.set('n', '<C-s>', ':buffer term://*<CR>', opts)
-vim.keymap.set('t', '<C-s>', [[<C-\><C-n> :bp<CR>]], { noremap = true })
-
--- vim.keymap.set('t', '<C-w>h', '<C-\><C-N><C-w>h', opts)
+vim.keymap.set('t', '<C-s>', [[<C-\><C-n> :bp<CR>]], { noremap = true, silent = true })
 
 -- Better mappings --
 -- keeping it centered
