@@ -76,3 +76,6 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+
+-- install bash language sever: npm i -g bash-language-server
+require'lspconfig'.bashls.setup{}
