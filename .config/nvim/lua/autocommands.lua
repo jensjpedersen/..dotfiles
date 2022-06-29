@@ -14,3 +14,17 @@ vim.cmd[[
 autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
 autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
 ]]
+
+-- Markdown 
+vim.cmd[[
+autocmd BufNewFile,BufRead *.md
+   \ set textwidth=79 |
+]]
+
+-- Tsv 
+vim.cmd[[
+autocmd BufNewFile,BufRead *.tsv 
+    \ set shiftwidth=20 | 
+    \ set softtabstop=20 | 
+    \ set tabstop=20 
+]]

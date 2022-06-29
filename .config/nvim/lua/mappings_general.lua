@@ -5,6 +5,7 @@ local opts = { noremap=true, silent=false }
 
 vim.keymap.set('n', '<esc><esc>', ':noh<CR><esc>', opts)
 vim.keymap.set('n', '<localleader><localleader>c', ':source $MYVIMRC<CR>', opts)
+-- vim.keymap.set('n', '<leader>e',  ':e! % <CR>:redraw!<CR>' , opts) -- Reload file
 
 -- Toggle options
 vim.keymap.set('n', '<localleader><localleader>s', ':set spell! spelllang=en,nb<CR>', opts)
