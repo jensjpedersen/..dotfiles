@@ -35,12 +35,39 @@ require('packer').startup(function()
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
-  use 'nvim-lua/plenary.nvim' -- requires
+  use 'nvim-lua/plenary.nvim'          -- Requirement
   use 'BurntSushi/ripgrep'
   use 'nvim-telescope/telescope-fzf-native.nvim'
 
-  -- Movements
+  -- Vim extensions
+  use 'justinmk/vim-sneak'             -- naviagation
+  use 'wellle/targets.vim'             -- better text objects
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-repeat'
 
+  -- Git 
+  use 'tpope/vim-fugitive'             -- git plugin
+
+  -- Coding
+  use 'benmills/vimux'                 -- vim tmux compatibility
+  use 'yinflying/matlab.vim'
+  use 'nathanaelkane/vim-indent-guides'
+  use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
+
+  -- Writing
+  use 'lervag/vimtex'		           -- Latex
+  use 'vimwiki/vimwiki'		           -- vimwiki
+
+
+  -- Tools
+  use 'mbbill/undotree'
+  use 'szw/vim-maximizer'
+  use 'dhruvasagar/vim-table-mode'
+  use 'preservim/tagbar'
+  use 'mattn/emmet-vim'
+
+  use 'mhinz/vim-startify'             -- start page
 end)
 
 

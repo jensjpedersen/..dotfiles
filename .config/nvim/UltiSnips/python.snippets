@@ -1,0 +1,29 @@
+snippet import "import standard stuff"
+import numpy as np
+import matplotlib.pyplot as plt
+$0
+endsnippet
+
+snippet # " comment " -b
+# ==================================================
+# $0
+endsnippet
+
+snippet sh "test shape"
+print("$1", np.shape($1)) $0
+endsnippet
+
+snippet pr "print variable"
+print("==================================================") 
+print($1)
+print("==================================================") 
+$0
+endsnippet
+
+snippet timer "timer count"
+start = perf_counter()
+$1
+end = perf_counter()
+print(end-start)
+$0
+endsnippet

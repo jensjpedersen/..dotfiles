@@ -28,7 +28,8 @@ vim.o.signcolumn = 'yes'
 
 -- Etc
 vim.o.clipboard = 'unnamedplus'
-vim.o.autochdir = true
+-- vim.o.autochdir = true
+vim.cmd('autocmd BufEnter * silent! lcd %:p:h')
 vim.o.wrap = false
 vim.o.mouse = 'a'
 
@@ -47,4 +48,10 @@ vim.api.nvim_command('autocmd TermOpen,BufEnter term://* startinsert')
 vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
 vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
 
+-- Plugins 
+vim.cmd [[
+set nocompatible
+filetype plugin on
+syntax on
+]]
 
