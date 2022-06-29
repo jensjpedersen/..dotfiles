@@ -1,10 +1,15 @@
 
-local opts = { noremap=true, silent=false, buffer=0 }
+-- local opts = { noremap=true, silent=false, buffer=0 }
+local opts = { noremap=true, silent=false }
 
 
 vim.keymap.set('n', '<silent> <esc><esc>', ':noh<return><esc>', opts)
 vim.keymap.set('n', '<localleader><localleader>c', ':source $MYVIMRC<CR>', opts)
+
+-- Toggle options
 vim.keymap.set('n', '<localleader><localleader>s', ':set spell! spelllang=en,nb<CR>', opts)
+vim.keymap.set('n', '<localleader><localleader>h', ':set cursorline!<CR>', opts)
+vim.keymap.set('n', '<localleader><localleader>v', ':execute "set colorcolumn="  . (&colorcolumn == "" ? "80" : "")<CR>', opts)
 
 -- Run bash commands
 vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
@@ -17,11 +22,11 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
-vim.keymap.set('n', '<C-W>5', 'vertical resize 80<CR>', opts)
-vim.keymap.set('n', '<C-W>6', 'vertical resize 90<CR>', opts)
-vim.keymap.set('n', '<C-W>7', 'vertical resize 100<CR>', opts)
-vim.keymap.set('n', '<C-W>8', 'vertical resize 110<CR>', opts)
-vim.keymap.set('n', '<C-W>9', 'vertical resize 120<CR>', opts)
+vim.keymap.set('n', '<C-W>5', ':vertical resize 80<CR>', opts)
+vim.keymap.set('n', '<C-W>6', ':vertical resize 90<CR>', opts)
+vim.keymap.set('n', '<C-W>7', ':vertical resize 100<CR>', opts)
+vim.keymap.set('n', '<C-W>8', ':vertical resize 110<CR>', opts)
+vim.keymap.set('n', '<C-W>9', ':vertical resize 120<CR>', opts)
 
 -- Bracets navigation
 vim.keymap.set('i', '(', '()<Esc>:let leavechar=")"<CR>i', opts)

@@ -39,6 +39,8 @@ require('packer').startup(function()
   use 'BurntSushi/ripgrep'
   use 'nvim-telescope/telescope-fzf-native.nvim'
 
+  -- Movements
+
 end)
 
 
