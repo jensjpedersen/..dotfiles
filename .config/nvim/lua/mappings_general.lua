@@ -3,7 +3,7 @@
 local opts = { noremap=true, silent=false }
 
 
-vim.keymap.set('n', '<silent> <esc><esc>', ':noh<return><esc>', opts)
+vim.keymap.set('n', '<esc><esc>', ':noh<CR><esc>', opts)
 vim.keymap.set('n', '<localleader><localleader>c', ':source $MYVIMRC<CR>', opts)
 
 -- Toggle options
@@ -79,3 +79,11 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set('n', '<leader>c', ':copen<CR>', opts)
 vim.keymap.set('n', '<C-n>', ':cn<CR>', opts)
 vim.keymap.set('n', '<C-p>', ':cp<CR>', opts)
+
+
+
+function Ranger()
+    vim.cmd('terminal ranger')
+    vim.keymap.set('t', 'q',  [[<C-\><C-n> :bdelete! <CR>]], { noremap=true, silent=true, buffer=0 })
+end
+vim.keymap.set('n', '<leader>f', ':lua Ranger()<CR>')

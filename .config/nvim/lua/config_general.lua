@@ -24,7 +24,7 @@ vim.o.undofile = true
 -- style 
 vim.o.signcolumn = 'yes'
 -- vim.cursorline = 'yes'
-vim.o.colorcolumn = '80'
+-- vim.o.colorcolumn = '80'
 
 -- Etc
 vim.o.clipboard = 'unnamedplus'
@@ -41,6 +41,10 @@ vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
 
 -- Terminal --
 -- Automatic insert mode
-vim.api.nvim_command('autocmd TermOpen term://* startinsert')
-vim.api.nvim_command('autocmd BufEnter term://* startinsert')
+vim.api.nvim_command('autocmd TermOpen,BufEnter term://* startinsert')
+-- vim.api.nvim_command('autocmd BufEnter term://* startinsert')
+
+vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
+vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
+
 
