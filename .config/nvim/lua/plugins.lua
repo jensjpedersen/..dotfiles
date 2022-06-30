@@ -23,6 +23,9 @@ require('packer').startup(function()
 
   use 'hrsh7th/cmp-omni'
 
+  -- Colorschemes
+  use 'rafi/awesome-vim-colorschemes'
+
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'          -- Requirement
@@ -55,6 +58,16 @@ require('packer').startup(function()
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
+
+  -- Grammar
+  -- use 'brymer-meneses/grammar-guard.nvim'
+  use 'williamboman/nvim-lsp-installer'
+
+ -- use({'kdheepak/cmp-latex-symbols',
+ -- sources = {
+ --     { name = "latex_symbols" },
+ -- }
+ -- })
 
   -- Tools
   use 'mbbill/undotree'

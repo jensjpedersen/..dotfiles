@@ -1,6 +1,8 @@
 
 
 local opts = { noremap=true, silent=true }
+-- Colorscheme 
+vim.cmd('colorscheme gruvbox')
 
 -- Ultisnips
 vim.cmd[[
