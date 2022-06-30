@@ -43,10 +43,6 @@ vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
 -- Terminal --
 -- Automatic insert mode
 vim.api.nvim_command('autocmd TermOpen,BufEnter term://* startinsert')
--- vim.api.nvim_command('autocmd BufEnter term://* startinsert')
-
-vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
-vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
 
 -- Plugins 
 vim.cmd [[

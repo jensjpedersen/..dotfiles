@@ -1,5 +1,6 @@
-local opts = { noremap=true, silent=false }
--- Git mappings --
+local opts = { noremap=true, silent=true }
+-- Git mappings 
+
 -- Git fugitive mappings
 vim.keymap.set('n', '<localleader>b', ':Git branch<CR>', opts)
 vim.keymap.set('n', '<localleader>g', ':Git<CR>', opts)
@@ -14,6 +15,7 @@ vim.keymap.set('n', '<localleader>h', ':Git log<CR>', opts)
 vim.keymap.set('n', '<localleader>H', ':0Gclog!<CR>', opts)
 vim.keymap.set('n', '<localleader>L', ':Git log -p %<CR>', opts)
 vim.keymap.set('n', '<localleader>v', ':Gdiffsplit!<CR>', opts)
+vim.keymap.set('v', '<localleader>v', ':diffput<CR>', opts)
 vim.keymap.set('n', '<localleader>r', ':Git reflog<CR>', opts)
 vim.keymap.set('n', '<localleader>q', ':bdelete fugitive:*<C-a><CR>', opts)
 

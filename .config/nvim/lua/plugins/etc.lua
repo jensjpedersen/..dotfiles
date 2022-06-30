@@ -52,7 +52,7 @@ vim.cmd[[
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 50 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 ]]
-
+vim.keymap.set('n', '<leader>u',  ':UndotreeToggle<CR>', opts)
 
 
 -- Startify 
@@ -90,6 +90,7 @@ vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number rela
 function Ranger()
     vim.cmd('terminal ranger')
     vim.keymap.set('t', 'q',  [[<C-\><C-n> :bdelete! <CR>]], { noremap=true, silent=true, buffer=0 })
+    vim.keymap.set('t', 'O', [[<C-\><C-n>]] .. 'gg0f/"zyE :bdelete!<CR> :e <C-r>z<CR>', { noremap=true, silent=true, buffer=0})
 end
 vim.keymap.set('n', '<leader>f', ':lua Ranger()<CR>')
 
