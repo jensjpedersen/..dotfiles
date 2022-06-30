@@ -56,7 +56,7 @@ let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 
 
 -- Startify 
-vim.cmd[[
+vim.cmd([[
 " Vim startify
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.lua'}, 
                            \ {'w': '~/vimwiki/index.md'}, 
@@ -76,4 +76,21 @@ let g:startify_lists = [
 let g:startify_files_number = 10 
 let g:startify_change_to_dir = 0 " autochdir is enabled, not needed
 let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
-]]
+]])
+
+
+-- Nvim tree
+require("nvim-tree").setup()
+vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
+
+
+-- Ranger
+vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
+vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
+function Ranger()
+    vim.cmd('terminal ranger')
+    vim.keymap.set('t', 'q',  [[<C-\><C-n> :bdelete! <CR>]], { noremap=true, silent=true, buffer=0 })
+end
+vim.keymap.set('n', '<leader>f', ':lua Ranger()<CR>')
+
+

@@ -48,7 +48,14 @@ require('packer').startup(function()
 
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
+  use 'lewis6991/gitsigns.nvim'
 
+  -- use {
+  --     'lewis6991/gitsigns.nvim',
+  --     config = function()
+  --         require('gitsigns').setup()
+  --     end
+  -- }
   -- Coding
   use 'benmills/vimux'                 -- vim tmux compatibility
   use 'yinflying/matlab.vim'
@@ -59,9 +66,10 @@ require('packer').startup(function()
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
 
-
   -- Tools
   use 'mbbill/undotree'
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
   use 'szw/vim-maximizer'
   use 'dhruvasagar/vim-table-mode'
   use 'preservim/tagbar'
