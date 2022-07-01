@@ -1,3 +1,29 @@
+vim.cmd('set filetype=matlab')
+
+-- Enalbe omnifunc
+vim.cmd([[
+if &omnifunc == ""
+    setlocal omnifunc=syntaxcomplete#Complete 
+endif
+]])
+
+require'cmp'.setup {
+  sources = {
+    { name = 'omni' }
+  }
+}
+
+-- vim.cmd([[
+-- if has("autocmd") && exists("+omnifunc")
+-- autocmd Filetype *
+--     \ if &omnifunc == "" |
+--     \ setlocal omnifunc=syntaxcomplete#Complete |
+--     \ endif
+--     endif
+--     set filetype=matlab
+-- ]])
+-- Omni completion
+
 local opts = { noremap=true, silent=true }
 
 -- Vimux settings
@@ -22,24 +48,8 @@ vim.keymap.set('n', '<leader>de', [[:call jobstart("tmux send -t left 'dbstop if
 vim.keymap.set('n', 'gd', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
 vim.keymap.set('n', 'gD', ':norm *<CR> :vimgrep /<c-r>//g **/*.m<CR>', opts)
 
-vim.cmd('set filetype=matlab')
 
 -- vim.cmd([[autocmd BufEnter *.m compiler mlint]])
--- Enalbe omnifunc
-vim.cmd([[
-if has("autocmd") && exists("+omnifunc")
-autocmd Filetype matlab
-    \ if &omnifunc == "" |
-    \ setlocal omnifunc=syntaxcomplete#Complete |
-    \ endif
-    endif
-]])
 
--- Omni completion
-require'cmp'.setup {
-  sources = {
-    { name = 'omni' }
-  }
-}
 
 

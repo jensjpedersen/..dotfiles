@@ -21,6 +21,7 @@ require('packer').startup(function()
   use 'SirVer/ultisnips'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
 
+  -- Omnicompletion
   use 'hrsh7th/cmp-omni'
 
   -- Colorschemes
@@ -54,6 +55,7 @@ require('packer').startup(function()
   use 'yinflying/matlab.vim'
   use 'nathanaelkane/vim-indent-guides'
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
+  use 'mattn/emmet-vim'
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
@@ -61,7 +63,7 @@ require('packer').startup(function()
 
   -- Grammar
   -- use 'brymer-meneses/grammar-guard.nvim'
-  use 'williamboman/nvim-lsp-installer'
+  -- use 'williamboman/nvim-lsp-installer'
 
  -- use({'kdheepak/cmp-latex-symbols',
  -- sources = {
@@ -76,8 +78,6 @@ require('packer').startup(function()
   use 'szw/vim-maximizer'
   use 'dhruvasagar/vim-table-mode'
   use 'preservim/tagbar'
-  use 'mattn/emmet-vim'
-
   use 'mhinz/vim-startify'             -- start page
 end)
 

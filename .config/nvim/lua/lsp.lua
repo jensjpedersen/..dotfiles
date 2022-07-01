@@ -80,8 +80,8 @@ require'lspconfig'.sumneko_lua.setup {
 -- install bash language sever: npm i -g bash-language-server
 require'lspconfig'.bashls.setup{}
 
--- Latex 
-require'lspconfig'.texlab.setup{}
+-- -- Latex 
+-- require'lspconfig'.texlab.setup{}
 
 -- -- Grammar 
 -- -- hook to nvim-lspconfig

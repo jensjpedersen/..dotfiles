@@ -68,17 +68,16 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 
 -- Quick fix list
--- Toglle quick fix list
--- function! ToggleQuickFix()
---     if empty(filter(getwininfo(), 'v:val.quickfix'))
---         copen
---     else
---         cclose
---     endif
--- endfunction
--- 
--- nnoremap <leader>c :call ToggleQuickFix()<CR>
-vim.keymap.set('n', '<leader>c', ':copen<CR>', opts)
+vim.cmd([[
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+nnoremap <leader>c :call ToggleQuickFix()<CR>
+]])
 vim.keymap.set('n', '<C-n>', ':cn<CR>', opts)
 vim.keymap.set('n', '<C-p>', ':cp<CR>', opts)
 
