@@ -44,32 +44,17 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'             -- git plugin
   use 'lewis6991/gitsigns.nvim'
 
-  -- use {
-  --     'lewis6991/gitsigns.nvim',
-  --     config = function()
-  --         require('gitsigns').setup()
-  --     end
-  -- }
   -- Coding
   use 'benmills/vimux'                 -- vim tmux compatibility
-  use 'yinflying/matlab.vim'
   use 'nathanaelkane/vim-indent-guides'
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
+  use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
+  use 'hrsh7th/cmp-nvim-lua'
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
-
-  -- Grammar
-  -- use 'brymer-meneses/grammar-guard.nvim'
-  -- use 'williamboman/nvim-lsp-installer'
-
- -- use({'kdheepak/cmp-latex-symbols',
- -- sources = {
- --     { name = "latex_symbols" },
- -- }
- -- })
 
  -- Styling
  use 'nvim-lualine/lualine.nvim'
