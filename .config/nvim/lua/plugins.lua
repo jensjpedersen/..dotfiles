@@ -71,14 +71,17 @@ require('packer').startup(function()
  -- }
  -- })
 
-  -- Tools
-  use 'mbbill/undotree'
-  use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'szw/vim-maximizer'
-  use 'dhruvasagar/vim-table-mode'
-  use 'preservim/tagbar'
-  use 'mhinz/vim-startify'             -- start page
+ -- Styling
+ use 'nvim-lualine/lualine.nvim'
+ use 'kyazdani42/nvim-web-devicons'
+ use 'mhinz/vim-startify'
+
+ -- Tools
+ use 'mbbill/undotree'
+ use 'kyazdani42/nvim-tree.lua'
+ use 'szw/vim-maximizer'
+ use 'dhruvasagar/vim-table-mode'
+ use 'preservim/tagbar'
 end)
 
 

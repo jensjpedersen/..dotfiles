@@ -4,6 +4,13 @@ local opts = { noremap=true, silent=true }
 -- Colorscheme 
 vim.cmd('colorscheme gruvbox')
 
+-- Lualine
+require('lualine').setup({
+    options = {
+        theme = 'powerline'
+    }
+})
+
 -- Ultisnips
 vim.cmd[[
 let g:UltiSnipsExpandTrigger = "<tab>"
