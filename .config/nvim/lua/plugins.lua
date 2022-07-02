@@ -33,6 +33,9 @@ require('packer').startup(function()
   use 'BurntSushi/ripgrep'
   use 'nvim-telescope/telescope-fzf-native.nvim'
 
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+
   -- Vim extensions
   use 'justinmk/vim-sneak'             -- naviagation
   use 'wellle/targets.vim'             -- better text objects
@@ -55,6 +58,7 @@ require('packer').startup(function()
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
+  use 'rhysd/vim-grammarous'
 
  -- Styling
  use 'nvim-lualine/lualine.nvim'

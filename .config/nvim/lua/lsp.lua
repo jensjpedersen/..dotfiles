@@ -92,6 +92,3 @@ require'lspconfig'.bashls.setup{
     flags = lsp_flags,
 }
 
-
-
-
