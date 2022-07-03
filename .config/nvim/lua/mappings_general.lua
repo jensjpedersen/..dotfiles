@@ -16,7 +16,7 @@ vim.keymap.set('n', '<localleader><localleader>v', ':execute "set colorcolumn=" 
 -- Run bash commands
 vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
-vim.keymap.set('n', '<leader>x', ':w<CR>:bash % <CR>', opts)
+vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
 -- vim.keymap.set('c', 'w!!', 'w!! w !sudo tee % <CR>', opts) FIXME
 
 -- Splits

@@ -32,9 +32,7 @@ require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'          -- Requirement
   use 'BurntSushi/ripgrep'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
+  use 'ThePrimeagen/harpoon'
 
   -- Vim extensions
   use 'justinmk/vim-sneak'             -- naviagation

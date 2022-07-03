@@ -7,7 +7,7 @@ require('cmp_config')
 -- require('test_rust')
 require('plugins/telescope')
 require('plugins/git')
-require('plugins/vim_extensions')
+require('plugins/navigation')
 require('plugins/writing')
 require('plugins/etc')
 
