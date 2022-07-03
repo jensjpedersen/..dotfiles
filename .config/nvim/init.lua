@@ -9,8 +9,6 @@ require('plugins/telescope')
 require('plugins/git')
 require('plugins/vim_extensions')
 require('plugins/writing')
-require('plugins/vimwiki')
-require('plugins/latex')
 require('plugins/etc')
 
 

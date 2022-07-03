@@ -38,10 +38,30 @@ let g:vimwiki_table_auto_fmt=0
 -- ]])
 
 
--- Grammarous --
-vim.keymap.set('n', '<localleader>lb',  ':! biber %:r <CR>', opts)
-vim.keymap.set('n', '<leader>wn', '<Plug>(grammarous-move-to-next-error)', { silent = true })
-vim.keymap.set('n', '<leader>wp', '<Plug>(grammarous-move-to-previous-error)', { silent = true })
-vim.keymap.set('n', '<leader>wf', '<Plug>(grammarous-fixit)', { silent = true })
-vim.keymap.set('n', '<leader>wc', ':GrammarousCheck<CR>', { silent = true })
-vim.keymap.set('n', '<leader>wq', '<Plug>(grammarous-reset)', { silent = true })
+-- LanguageTool
+--:let g:languagetool_server=
+-- vim.o.languagetool_server = '/home/jensjp/Repos/LanguageTool-5.7-stable/languagetool-server.jar'
+--
+vim.cmd('autocmd User LanguageToolCheckDone LanguageToolSummary')
+
+-- vim.cmd("let g:languagetool_server='/home/jensjp/Repos/LanguageTool-5.7-stable/languagetool-server.jar'")
+-- vim.cmd([[
+--     g:languagetool = {
+--         '.' : {
+--             {model1} for all filetypes
+--         },
+--         'my_filetype' : {
+--             {model1} for my_filetype
+--         }
+--     }
+-- 
+--     {model1} = {
+--         'enabledRules' : "list,of,enabled,rules",
+--         'disabledRules' : "list,of,disabled,rules",
+--         'enabledCategories' : "list,of,enabled,categories",
+--         'disabledCategories' : "list,of,disabled,categories",
+--         'language' : "the code of the language to check,
+--             as given by :LanguageToolSupportedLanguages"
+--     }
+-- ]])
+-- TODO

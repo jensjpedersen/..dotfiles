@@ -31,7 +31,7 @@ require('packer').startup(function()
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'          -- Requirement
   use 'BurntSushi/ripgrep'
-  use 'nvim-telescope/telescope-fzf-native.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
@@ -58,7 +58,8 @@ require('packer').startup(function()
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
-  use 'rhysd/vim-grammarous'
+  use 'vigoux/LanguageTool.nvim'
+--  use 'rhysd/vim-grammarous'
 
  -- Styling
  use 'nvim-lualine/lualine.nvim'
