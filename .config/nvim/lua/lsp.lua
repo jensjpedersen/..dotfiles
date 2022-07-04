@@ -92,3 +92,13 @@ require'lspconfig'.bashls.setup{
     flags = lsp_flags,
 }
 
+
+-- Server setup with LSP installer
+require("nvim-lsp-installer").setup {}
+
+-- Ltex setup
+require'lspconfig'.ltex.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex" }
+}

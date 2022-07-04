@@ -10,6 +10,7 @@ require('packer').startup(function()
   -- Lsp
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'williamboman/nvim-lsp-installer'
 
   -- Cmp
   use 'hrsh7th/cmp-buffer'
@@ -24,9 +25,6 @@ require('packer').startup(function()
   -- Omnicompletion
   use 'hrsh7th/cmp-omni'
 
-  -- Colorschemes
-  use 'rafi/awesome-vim-colorschemes'
-
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/plenary.nvim'          -- Requirement
@@ -40,6 +38,7 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'tpope/vim-repeat'
+  use 'adelarsq/vim-matchit'
 
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
@@ -56,13 +55,12 @@ require('packer').startup(function()
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
-  use 'vigoux/LanguageTool.nvim'
---  use 'rhysd/vim-grammarous'
 
- -- Styling
- use 'nvim-lualine/lualine.nvim'
- use 'kyazdani42/nvim-web-devicons'
- use 'mhinz/vim-startify'
+  -- Styling
+  use 'nvim-lualine/lualine.nvim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'mhinz/vim-startify'
+  use 'rafi/awesome-vim-colorschemes'
 
  -- Tools
  use 'mbbill/undotree'
