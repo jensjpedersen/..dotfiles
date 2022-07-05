@@ -41,7 +41,7 @@ vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', opts)
 
 -- Terminal
 vim.keymap.set('n', '<C-s>', ':buffer term://*<CR>', opts)
-vim.keymap.set('t', '<C-s>', [[<C-\><C-n>]] .. ':bp<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', '<C-s>', [[<C-\><C-n>]] .. ':e #<CR>', { noremap = true, silent = true })
 
 -- Better mappings --
 -- keeping it centered

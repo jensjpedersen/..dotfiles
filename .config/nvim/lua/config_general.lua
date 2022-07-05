@@ -28,21 +28,11 @@ vim.o.signcolumn = 'yes'
 
 -- Etc
 vim.o.clipboard = 'unnamedplus'
--- vim.o.autochdir = true
-vim.cmd('autocmd BufEnter * silent! lcd %:p:h')
 vim.o.wrap = false
 vim.o.mouse = 'a'
 
 vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 0
-
--- Remember folds and last position
-vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
-vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
-
--- Terminal --
--- Automatic insert mode
-vim.api.nvim_command('autocmd TermOpen,BufEnter term://* startinsert')
 
 -- Plugins 
 vim.cmd [[
