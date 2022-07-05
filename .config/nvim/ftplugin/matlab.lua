@@ -13,17 +13,6 @@ require'cmp'.setup {
   }
 }
 
--- vim.cmd([[
--- if has("autocmd") && exists("+omnifunc")
--- autocmd Filetype *
---     \ if &omnifunc == "" |
---     \ setlocal omnifunc=syntaxcomplete#Complete |
---     \ endif
---     endif
---     set filetype=matlab
--- ]])
--- Omni completion
-
 local opts = { noremap=true, silent=true }
 
 -- Vimux settings

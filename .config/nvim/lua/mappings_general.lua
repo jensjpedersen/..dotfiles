@@ -82,4 +82,17 @@ vim.keymap.set('n', '<C-n>', ':cn<CR>', opts)
 vim.keymap.set('n', '<C-p>', ':cp<CR>', opts)
 
 
+-- Location list
+vim.cmd([[
+function! ToggleLocationList()
+    if empty(filter(getwininfo(), 'v:val.loclist'))
+        lua vim.diagnostic.setloclist() 
+    else
+        lclose
+    endif
+endfunction
+nnoremap <leader>q :call ToggleLocationList()<CR>
+]])
 
+vim.keymap.set('n', '<C-N>', ':lnext<CR>', opts)
+vim.keymap.set('n', '<C-P>', ':lprevious<CR>', opts)
