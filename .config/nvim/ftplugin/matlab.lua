@@ -7,10 +7,15 @@ if &omnifunc == ""
 endif
 ]])
 
-require'cmp'.setup {
+-- Buffer option adds to existing cmp setup. 
+local cmp = require'cmp'
+cmp.setup{
   sources = {
-    { name = 'omni' }
-  }
+    { name = 'omni' },
+    { name = 'ultisnips' },
+    { name = 'buffer' },
+    { name = 'path' },
+  },
 }
 
 local opts = { noremap=true, silent=true }
