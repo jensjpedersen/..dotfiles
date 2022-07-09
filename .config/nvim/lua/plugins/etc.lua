@@ -131,9 +131,11 @@ function Ranger()
     -- local var = vim.nvim_cmd('terminal ranger', opts=true)
     -- print(var)
     vim.keymap.set('t', 'q',  [[<C-\><C-n> :bdelete! <CR>]], { noremap=true, silent=true, buffer=0 })
-    vim.keymap.set('t', 'O', [[<C-\><C-n>]] .. 'gg0f/"zyE :bdelete!<CR> :e <C-r>z<CR>', { noremap=true, silent=true, buffer=0})
+    -- vim.keymap.set('t', 'O', [[<C-\><C-n>]] .. 'gg0f/"zyE :bdelete!<CR> :e <C-r>z<CR>', { noremap=true, silent=true, buffer=0})
     --vim.keymap.set('t', 'Y', '<cmd> lua Yank()<CR>', { noremap=true , buffer=0 })
-    vim.keymap.set('t', 'Y', 'jj' .. [[<C-\><C-n>]] .. ':sleep 1', { noremap=true , buffer=0 })
+    -- vim.keymap.set('t', 'y', '<cmd> call system("echo hei > /home/jensjp/hei_tmp")<CR>', { noremap=true , buffer=0 })
+    -- vim.keymap.set('t', 'O', ':                    yank path' .. [[<C-\><C-n> :bdelete! <CR>]], { noremap=true , buffer=0 })
+    vim.keymap.set('t', 'O', ':                    yank path<CR>' .. [[<C-\><C-n> :bdelete! <CR>]], { noremap=true , buffer=0 })
 end
 vim.keymap.set('n', '<leader>f', ':lua Ranger()<CR>')
 
