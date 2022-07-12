@@ -18,6 +18,10 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'onsails/lspkind.nvim'
+  use 'hrsh7th/cmp-nvim-lua'
+  use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
+  use  "kdheepak/cmp-latex-symbols"
 
   -- For ultisnips users.
   use 'SirVer/ultisnips'
@@ -32,6 +36,8 @@ require('packer').startup(function()
   use 'BurntSushi/ripgrep'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'ThePrimeagen/harpoon'
+
+  use 'junegunn/fzf.vim'
 
   -- Vim extensions
   use 'justinmk/vim-sneak'             -- naviagation
@@ -51,9 +57,6 @@ require('packer').startup(function()
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
   use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
-  use 'hrsh7th/cmp-nvim-lua'
-  use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
-  use 'onsails/lspkind.nvim'
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
@@ -65,12 +68,12 @@ require('packer').startup(function()
   use 'mhinz/vim-startify'
   use 'rafi/awesome-vim-colorschemes'
 
- -- Tools
- use 'mbbill/undotree'
- use 'kyazdani42/nvim-tree.lua'
- use 'szw/vim-maximizer'
- use 'dhruvasagar/vim-table-mode'
- use 'preservim/tagbar'
+  -- Tools
+  use 'mbbill/undotree'
+  use 'kyazdani42/nvim-tree.lua'
+  use 'szw/vim-maximizer'
+  use 'dhruvasagar/vim-table-mode'
+  use 'preservim/tagbar'
 end)
 
 

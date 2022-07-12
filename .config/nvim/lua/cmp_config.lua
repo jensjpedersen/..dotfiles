@@ -4,6 +4,7 @@ vim.o.completeopt="menu,menuone,noselect"
 local lspkind = require('lspkind')
 local source_mapping = {
 	buffer = "[Buffer]",
+    omni = "[Omni]",
     ultisnips = "[Snippet]",
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
@@ -92,9 +93,5 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 --  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
 --    capabilities = capabilities
 --  }
---
--- TabNine
-
-
 
 
