@@ -100,5 +100,5 @@ require("nvim-lsp-installer").setup {}
 require'lspconfig'.ltex.setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex" }
 }
+

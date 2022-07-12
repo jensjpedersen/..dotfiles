@@ -6,6 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
+  use 'jensjpedersen/ranger_nvim'
 
   -- Lsp
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
@@ -51,6 +52,8 @@ require('packer').startup(function()
   use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
   use 'hrsh7th/cmp-nvim-lua'
+  use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
+  use 'onsails/lspkind.nvim'
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex

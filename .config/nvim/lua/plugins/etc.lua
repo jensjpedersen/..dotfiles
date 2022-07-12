@@ -34,8 +34,8 @@ vim.keymap.set('n', '<localleader>nd',  ':!rm %:r.png<CR>', opts)
 -- Markdown
 vim.keymap.set('n', '<localleader>mm',  ':w<CR>:! pandoc % -t latex -o %:r.pdf <CR>', opts)
 vim.keymap.set('n', '<localleader>ms',  ':w<CR>:! pandoc % -t beamer -o %:r.pdf <CR>', opts) -- Make slide show'
-vim.keymap.set('n', '<localleader>mv',  ':w<CR>: RunSilent mupdf %:r.pdf & <CR>', opts)
-vim.keymap.set('n', '<localleader>md',  ':w<CR>: RunSilent rm %:r.pdf <CR>', opts)
+vim.keymap.set('n', '<localleader>mv',  ':w<CR>:! mupdf %:r.pdf & <CR>', opts)
+vim.keymap.set('n', '<localleader>md',  ':w<CR>:! rm %:r.pdf <CR>', opts)
 
 -- Indent guides
 vim.keymap.set('n', '<Leader>i',  '<Plug>IndentGuidesToggle', opts)
@@ -94,8 +94,9 @@ vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 
 
 -- Ranger
-vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
-vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
+-- vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
+-- vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
+-- vim.api.nvim_command('autocmd TermClose term://*ranger* bdelete!')
 
 function Yank()
     -- vim.cmd('set modifiable')
@@ -137,6 +138,6 @@ function Ranger()
     -- vim.keymap.set('t', 'O', ':                    yank path' .. [[<C-\><C-n> :bdelete! <CR>]], { noremap=true , buffer=0 })
     vim.keymap.set('t', 'O', ':                    yank path<CR>' .. [[<C-\><C-n> :bdelete! <CR>]], { noremap=true , buffer=0 })
 end
-vim.keymap.set('n', '<leader>f', ':lua Ranger()<CR>')
+vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
 
 

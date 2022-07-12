@@ -1,6 +1,16 @@
 
 vim.o.completeopt="menu,menuone,noselect"
 
+local lspkind = require('lspkind')
+local source_mapping = {
+	buffer = "[Buffer]",
+    ultisnips = "[Snippet]",
+	nvim_lsp = "[LSP]",
+	nvim_lua = "[Lua]",
+	cmp_tabnine = "[TN]",
+	path = "[Path]",
+}
+
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 cmp.setup({
@@ -23,11 +33,26 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
+        { name = 'cmp_tabnine' },
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
         { name = 'buffer' },
         { name = 'path' },
-    })
+    }),
+	formatting = {
+		format = function(entry, vim_item)
+			vim_item.kind = lspkind.presets.default[vim_item.kind]
+			local menu = source_mapping[entry.source.name]
+			if entry.source.name == 'cmp_tabnine' then
+				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+					menu = entry.completion_item.data.detail .. ' ' .. menu
+				end
+				vim_item.kind = ''
+			end
+			vim_item.menu = menu
+			return vim_item
+		end
+	},
 })
 
 -- Set configuration for specific filetype.
@@ -67,7 +92,8 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 --  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
 --    capabilities = capabilities
 --  }
-
+--
+-- TabNine
 
 
 
