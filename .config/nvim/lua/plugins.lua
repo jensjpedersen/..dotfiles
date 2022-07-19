@@ -35,7 +35,6 @@ require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'          -- Requirement
   use 'BurntSushi/ripgrep'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'ThePrimeagen/harpoon'
 
   use 'junegunn/fzf.vim'
 
@@ -46,6 +45,7 @@ require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-repeat'
   use 'adelarsq/vim-matchit'
+  use 'tpope/vim-unimpaired'
 
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
@@ -75,6 +75,7 @@ require('packer').startup(function()
   use 'dhruvasagar/vim-table-mode'
   use 'preservim/tagbar'
 end)
+
 
 
 

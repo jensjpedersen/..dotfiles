@@ -21,16 +21,11 @@ let g:sneak#use_ic_scs = 1 " case insensitive
 highlight link Sneak None
 ]]
 
+-- Unimpared mapping
+-- vim.keymap.set('n', '<', '[', opts2)
+-- vim.keymap.set('n', '>', ']', opts2)
+-- vim.keymap.set('o', '<', '[', opts2)
+-- vim.keymap.set('o', '>', ']', opts2)
+-- vim.keymap.set('x', '<', '[', opts2)
+-- vim.keymap.set('x', '>', ']', opts2)
 
-
--- Harpoon
--- require("telescope").load_extension('harpoon')
-vim.keymap.set('n', '<leader>a', ':lua require("harpoon.mark").add_file()<CR>', opts1)
-vim.keymap.set('n', '<leader>s', ':Telescope harpoon marks<CR>', opts1)
-vim.keymap.set('n', '<leader>s', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts1)
-vim.keymap.set('n', [['t]], ':lua require("harpoon.ui").nav_file(1)<CR>', opts1)
-vim.keymap.set('n', [['r]], ':lua require("harpoon.ui").nav_file(2)<CR>', opts1)
-vim.keymap.set('n', [['e]], ':lua require("harpoon.ui").nav_file(3)<CR>', opts1)
-vim.keymap.set('n', [['w]], ':lua require("harpoon.ui").nav_file(4)<CR>', opts1)
-vim.keymap.set('n', [['q]], ':lua require("harpoon.ui").nav_file(5)<CR>', opts1)
-vim.keymap.set('n', 'mt', ':lua require("harpoon.mark").add_file(1)<CR>', opts1)

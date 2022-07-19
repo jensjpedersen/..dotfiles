@@ -94,5 +94,5 @@ endfunction
 nnoremap <leader>q :call ToggleLocationList()<CR>
 ]])
 
-vim.keymap.set('n', '<C-N>', ':lnext<CR>', opts)
-vim.keymap.set('n', '<C-P>', ':lprevious<CR>', opts)
+vim.keymap.set('n', '<C-m>', ':lnext<CR>', opts)
+vim.keymap.set('n', '<C-å>', ':lprevious<CR>', opts)
