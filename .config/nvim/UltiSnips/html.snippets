@@ -1,0 +1,58 @@
+snippet pres "Presentasjon"
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>$1</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="/home/jensjp/Repos/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="/home/jensjp/Repos/reveal.js/dist/theme/night.css" id="theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>$1</h2>
+					$0
+				</section>
+			</div>
+		</div>
+		<script src="/home/jensjp/Repos/reveal.js/dist/reveal.js"></script>
+		<script src="/home/jensjp/Repos/reveal.js/plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+				plugins: [ RevealMath ]
+			});
+		</script>
+	</body>
+</html>
+endsnippet
+
+snippet # "comment"
+<!-- $1 -->
+$0
+endsnippet
+
+snippet img "image for presentation"
+<img data-src="Figures/$1">
+$0
+endsnippet
+
+snippet notes "slider notes"
+<aside class="notes">
+$0
+</aside>
+endsnippet
+
