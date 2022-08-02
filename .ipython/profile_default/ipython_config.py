@@ -1069,7 +1069,7 @@ else:
             return [
                 #(Token.Prompt, strftime('%H:%M') + ' '),
                 #(Token.PromptNum, str(self.shell.execution_count)),
-                (Token.Prompt, ' >>> '),
+                (Token.Prompt, '>>> '),
             ]
 
     c.InteractiveShell.prompts_class = MyPrompts
