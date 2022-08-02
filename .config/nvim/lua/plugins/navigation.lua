@@ -21,11 +21,4 @@ let g:sneak#use_ic_scs = 1 " case insensitive
 highlight link Sneak None
 ]]
 
--- Unimpared mapping
--- vim.keymap.set('n', '<', '[', opts2)
--- vim.keymap.set('n', '>', ']', opts2)
--- vim.keymap.set('o', '<', '[', opts2)
--- vim.keymap.set('o', '>', ']', opts2)
--- vim.keymap.set('x', '<', '[', opts2)
--- vim.keymap.set('x', '>', ']', opts2)
 

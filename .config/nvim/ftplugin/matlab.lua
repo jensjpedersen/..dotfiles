@@ -1,4 +1,3 @@
-vim.cmd('set filetype=matlab')
 
 -- Enalbe omnifunc
 vim.cmd([[
@@ -37,47 +36,34 @@ vim.keymap.set('n', '<leader>ds', ":call jobstart('tmux send -t left dbquit Ente
 vim.keymap.set('n', '<leader>dn', ":call jobstart('tmux send -t left dbcont Enter')<CR>", opts)
 vim.keymap.set('n', '<leader>dc', [[:call jobstart("tmux send -t left 'dbclear all' Enter")<CR>]], opts)
 vim.keymap.set('n', '<leader>de', [[:call jobstart("tmux send -t left 'dbstop if error' Enter")<CR>]], opts)
-vim.keymap.set('n', '<leader>dj', ':lua CheckCode()<CR>', opts) -- :cgetexpr system("cat vim_checkcode_output")]], opts)
+vim.keymap.set('n', '<leader>vk', ':lua CheckCode()<CR>', opts) -- :cgetexpr system("cat vim_checkcode_output")]], opts)
 
 
 -- go to first instance of word  
 vim.keymap.set('n', 'gd', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
 vim.keymap.set('n', 'gD', ':norm *<CR> :vimgrep /<c-r>//g **/*.m<CR>', opts)
 
-function CheckCodeQF()
-    local file = '~/Sync/FAM/Master/Masteroppgave/Matlab/Master_git/vim_checkcode_output'
-    local handle = io.popen('stat -c %Z ' .. file)
+local function CheckCodeQF()
+    local handle = io.popen('stat -c %Z ' .. 'vim_checkcode_output')
     local stat = handle:read('*a')
     local stat_prev = stat
     while stat_prev == stat do
         stat_prev = stat
-        local handle = io.popen('stat -c %Z ' .. file)
+        local handle = io.popen('stat -c %Z ' .. 'vim_checkcode_output')
         stat = handle:read('*a')
         handle:close()
         os.execute('sleep 0.001')
     end
     vim.cmd("cgetexpr system('cat vim_checkcode_output')")
+    vim.cmd("copen")
 end
 
 function CheckCode()
-    vim.cmd[[
-    call jobstart("tmux send -t left 'vim_checkcode(\"" . bufname('%'). "\")' Enter") 
-    lua CheckCodeQF()
-    ]]
+    local buf = vim.api.nvim_buf_get_name(0)
+    local match = string.match(buf, "%.m$")
+    if match == nil then return end
+    vim.cmd[[ call jobstart("tmux send -t left 'vim_checkcode(\"" . bufname('%'). "\")' Enter") ]]
+    CheckCodeQF()
 end
 
--- function CheckCode()
---     vim.cmd[[
---     function! CheckCodeQF(jobId, exitCode, event)
---         cgetexpr system('cat vim_checkcode_output') 
---     endfunction
--- 
---     call jobstart("tmux send -t left 'vim_checkcode(\"" . bufname('%'). "\")' Enter", {'on_exit':'CheckCodeQF'}) 
---     ]]
--- end
-
--- vim.cmd([[autocmd BufEnter *.m compiler mlint]])
-
-
--- vim.loop.spawn
 

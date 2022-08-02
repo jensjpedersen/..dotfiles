@@ -14,7 +14,7 @@ set conceallevel=2
 ]])
 
 
--- Wimwiki --
+-- Vimwiki --
 -- Set markdown as defualt syntax
 vim.cmd[[
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}, 
@@ -39,5 +39,8 @@ hi VimwikiPre ctermfg=3
 ]])
 
 
+
+-- Vimwiki bindings
+vim.api.nvim_set_keymap('n' , 'gh', '<Plug>VimwikiAddHeaderLevel', opts)
 
 
