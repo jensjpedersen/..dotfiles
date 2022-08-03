@@ -1,0 +1,237 @@
+#!/bin/bash
+export DISPLAY=:0
+
+while true; do 
+    clear
+    figlet Menu
+    printf " (l) lvds1 \n (d) dp1 \n (a) alarm \n (m) mpv \n (n) netflix \n (k) kodi \n (x) plex \n (s) spotify \n (r) redhshift \n (p) power \n"
+
+    read -n 1 opt1
+    case $opt1 in
+        l)
+            ${HOME}/Scripts/Menu/lvds1.sh
+            ;;
+        d)
+            ${HOME}/Scripts/Menu/dp1.sh
+            ;;
+        a)
+            while true; do
+                clear
+                figlet Alarm
+                printf " (5) 05:15 \n (6) 06:15 \n (7) 07:15 \n (8) 08:15 \n (9) 09:15 \n (1) 10:15 \n (q) main menu \n"
+                read -n 1 opt2
+                case $opt2 in
+                    5)
+                        ${HOME}/Scripts/Menu/suspend_wakeup.sh 5:15 
+                        ;;
+                    6)
+                        ${HOME}/Scripts/Menu/suspend_wakeup.sh 6:15 
+                        ;;
+                    7)
+                        ${HOME}/Scripts/Menu/suspend_wakeup.sh 7:15 
+                        ;;
+                    8)
+                        ${HOME}/Scripts/Menu/suspend_wakeup.sh 8:15 
+                        ;;
+                    9)
+                        ${HOME}/Scripts/Menu/suspend_wakeup.sh 9:15 
+                        ;;
+                    1)
+                        ${HOME}/Scripts/Menu/suspend_wakeup.sh 10:15
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
+                        
+        m)
+            while true; do
+                clear
+                figlet Mpv
+                printf " (f) fireplace \n (y) yoga \n (p) play/pause \n (m) pulsemixer \n (k) kill mpv \n (q) main menu \n"
+                read -n 1 opt2
+                case $opt2 in
+                    f)
+                        mpv --fs --loop-file=inf --no-terminal ~/Scripts/Menu/fireplace.mp4 &
+                        ;;
+                    y) 
+                        ;;
+                    p)
+                        playerctl play-pause -p "mpv"
+                        ;;
+                    m)
+                        pulsemixer
+                        ;;
+                    k) 
+                        killall mpv
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
+        n)
+            while true; do 
+                clear 
+                figlet Netflix
+                printf " (n) netflix \n (m) pulsemixer \n (q) main menu \n"
+                read -n 1 opt2
+                case $opt2 in 
+                    n)
+                        i3-msg workspace Netflix && python ~/Projects/Netflix/netflix.py
+                        #i3-msg workspace netflix && setsid -f firefox --marionette $(cat ~/Projects/netflix/url)&
+                        #sleep 1 && i3-msg fullscreen
+                        ;;
+                    m)
+                        pulsemixer
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
+                        
+
+        k)
+            while true; do
+                clear
+                figlet Kodi
+                printf " (o) open kodi \n (k) kill kodi \n (m) pulsemixer \n (q) main menu \n"
+                read -n 1 opt2
+                case $opt2 in
+                    o)
+                        i3-msg workspace Kodi && kodi &
+                        ;;
+                    k)
+                        killall kodi
+                        ;;
+                    m)
+                        pulsemixer
+                        ;;
+                    q)
+                        break
+                        ;;
+                    *)
+                        ;;
+
+                esac
+            done
+            ;;
+        s)
+            while true; do
+                clear
+                figlet Spotify
+                printf " (r) run spotify \n (m) pulsemixer \n (s) spotify-tui \n (n) next song \n (p) play/pause \n (q) main menu \n"
+                read -n 1 opt2
+                case $opt2 in
+                    r)
+                        killall spotify; sleep 2; com.spotify.Client &
+                        ;;
+                    m) 
+                        pulsemixer
+                        ;;
+                    s)
+                        spt 
+                        ;;
+                    n)
+                        playerctl next -p "spotify"
+                        ;;
+                    p)
+                        playerctl play-pause -p "spotify"
+                        ;;
+                    q) 
+                        break
+                        ;;
+                esac
+            done
+            ;;
+        r)
+            while true; do
+                clear
+                figlet Redshift
+                printf " Brightness: \n (1) 100 \n (2) 25 \n (5) 50, \n (x) redshift off \n (n) screen off \n (q) main menu \n"
+                read -n 1 opt2
+                case "$opt2" in
+                    1)
+                        redshift -P -O 3000 -b 1
+                        ;;
+                    2) 
+                        redshift -P -O 3000 -b 0.25
+                        ;;
+                    5)
+                        redshift -P -O 3000 -b 0.5
+                        ;;
+                    x)
+                        redshift -x
+                        ;;
+                    n)
+                        xset dpms force off
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
+        x)
+            while true; do 
+                clear 
+                figlet Plex
+                printf " (o) open plex \n (k) kill plex \n (m) pulsemixer \n (q) quit \n"
+                read -n 1 opt2
+                case "$opt2" in 
+                    o)
+                        i3-msg workspace Plex && plexmediaplayer --fullscreen &
+                        sleep 5 && xdotool mousemove 1920 540
+                        ;;
+                    k) 
+                        killall plexmediaplayer
+                        ;;
+                    m)
+                        pulsemixer
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
+
+
+        p)
+            while true; do
+                clear
+                figlet Power
+                printf " (s) suspend \n (1) 10m suspend \n (2) 20m suspend \n (q) main menu \n"
+                read -n 1 opt2
+                case "$opt2" in
+                    1)
+                        sleep 10m && systemctl suspend
+                        ;;
+                    2)
+                        sleep 20m && systemctl suspend
+                        ;;
+                    s)
+                        systemctl suspend
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
+        q) 
+            exit 0
+            ;;
+        *)
+            ;;
+    esac
+done
+        
+
+
+
