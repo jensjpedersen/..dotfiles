@@ -352,7 +352,7 @@ source ~/Scripts/Fzf/key-bindings.zsh
 
 # ========================= Aliases =========================
 alias ls="exa"
-alias p="ptipython"
+alias p="ptipython" -c '%load_ext autoreload; %autoreload 2' -i
 alias r="ranger"
 alias v="nvim"
 alias n="nvim"
@@ -395,6 +395,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -H -t d . $HOME"
 #export BAT_THEME="gruvebox"
 
+# ========================= Python =========================
+export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
+#
 # ========================= Ranger =========================
 # Preventing nested ranger instance
 #ranger() {
