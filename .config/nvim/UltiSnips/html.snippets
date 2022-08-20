@@ -47,11 +47,6 @@ $0
 <!-- }}} -->
 endsnippet
 
-snippet # "comment"
-<!-- $1 -->
-$0
-endsnippet
-
 snippet fig "image for presentation"
 <div class="figure">
 	<img class="fragment" src="Figures/$1" width="200" height="Auto">
@@ -75,7 +70,7 @@ endsnippet
 snippet sl "Slide"
 <!---------------------------------------->
 <section>
-<h3> $1 </h3>
+<h1> $1 </h1>
 $0
 </section>
 endsnippet
@@ -84,10 +79,45 @@ snippet ma "Markdown"
 <!---------------------------------------->
 <section data-markdown>
 <textarea data-template>
-### $1
+# $1 <!-- .element: class="fragment fade-in" -->
 $0
 </textarea>
 </section>
+endsnippet
+
+snippet # "header 1" b
+# $1 <!-- .element: class="fragment fade-in" -->
+$0
+endsnippet
+
+snippet ## "header 2" b
+# $1 <!-- .element: class="fragment fade-in" -->
+$0
+endsnippet
+
+snippet ### "header 3" b
+# $1 <!-- .element: class="fragment fade-in" -->
+$0
+endsnippet
+
+snippet #### "header 4" b
+# $1 <!-- .element: class="fragment fade-in" -->
+$0
+endsnippet
+
+snippet ##### "header 5" b
+# $1 <!-- .element: class="fragment fade-in" -->
+$0
+endsnippet
+
+snippet ii "List item" Ab
+* $1 <!-- .element: class="fragment fade-in" -->
+$0
+endsnippet
+
+snippet fr "Markdown Fragment" 
+<!-- .element: class="fragment fade-in" -->
+$0
 endsnippet
 
 snippet bg "Image background"
@@ -102,6 +132,8 @@ snippet co "Code highlight"
 $0 
 </code></pre>
 endsnippet
+
+
 
 
 # ========================= Math =========================

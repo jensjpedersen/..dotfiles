@@ -13,6 +13,9 @@ vim.keymap.set('n', '<localleader><localleader>s', ':set spell! spelllang=en,nb<
 vim.keymap.set('n', '<localleader><localleader>h', ':set cursorline!<CR>', opts)
 vim.keymap.set('n', '<localleader><localleader>v', ':execute "set colorcolumn="  . (&colorcolumn == "" ? "80" : "")<CR>', opts)
 
+-- Set foldmethod
+vim.keymap.set('n', 'zm', ':setlocal foldmethod=marker<CR>', opts)
+
 -- Run bash commands
 vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)

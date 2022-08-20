@@ -5,16 +5,15 @@ vim.api.nvim_command('autocmd TermOpen,BufWinEnter term://* startinsert')
 -- Auto cd
 vim.cmd('autocmd BufEnter * silent! lcd %:p:h')
 
-
 -- Remember folds and last position
 vim.api.nvim_command('autocmd BufWinLeave *.* mkview')
 vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
 
 
--- Vimdiff
-vim.cmd[[
-autocmd DiffUpdated,BufEnter * if &diff | set cursorline | endif 
-]]
+-- -- Vimdiff
+-- vim.cmd[[
+-- autocmd DiffUpdated,BufEnter * if &diff | set cursorline | endif 
+-- ]]
 -- use lua 
 
 -- Matlab

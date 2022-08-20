@@ -23,7 +23,7 @@ vim.o.undofile = true
 
 -- style 
 vim.o.signcolumn = 'yes'
--- vim.cursorline = 'yes'
+vim.wo.cursorline = true
 -- vim.o.colorcolumn = '80'
 
 -- Etc

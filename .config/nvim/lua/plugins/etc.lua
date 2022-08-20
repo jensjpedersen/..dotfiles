@@ -92,52 +92,16 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 require("nvim-tree").setup()
 vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 
-
 -- Ranger
--- vim.api.nvim_command('autocmd BufEnter,TermOpen term://*ranger* set nonumber norelativenumber signcolumn=no')
--- vim.api.nvim_command('autocmd BufLeave,TermClose term://*ranger* set number relativenumber signcolumn=yes')
--- vim.api.nvim_command('autocmd TermClose term://*ranger* bdelete!')
-
-function Yank()
-    -- vim.cmd('set modifiable')
-    --os.execute('sleep 5')
-
-    -- vim.cmd([[<C-\><C-n>]])
-
-    -- os.execute('cat ranger_pipe')
-    local handle = io.popen('cat /home/jensjp/ranger_pipe')
-    -- print(handle:read("*a"))
-
-    -- vim.cmd([[
-    -- exec "terminal ranger --choosefile=/tmp/vim_ranger_current_file"
-    -- if filereadable('/tmp/vim_ranger_current_file')
-    --     let file = system('cat /tmp/vim_ranger_current_file')
-    --     echomsg "hei"
-    --     call system('rm /tmp/vim_ranger_current_file')
-    -- endif
-    -- redraw!
-    -- ]])
-    -- need two lines
-    -- vim.cmd('insert :yank')
-    -- os.execute('sleep 0.001')
-    -- vim.cmd('p')
-end
-vim.keymap.set('n', '<leader>y', ':lua Yank()<CR>')
-
-function Ranger()
-    -- run ranger 
-    vim.cmd([[terminal ranger]])
-
-    print("hei")
-    -- local var = vim.nvim_cmd('terminal ranger', opts=true)
-    -- print(var)
-    vim.keymap.set('t', 'q',  [[<C-\><C-n> :bdelete! <CR>]], { noremap=true, silent=true, buffer=0 })
-    -- vim.keymap.set('t', 'O', [[<C-\><C-n>]] .. 'gg0f/"zyE :bdelete!<CR> :e <C-r>z<CR>', { noremap=true, silent=true, buffer=0})
-    --vim.keymap.set('t', 'Y', '<cmd> lua Yank()<CR>', { noremap=true , buffer=0 })
-    -- vim.keymap.set('t', 'y', '<cmd> call system("echo hei > /home/jensjp/hei_tmp")<CR>', { noremap=true , buffer=0 })
-    -- vim.keymap.set('t', 'O', ':                    yank path' .. [[<C-\><C-n> :bdelete! <CR>]], { noremap=true , buffer=0 })
-    vim.keymap.set('t', 'O', ':                    yank path<CR>' .. [[<C-\><C-n> :bdelete! <CR>]], { noremap=true , buffer=0 })
-end
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
+
+-- Database | DadbodUI
+vim.cmd[[
+nnoremap <silent> <leader>du :DBUIToggle<CR>
+nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
+nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
+nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
+let g:db_ui_save_location = '~/.config/db_ui'
+]]
 
 

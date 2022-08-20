@@ -57,6 +57,9 @@ require('packer').startup(function()
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
   use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
+  use 'tpope/vim-dadbod' -- Interact with databases 
+  use 'kristijanhusak/vim-dadbod-ui'
+  use 'kristijanhusak/vim-dadbod-completion'
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex

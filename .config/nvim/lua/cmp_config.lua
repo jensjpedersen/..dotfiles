@@ -37,6 +37,7 @@ cmp.setup({
         { name = 'cmp_tabnine' },
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
+        { name = 'vim-dadbod-completion' },
         { name = 'buffer' },
         { name = 'path' },
     }),
