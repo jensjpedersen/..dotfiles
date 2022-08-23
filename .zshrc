@@ -10,6 +10,21 @@ setopt appendhistory                                            # Immediately ap
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt HIST_IGNORE_SPACE                                        # ^\s is ignored is not stored .zhistory
+setopt autopushd
+setopt pushdignoredups
+
+
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'etopt autopushd 
+
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
@@ -68,7 +83,7 @@ alias n="nvim"
 alias e="exit"
 alias g="git"
 alias m="/home/jensjp/Scripts/Menu/menu"
-alias d="export DISPLAY=:0"
+alias di="export DISPLAY=:0"
 alias yt="youtube-dl"
 alias xo="cp ~/Templates/notes.xopp"
 alias trash='/home/jensjp/.local/share/Trash/files'
