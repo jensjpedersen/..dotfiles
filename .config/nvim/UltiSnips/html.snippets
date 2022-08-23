@@ -49,8 +49,20 @@ endsnippet
 
 snippet fig "image for presentation"
 <div class="figure">
-	<img class="fragment" src="Figures/$1" width="200" height="Auto">
+	<img class="fragment" src="Figures/$1" width="800" height="Auto">
 </div>
+$0
+endsnippet
+
+snippet ov "Overlapping images"
+<div class="r-stack">
+	<img class="fragment" src="Figures/$1" width="800" height="Auto">
+</div>
+$0
+endsnippet
+
+snippet st "Stretch image"
+<img class="r-stretch" src="Figures/$1">
 $0
 endsnippet
 
