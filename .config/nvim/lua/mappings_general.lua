@@ -1,6 +1,7 @@
 
 -- local opts = { noremap=true, silent=false, buffer=0 }
 local opts = { noremap=true, silent=true }
+local opts2 = { noremap=true, silent=false }
 
 
 vim.keymap.set('n', '<esc><esc>', ':noh<CR><esc>', opts)
@@ -69,6 +70,9 @@ vim.keymap.set('i', '.', '.<C-g>u', opts)
 -- move text
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+
+-- Grep search
+vim.keymap.set('n', '<leader>s', ':silent grep! ', opts2)
 
 -- Quick fix list
 vim.cmd([[

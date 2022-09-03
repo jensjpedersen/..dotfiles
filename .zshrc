@@ -13,7 +13,6 @@ setopt HIST_IGNORE_SPACE                                        # ^\s is ignored
 setopt autopushd
 setopt pushdignoredups
 
-
 alias d='dirs -v | head -10'
 alias 1='cd -'
 alias 2='cd -2'
@@ -59,10 +58,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-## Plugins section
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
-source ~/Scripts/Fzf/key-bindings.zsh # FZF widgets
 
 # ========================= Settings =========================
 
@@ -132,9 +127,20 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^X" edit-command-line
 
+# ========================= Plugins section =========================
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Use syntax highlighting
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
+source ~/Scripts/Fzf/key-bindings.zsh # FZF widgets
+
+# Auto suggestion
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
 # ========================= Machine spesific settings =========================
 HWMODEL=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
 if [[ $HWMODEL == "ThinkPad W530" ]]; then
     (( $SHLVL == 1 )) && task next && timew summary day # Print on startup
     eval "$(starship init zsh)" # Prompt
 fi 
+

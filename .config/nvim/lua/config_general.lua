@@ -34,6 +34,13 @@ vim.o.mouse = 'a'
 vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 0
 
+-- Use Rg instead of grep 
+vim.cmd[[
+if executable('rg') 
+	set grepprg=rg\ --vimgrep\ --hidden\ --glob\ '!.git'
+endif
+]]
+
 -- Plugins 
 vim.cmd [[
 set nocompatible

@@ -47,10 +47,41 @@ $0
 <!-- }}} -->
 endsnippet
 
-snippet fig "image for presentation"
-<div class="figure">
-	<img class="fragment" src="Figures/$1" width="800" height="Auto">
+
+snippet col "Two coloumns"
+<div class="container">
+	<div class="col">
+		$1
+	</div>
+	<div class="col">
+		$2
+	</div>
 </div>
+$0
+endsnippet
+
+snippet le "Left coloumn"
+<div id="left">
+
+$1
+
+</div>
+$0
+endsnippet
+
+snippet ri "Right coloumn"
+<div id="right">
+
+$1
+
+</div>
+$0
+endsnippet
+
+
+# ========================= Figures =========================
+snippet fig "image for presentation"
+<img class="fragment" src="Figures/$1" width="800" height="Auto">
 $0
 endsnippet
 
