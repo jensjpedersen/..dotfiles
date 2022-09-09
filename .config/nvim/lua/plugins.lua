@@ -46,6 +46,7 @@ require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'adelarsq/vim-matchit'
   use 'tpope/vim-unimpaired'
+  use 'romainl/vim-qf' -- better quck fix
 
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
