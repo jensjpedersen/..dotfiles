@@ -1,8 +1,7 @@
 
 
-local opts = { noremap=true, silent=true, buffer=0 }
-vim.keymap.set('n', '<leader>x', ':!python % <CR>', opts)
-vim.keymap.set('n', '<leader>x', ':!python % <CR>', opts)
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<leader>x', ':w | !python % <CR>', opts)
 
 
 --nnoremap <leader>s :!curl cht.sh/python/

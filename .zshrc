@@ -127,6 +127,18 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^X" edit-command-line
 
+
+# ========================= Prevent nested ranger =========================
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
+
+
+
 # ========================= Plugins section =========================
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Use syntax highlighting
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
