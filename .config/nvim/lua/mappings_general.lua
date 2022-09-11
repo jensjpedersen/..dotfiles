@@ -21,8 +21,10 @@ vim.keymap.set('n', 'zm', ':setlocal foldmethod=marker<CR>', opts)
 vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
 vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
--- vim.keymap.set('c', 'w!!', 'w!! w !sudo tee % <CR>', opts) FIXME
+-- vim.keymap.set('c', 'ww', 'w !sudo tee % <CR>', opts)
 
+-- Exec rempas
+vim.keymap.set('c', 'vs', 'vs | wincmd l | set winfixwidth')
 -- Splits
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)

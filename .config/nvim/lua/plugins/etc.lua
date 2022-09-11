@@ -70,7 +70,8 @@ vim.cmd([[
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.lua'}, 
                            \ {'w': '~/vimwiki/index.md'}, 
                            \ {'p': '~/vimwiki2/index.md'}, 
-                           \ {'m': '~/Sync/FAM/Master/Masteroppgave/Notes/index.md'} ]
+                           \ {'m': '~/Sync/FAM/Master/Masteroppgave/Notes/index.md'}, 
+                           \ {'s': '~/Sync/FAM/Master/FYS-STK4155-AnvendtDataanalyseOgMaskinlæring/Notes/index.md'} ]
 
 let g:startify_commands = [ {'d' : 'VimwikiMakeDiaryNote 2'},
                           \ {'n' : 'VimwikiMakeDiaryNote'} ]
@@ -90,6 +91,7 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 
 -- Nvim tree
 require("nvim-tree").setup()
+-- nvim-tree.view.preserve_window_proportions
 vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Ranger
