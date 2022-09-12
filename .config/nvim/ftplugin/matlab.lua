@@ -43,6 +43,9 @@ vim.keymap.set('n', '<leader>vk', ':lua CheckCode()<CR>', opts) -- :cgetexpr sys
 vim.keymap.set('n', 'gd', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
 vim.keymap.set('n', 'gD', ':norm *<CR> :vimgrep /<c-r>//g **/*.m<CR>', opts)
 
+-- Search 
+vim.keymap.set('n', 'sf', ':vimgrep /function/j % <CR>', opts)
+
 local function CheckCodeQF()
     local handle = io.popen('stat -c %Z ' .. 'vim_checkcode_output')
     local stat = handle:read('*a')
