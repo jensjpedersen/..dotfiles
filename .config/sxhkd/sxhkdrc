@@ -1,0 +1,100 @@
+
+# ===================== Media Control =================================
+# --------------------- Spotify control -----------------------------
+super+Insert 
+	playerctl -p spotify,ncspot previous
+super+Delete 
+	playerctl -p spotify,ncspot next
+super+BackSpace 
+	playerctl -p spotify,ncspot play-pause
+
+# -------------------- Igonore spotify vlc -------------------------
+super+ctrl+Insert 
+	playerctl -i spotify,ncspot,vlc previous
+super+ctrl+Delete 
+	playerctl -i spotify,ncspot,vlc next
+super+ctrl+BackSpace 
+	playerctl -i spotify,ncspot,vlc play-pause
+
+#    _                _ _           _   _                 
+#   / \   _ __  _ __ | (_) ___ __ _| |_(_) ___  _ __  ___ 
+#  / _ \ | '_ \| '_ \| | |/ __/ _` | __| |/ _ \| '_ \/ __|
+# / ___ \| |_) | |_) | | | (_| (_| | |_| | (_) | | | \__ \
+#/_/   \_\ .__/| .__/|_|_|\___\__,_|\__|_|\___/|_| |_|___/
+#        |_|   |_|                                        
+super+return
+    alacritty --working-directory=$HOME
+
+super+w
+    brave
+
+super + {b, n,m,comma,period}
+    alacritty --working-directory=$HOME -e {cointop, ranger,nvim,calcurse,btop}
+
+super+ctrl+{n,m, comma, period}
+    alacritty --working-directory=$HOME -e {ranger /mnt/ssd, nvim -c VimwikiIndex, nvim -c "2 VimwikiIndex", htop}
+
+super+space;{a, f, h}
+    {arandr, thunar, hardinfo}
+
+super+space;{n, r}
+    alacritty --working-directory=$HOME -e {nethogs, newsboat}
+
+super+space;{d}
+    alacritty --working-directory=/ -e {ncdu}
+
+# ========================= Lunchers =========================
+super+space;b
+    rofi -show window
+
+super+space;e
+    rofi -show emoji -modi emoji
+# ____            _       _       
+#/ ___|  ___ _ __(_)_ __ | |_ ___ 
+#\___ \ / __| '__| | '_ \| __/ __|
+# ___) | (__| |  | | |_) | |_\__ \
+#|____/ \___|_|  |_| .__/ \__|___/
+#                  |_|            
+
+# ========================= Ffz Scripts =========================
+super+space;{c,m,w,t,s, shift+s }
+    alacritty --working-directory=$HOME -e sh ${HOME}/Scripts/Fzf/{config_fzf.sh,master_fzf.sh,wiki_fzf.sh,tmux_fzf.sh,scripts_fzf.sh}
+
+#super+space;x
+#    alacritty --working-directory=$HOME -e bash ${HOME}/Scripts/Dmenu/dmenu_exec.sh
+
+super+space;x
+    bash ${HOME}/Scripts/Dmenu/dmenu_exec.sh
+
+# ------------------------- set wallpaper -------------------------
+#super+space;{s}
+#    alacritty --working-directory=$HOME -e sh ${HOME}/Scripts/set_wallpaper.sh
+
+
+# ___ _____                           
+#|_ _|___ /       _ __ ___  ___  __ _ 
+# | |  |_ \ _____| '_ ` _ \/ __|/ _` |
+# | | ___) |_____| | | | | \__ \ (_| |
+#|___|____/      |_| |_| |_|___/\__, |
+#                               |___/ 
+#
+# Switch to last workspace
+super+space;l
+    i3-msg workspace back_and_forth
+
+# -------------------------- move workspace -------------------------
+super+r
+    i3-msg move workspace to output right || i3-msg move workspace to output up
+
+super+Left
+    i3-msg move workspace to output left
+
+super+Down
+    i3-msg move workspace to output down
+
+super+Up
+    i3-msg move workspace to output up
+
+super+Right
+    i3-msg move workspace to output right
+
