@@ -30,6 +30,11 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
 vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
+vim.keymap.set('n', '<C-W>1', ':vertical resize 30<CR>', opts)
+vim.keymap.set('n', '<C-W>2', ':vertical resize 40<CR>', opts)
+vim.keymap.set('n', '<C-W>3', ':vertical resize 50<CR>', opts)
+vim.keymap.set('n', '<C-W>4', ':vertical resize 60<CR>', opts)
+vim.keymap.set('n', '<C-W>4', ':vertical resize 70<CR>', opts)
 vim.keymap.set('n', '<C-W>5', ':vertical resize 80<CR>', opts)
 vim.keymap.set('n', '<C-W>6', ':vertical resize 90<CR>', opts)
 vim.keymap.set('n', '<C-W>7', ':vertical resize 100<CR>', opts)
@@ -74,7 +79,7 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 
 -- Grep search
-vim.keymap.set('n', '<leader>s', ':silent grep! ', opts2)
+vim.keymap.set('n', '<leader>ss', ':silent grep! ', opts2)
 
 -- Quick fix list
 vim.cmd([[

@@ -37,7 +37,7 @@ vim.o.ttimeoutlen = 0
 -- Use Rg instead of grep 
 vim.cmd[[
 if executable('rg') 
-	set grepprg=rg\ --vimgrep\ --hidden\ --glob\ '!.git'
+	set grepprg=rg\ --smart-case\ --vimgrep\ --hidden\ --glob\ '!.git'
 endif
 ]]
 
