@@ -15,10 +15,8 @@ exec --no-startup-id syncthing -no-browser
 
 
 # ========================= Startup scripts =========================
-#exec --no-startup-id $HOME/Scripts/Huion/Huion_DP-1-2.sh
-exec --no-startup-id /home/jensjp/Scripts/Startup/startup.sh &
-#exec_always --no-startup-id setsid -f /home/jensjp/Scripts/Startup/exec_always.sh &
-exec_always --no-startup-id /home/jensjp/Projects/Lemonmenu/lemonmenu.sh &
+exec --no-startup-id /home/jensjp/.config/i3/Startup/startup.sh &
+exec_always --no-startup-id /home/jensjp/.config/i3/Startup/exec_always.sh &
 
 
 set $bg      #282A36
