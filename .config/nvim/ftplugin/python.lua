@@ -18,3 +18,6 @@ vim.keymap.set('n', '<leader>vj', ":w<CR>:VimuxRunCommand('%run ' . bufname('%')
 vim.keymap.set('n', '<Leader>vz', ':VimuxZoomRunner<CR>', opts)
 vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
 
+
+-- Search 
+vim.keymap.set('n', 'sf', ':vimgrep /\\<def\\>/j % <CR>', opts)
