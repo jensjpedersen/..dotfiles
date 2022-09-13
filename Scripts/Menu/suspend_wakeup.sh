@@ -31,17 +31,15 @@ fi
 # Ready for next day  
 xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
 sleep 2
-[[ $(pgrep mpv)  ]] && pkill mpv
-[[ $(pgrep kodi) ]] && pkill kodi
 
 # Bedtime rutine
 sleep 2m 
 xset dpms force off
-sleep 3m
-python $HOME/Scripts/TapoScripts/tapo.py n &
-sleep 5m 
+sleep 8m
 playerctl -p spotify pause
 mpv "/mnt/ssd/Meditation/Relaxing Sleep Music • Deep Sleeping Music, Relaxing Music, Stress Relief, Meditation Music (Flying)-1ZYbU82GVz4.m4a"
+sleep 1m 
+python $HOME/Scripts/TapoScripts/tapo.py n &
 xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
 redshift -P -O 3000 -b 1
 sleep 5
