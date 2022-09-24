@@ -82,7 +82,7 @@ alias di="export DISPLAY=:0"
 alias yt="youtube-dl"
 alias xo="cp ~/Templates/notes.xopp"
 alias trash='/home/jensjp/.local/share/Trash/files'
-alias mlab="matlab -nosplash -nodesktop -nojvm -r 'beep off'"
+alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
 
@@ -106,7 +106,8 @@ export FZF_ALT_C_COMMAND="fd -H -t d . $HOME"
 #export BAT_THEME="gruvebox"
 
 # ========================= Python =========================
-export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
+# export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
+export PYTHONBREAKPOINT=ipdb.set_trace
 
 # ========================= Tabcompletion =========================
 autoload -U compinit
