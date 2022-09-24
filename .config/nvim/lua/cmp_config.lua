@@ -40,6 +40,7 @@ cmp.setup({
         { name = 'vim-dadbod-completion' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'nvim_lsp_signature_help' },
     }),
 	formatting = {
 		format = function(entry, vim_item)
@@ -94,5 +95,4 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 --  require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
 --    capabilities = capabilities
 --  }
-
 

@@ -36,7 +36,7 @@ vim.keymap.set('n', '<leader>ds', ":call jobstart('tmux send -t left dbquit Ente
 vim.keymap.set('n', '<leader>dn', ":call jobstart('tmux send -t left dbcont Enter')<CR>", opts)
 vim.keymap.set('n', '<leader>dc', [[:call jobstart("tmux send -t left 'dbclear all' Enter")<CR>]], opts)
 vim.keymap.set('n', '<leader>de', [[:call jobstart("tmux send -t left 'dbstop if error' Enter")<CR>]], opts)
-vim.keymap.set('n', '<leader>vk', ':lua CheckCode()<CR>', opts) -- :cgetexpr system("cat vim_checkcode_output")]], opts)
+vim.keymap.set('n', '<leader>dj', ':lua CheckCode()<CR>', opts) -- :cgetexpr system("cat vim_checkcode_output")]], opts)
 
 
 -- go to first instance of word  

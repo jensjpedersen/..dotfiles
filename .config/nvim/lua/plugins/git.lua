@@ -34,13 +34,13 @@ require('gitsigns').setup{
 
         -- Navigation
         map('n', 'gn', function()
-            if vim.wo.diff then return ']c' end
+            if vim.wo.diff then return ']czz' end
             vim.schedule(function() gs.next_hunk(); vim.cmd(':normal zz') end)
             return '<Ignore>'
         end, {expr=true})
 
         map('n', 'gp', function()
-            if vim.wo.diff then return '[c' end
+            if vim.wo.diff then return '[czz' end
             vim.schedule(function() gs.prev_hunk(); vim.cmd('normal zz') end)
             return '<Ignore>'
         end, {expr=true})
