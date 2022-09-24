@@ -48,12 +48,28 @@ vim.keymap.set('n', '<leader>tj', '<Plug>(table-mode-motion-down)', opts)
 vim.keymap.set('n', '<leader>tk', '<Plug>(table-mode-motion-up)', opts)
 
 
--- Tagbar
-vim.keymap.set('n', '<leader>l',   ':TagbarToggle<CR>', opts)
-vim.cmd([[
-let g:tagbar_width = 50
-let g:tagbar_position = 'topleft vertical' 
-]])
+-- -- Tagbar
+-- vim.keymap.set('n', '<leader>l',   ':TagbarToggle<CR>', opts)
+-- vim.cmd([[
+-- let g:tagbar_width = 50
+-- let g:tagbar_position = 'topleft vertical' 
+-- ]])
+
+-- Vista
+vim.keymap.set('n', '<leader>l', '<cmd>Vista!!<CR>', opts)
+
+vim.cmd[[
+let g:vista_cursor_delay = 0
+let g:vista_blink = [0, 0]
+let g:vista_sidebar_position = 'vertical topleft'
+let g:vista_sidebar_width = 40
+
+let g:vista_executive_for = {
+  \ 'vimwiki': 'markdown',
+  \ 'pandoc': 'markdown',
+  \ 'markdown': 'toc',
+  \ }
+]]
 
 
 -- Undotree 
@@ -97,13 +113,21 @@ vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 -- Ranger
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
 
+
+-- Vim signature
+vim.keymap.set('n', '[[', ':<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>', opts)
+vim.keymap.set('n', ']]', ':<C-U>call signature#mark#Goto("next", "line", "pos")<CR>', opts)
+vim.keymap.set('n', '[8', ':<C-U>call signature#marker#Goto("prev", "same", v:count)<CR>', opts)
+vim.keymap.set('n', ']9', ':<C-U>call signature#marker#Goto("next", "same", v:count)<CR>', opts)
+
+
 -- Database | DadbodUI
-vim.cmd[[
-nnoremap <silent> <leader>du :DBUIToggle<CR>
-nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
-nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
-nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
-let g:db_ui_save_location = '~/.config/db_ui'
-]]
+-- vim.cmd[[
+-- nnoremap <silent> <leader>du :DBUIToggle<CR>
+-- nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
+-- nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
+-- nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
+-- let g:db_ui_save_location = '~/.config/db_ui'
+-- ]]
 
 

@@ -21,3 +21,8 @@ vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
 
 -- Search 
 vim.keymap.set('n', 'sf', ':vimgrep /\\<def\\>/j % <CR>', opts)
+
+
+-- Debug
+vim.keymap.set('n', '<leader>dk', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
+vim.keymap.set('n', '<leader>dj', ":call jobstart('tmux send -t left %debug Enter')<CR>", opts)

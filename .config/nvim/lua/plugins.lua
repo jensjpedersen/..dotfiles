@@ -18,6 +18,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'onsails/lspkind.nvim'
   use 'hrsh7th/cmp-nvim-lua'
   use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
@@ -78,6 +79,8 @@ require('packer').startup(function()
   use 'szw/vim-maximizer'
   use 'dhruvasagar/vim-table-mode'
   use 'preservim/tagbar'
+  use 'liuchengxu/vista.vim'
+  use 'kshenoy/vim-signature'
 end)
 
 
