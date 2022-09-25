@@ -1,4 +1,5 @@
 #!/bin/bash
+i3-msg workspace tmp2, move workspace to output DP-1
 i3-msg rename workspace "s1" to "1"
 i3-msg rename workspace "s2" to "2"
 i3-msg rename workspace "s3" to "3"
