@@ -115,8 +115,8 @@ vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<
 
 
 -- Vim signature
-vim.keymap.set('n', '[[', ':<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>', opts)
-vim.keymap.set('n', ']]', ':<C-U>call signature#mark#Goto("next", "line", "pos")<CR>', opts)
+vim.keymap.set('n', '[<leader>', ':<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>', opts)
+vim.keymap.set('n', ']<leader>', ':<C-U>call signature#mark#Goto("next", "line", "pos")<CR>', opts)
 vim.keymap.set('n', '[8', ':<C-U>call signature#marker#Goto("prev", "same", v:count)<CR>', opts)
 vim.keymap.set('n', ']9', ':<C-U>call signature#marker#Goto("next", "same", v:count)<CR>', opts)
 
