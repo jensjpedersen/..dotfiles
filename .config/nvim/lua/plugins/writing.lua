@@ -44,3 +44,13 @@ hi VimwikiPre ctermfg=3
 vim.api.nvim_set_keymap('n' , 'gh', '<Plug>VimwikiAddHeaderLevel', opts)
 
 
+-- Markdown
+-- vim.keymap.set('n', '<localleader>mm',  ':w<CR>:! pandoc % -t latex -o %:r.pdf <CR>', opts)
+-- vim.keymap.set('n', '<localleader>ms',  ':w<CR>:! pandoc % -t beamer -o %:r.pdf <CR>', opts) -- Make slide show'
+-- vim.keymap.set('n', '<localleader>mv',  ':w<CR>:! mupdf %:r.pdf & <CR>', opts)
+-- vim.keymap.set('n', '<localleader>md',  ':w<CR>:! rm %:r.pdf <CR>', opts)
+
+vim.keymap.set('n', '<localleader>mm',  ':MarkdownPreviewToggle<CR>', opts)
+vim.keymap.set('n', '<localleader>ms',  ':w<CR>:! pandoc % -t beamer -o %:r.pdf <CR>', opts) -- Make slide show'
+vim.keymap.set('n', '<localleader>mv',  ':MarkdownPreview<CR>', opts)
+vim.keymap.set('n', '<localleader>md',  ':w<CR>:! rm %:r.pdf <CR>', opts)

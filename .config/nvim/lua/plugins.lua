@@ -66,6 +66,10 @@ require('packer').startup(function()
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
 
   -- Styling
   use 'nvim-lualine/lualine.nvim'
