@@ -31,11 +31,6 @@ vim.keymap.set('n', '<localleader>nq',  ':w<CR>:! qrencode -r % -o %:r.png<CR>',
 vim.keymap.set('n', '<localleader>nv',  ':!sxiv %:r.png<CR>', opts)
 vim.keymap.set('n', '<localleader>nd',  ':!rm %:r.png<CR>', opts)
 
--- Markdown
-vim.keymap.set('n', '<localleader>mm',  ':w<CR>:! pandoc % -t latex -o %:r.pdf <CR>', opts)
-vim.keymap.set('n', '<localleader>ms',  ':w<CR>:! pandoc % -t beamer -o %:r.pdf <CR>', opts) -- Make slide show'
-vim.keymap.set('n', '<localleader>mv',  ':w<CR>:! mupdf %:r.pdf & <CR>', opts)
-vim.keymap.set('n', '<localleader>md',  ':w<CR>:! rm %:r.pdf <CR>', opts)
 
 -- Indent guides
 vim.keymap.set('n', '<Leader>i',  '<Plug>IndentGuidesToggle', opts)

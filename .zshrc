@@ -143,7 +143,7 @@ ranger() {
 # ========================= Plugins section =========================
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Use syntax highlighting
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
-source ~/Scripts/Fzf/key-bindings.zsh # FZF widgets
+source ~/Projects/fzf_widgets/fzf_widgets.zsh
 
 # Auto suggestion
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
