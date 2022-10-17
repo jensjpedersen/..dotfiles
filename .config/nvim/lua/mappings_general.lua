@@ -14,6 +14,9 @@ vim.keymap.set('n', '<localleader><localleader>s', ':set spell! spelllang=en,nb<
 vim.keymap.set('n', '<localleader><localleader>h', ':set cursorline!<CR>', opts)
 vim.keymap.set('n', '<localleader><localleader>v', ':execute "set colorcolumn="  . (&colorcolumn == "" ? "80" : "")<CR>', opts)
 
+-- Realod file
+vim.keymap.set('n', '<localleader><localleader>e', ':e %<CR>', opts)
+
 -- Set foldmethod
 vim.keymap.set('n', 'zm', ':setlocal foldmethod=marker<CR>', opts)
 

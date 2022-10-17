@@ -29,5 +29,11 @@ require('cmp').setup.buffer {
 
 
 
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<leader>sf', ':vimgrep /label{fig:/j *.tex<CR>', opts)
+vim.keymap.set('n', '<leader>se', ':vimgrep /label{eq:/j *.tex<CR>', opts)
+vim.keymap.set('n', '<leader>st', ':vimgrep /label{tab:/j *.tex<CR>', opts)
+
+
 -- require('cmp').setup.buffer { sources = { { name = 'dictionary' } } } 
 
