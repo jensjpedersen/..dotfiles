@@ -105,6 +105,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd -H -t d . $HOME"
 #export BAT_THEME="gruvebox"
 
+
+# ======================== pdf nvim backward serach =========================
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # ========================= Python =========================
 # export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
 export PYTHONBREAKPOINT=ipdb.set_trace
@@ -156,4 +159,5 @@ if [[ $HWMODEL == "ThinkPad W530" ]]; then
     (( $SHLVL == 1 )) && task next && timew summary day # Print on startup
     eval "$(starship init zsh)" # Prompt
 fi 
+
 

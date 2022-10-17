@@ -34,8 +34,8 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        { name = 'cmp_tabnine' },
         { name = 'nvim_lsp' },
+        { name = 'cmp_tabnine' },
         { name = 'ultisnips' },
         { name = 'vim-dadbod-completion' },
         { name = 'buffer' },
@@ -88,7 +88,10 @@ cmp.setup.cmdline(':', {
 
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require('cmp_nvim_lsp').default(vim.lsp.protocol.make_client_capabilities())
+-- cmp_nvim_lsp.update_capabilities is deprecated, use cmp_nvim_lsp.default
+-- _capabilities
 
 
 -- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.

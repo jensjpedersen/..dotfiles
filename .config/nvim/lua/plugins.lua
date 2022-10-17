@@ -40,7 +40,8 @@ require('packer').startup(function()
   use 'junegunn/fzf.vim'
 
   -- Vim extensions
-  use 'justinmk/vim-sneak'             -- naviagation
+  -- use 'justinmk/vim-sneak'             -- naviagation
+  use 'ggandor/leap.nvim'
   use 'wellle/targets.vim'             -- better text objects
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
@@ -83,7 +84,7 @@ require('packer').startup(function()
   use 'szw/vim-maximizer'
   use 'dhruvasagar/vim-table-mode'
   use 'preservim/tagbar'
-  use 'liuchengxu/vista.vim'
+  -- use 'liuchengxu/vista.vim'
   use 'kshenoy/vim-signature'
 end)
 

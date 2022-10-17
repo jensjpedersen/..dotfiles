@@ -2,6 +2,7 @@
 local opts = { noremap=true, silent=false }
 
 -- Latex --
+
 -- biber
 vim.keymap.set('n', '<localleader>lb',  ':! biber %:r <CR>', opts)
 
@@ -9,9 +10,17 @@ vim.keymap.set('n', '<localleader>lb',  ':! biber %:r <CR>', opts)
 vim.cmd([[
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
+" let g:vimtex_view_method='sioyek'
 let g:vimtex_quickfix_mode=0
+let g:vimtex_view_reverse_search_edit_cmd='edit'
 set conceallevel=2
 ]])
+
+-- Reverse search zathura
+vim.cmd[[
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
+]]
 
 
 -- Vimwiki --

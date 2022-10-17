@@ -43,28 +43,28 @@ vim.keymap.set('n', '<leader>tj', '<Plug>(table-mode-motion-down)', opts)
 vim.keymap.set('n', '<leader>tk', '<Plug>(table-mode-motion-up)', opts)
 
 
--- -- Tagbar
--- vim.keymap.set('n', '<leader>l',   ':TagbarToggle<CR>', opts)
--- vim.cmd([[
--- let g:tagbar_width = 50
--- let g:tagbar_position = 'topleft vertical' 
--- ]])
+-- Tagbar
+vim.keymap.set('n', '<leader>l',   ':TagbarToggle<CR>', opts)
+vim.cmd([[
+let g:tagbar_width = 50
+let g:tagbar_position = 'topleft vertical' 
+]])
 
 -- Vista
-vim.keymap.set('n', '<leader>l', '<cmd>Vista!!<CR>', opts)
+-- vim.keymap.set('n', '<leader>l', '<cmd>Vista!!<CR>', opts)
 
-vim.cmd[[
-let g:vista_cursor_delay = 0
-let g:vista_blink = [0, 0]
-let g:vista_sidebar_position = 'vertical topleft'
-let g:vista_sidebar_width = 40
+-- vim.cmd[[
+-- let g:vista_cursor_delay = 0
+-- let g:vista_blink = [0, 0]
+-- let g:vista_sidebar_position = 'vertical topleft'
+-- let g:vista_sidebar_width = 40
 
-let g:vista_executive_for = {
-  \ 'vimwiki': 'markdown',
-  \ 'pandoc': 'markdown',
-  \ 'markdown': 'toc',
-  \ }
-]]
+-- let g:vista_executive_for = {
+--   \ 'vimwiki': 'markdown',
+--   \ 'pandoc': 'markdown',
+--   \ 'markdown': 'toc',
+--   \ }
+-- ]]
 
 
 -- Undotree 
