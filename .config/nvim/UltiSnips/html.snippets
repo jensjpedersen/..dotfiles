@@ -1,4 +1,3 @@
-
 #=============== Revel js presentation ===============
 snippet pres "Presentasjon"
 <!-- {{{ -->
@@ -6,23 +5,26 @@ snippet pres "Presentasjon"
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>$1</title>
+        <title> $1 </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="/home/jensjp/Repos/reveal.js/dist/reveal.css">
-        <link rel="stylesheet" href="/home/jensjp/Repos/reveal.js/dist/theme/night.css" id="theme">
+        <link rel="stylesheet" href="/home/jensjp/Repos/reveal.js/dist/theme/night_custom.css" id="theme">
     </head>
     <body>
+        
         <div class="reveal">
             <div class="slides">
 <!-- }}} -->
-$0
+
+$0 
+
 <!-- {{{ -->
             </div>
         </div>
         <script src="/home/jensjp/Repos/reveal.js/dist/reveal.js"></script>
         <script src="/home/jensjp/Repos/reveal.js/plugin/math/math.js"></script>
         <script src="/home/jensjp/Repos/reveal.js/plugin/markdown/markdown.js"></script>
-		<script src="/home/jensjp/Repos/reveal.js/plugin/notes/notes.js"></script>
+        <script src="/home/jensjp/Repos/reveal.js/plugin/notes/notes.js"></script>
         <link rel="stylesheet" href="/home/jensjp/Repos/reveal.js/plugin/highlight/monokai.css">
         <script src="/home/jensjp/Repos/reveal.js/plugin/highlight/highlight.js"></script>
         <script>
@@ -35,7 +37,7 @@ $0
                     TeX: {
                         Macros: {
                             R: '\mathbb{R}',
-                            set: [ '\left\{#1 \; ; \; #2\right\}', 2 ]
+                            set: [ '\left{#1 \; ; \; #2\right}', 2 ]
                         }
                     }
                 },
