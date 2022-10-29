@@ -64,18 +64,14 @@ endsnippet
 
 snippet le "Left coloumn"
 <div id="left">
-
 $1
-
 </div>
 $0
 endsnippet
 
 snippet ri "Right coloumn"
 <div id="right">
-
 $1
-
 </div>
 $0
 endsnippet
@@ -99,6 +95,8 @@ snippet st "Stretch image"
 $0
 endsnippet
 
+# HTML
+
 snippet no "slider notes"
 <aside class="notes">
 $0
@@ -120,11 +118,24 @@ $0
 </section>
 endsnippet
 
+snippet li 
+<ul>
+    <li class="fragment"> $1 </li> 
+	$0
+</ul>
+endsnippet
+
+snippet ii "List item" Ab
+<li class="fragment"> $1 </li> 
+$0
+endsnippet
+
+
+# Markdown
 snippet ma "Markdown"
 <!---------------------------------------->
 <section data-markdown>
 <textarea data-template>
-# $1 <!-- .element: class="fragment fade-in" -->
 $0
 </textarea>
 </section>
@@ -155,7 +166,8 @@ snippet ##### "header 5" b
 $0
 endsnippet
 
-snippet ii "List item" Ab
+
+snippet * "Markdown list item" i 
 * $1 <!-- .element: class="fragment fade-in" -->
 $0
 endsnippet
@@ -178,8 +190,15 @@ $0
 </code></pre>
 endsnippet
 
+# =============== Styling ===============
 
+snippet ye "Yellow highlight" i
+<span style="color:#d4ac0d"> $1 </span> $0
+endsnippet
 
+snippet bo "Bold text" i
+<strong> $1 </strong> $0
+endsnippet
 
 # ========================= Math =========================
 # ------------------------- General -------------------------
