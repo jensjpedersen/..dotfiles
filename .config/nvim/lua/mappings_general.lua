@@ -113,5 +113,6 @@ endfunction
 nnoremap <leader>q :call ToggleLocationList()<CR>
 ]])
 
-vim.keymap.set('n', '<C-m>', ':lnext<CR>', opts)
-vim.keymap.set('n', '<C-å>', ':lprevious<CR>', opts)
+-- fucks up quickfix list ENTER ? 
+-- vim.keymap.set('n', '<C-m>', ':lnext<CR>', opts)
+-- vim.keymap.set('n', '<C-å>', ':lprevious<CR>', opts) 
