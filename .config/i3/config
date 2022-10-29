@@ -688,8 +688,10 @@ new_float none
 
 
 # Do not focus on new/updated windows
-no_focus [all]
-focus_on_window_activation none
+# no_focus [all]
+# focus_on_window_activation none
+
+no_focus [class='firefox']
 
 # Scrot screenshot
 bindsym --release Print exec --no-startup-id scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
