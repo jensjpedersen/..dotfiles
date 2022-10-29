@@ -25,6 +25,7 @@ vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
 vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
 -- vim.keymap.set('c', 'ww', 'w !sudo tee % <CR>', opts)
+--
 
 -- Exec rempas
 vim.keymap.set('c', 'vs', 'vs | wincmd l | set winfixwidth')
@@ -70,6 +71,7 @@ vim.keymap.set('n', 'J', 'mxJ`x', opts)
 -- Keep visual mode after indent 
 vim.keymap.set('v', '>', '>gv', opts)
 vim.keymap.set('v', '<', '<gv', opts)
+
 -- set undo breakpoints for , and . 
 vim.keymap.set('i', ',', ',<C-g>u', opts)
 vim.keymap.set('i', '.', '.<C-g>u', opts)

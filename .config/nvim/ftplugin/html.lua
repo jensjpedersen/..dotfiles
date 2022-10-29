@@ -1,10 +1,11 @@
 local opts = { noremap=true, silent=true }
 
+vim.cmd('autocmd BufRead,BufNewFile *.html set foldmethod=marker')
 vim.cmd[[autocmd FileType html setlocal commentstring=<!--\ %s\ -->]]
 
 
 -- Open file in firefox
-vim.keymap.set('n', '<localleader>jv', ':!firefox % & <CR>', opts)
+vim.keymap.set('n', '<localleader>jv', ':!firefox --new-window % & <CR>', opts)
 
 -- Toggle browser refresh. Depends on reload_browser.sh
 RefreshBrowser = false

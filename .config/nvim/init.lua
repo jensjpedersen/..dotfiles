@@ -9,7 +9,3 @@ require('plugins/git')
 require('plugins/navigation')
 require('plugins/etc')
 require('plugins/writing')
-
-
-
-

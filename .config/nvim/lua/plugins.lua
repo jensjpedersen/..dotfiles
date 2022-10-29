@@ -63,10 +63,13 @@ require('packer').startup(function()
   use 'tpope/vim-dadbod' -- Interact with databases 
   use 'kristijanhusak/vim-dadbod-ui'
   use 'kristijanhusak/vim-dadbod-completion'
+  use { 'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate' }
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   use 'vimwiki/vimwiki'		           -- vimwiki
+  -- use 'lervag/wiki.vim'
   use({
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
@@ -86,6 +89,12 @@ require('packer').startup(function()
   use 'preservim/tagbar'
   -- use 'liuchengxu/vista.vim'
   use 'kshenoy/vim-signature'
+
+  -- Etc
+  use {
+      'glacambre/firenvim', -- Turn your browser into a nvimclient
+      run = function() vim.fn['firenvim#install'](0) end 
+  }
 end)
 
 
