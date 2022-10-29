@@ -1,6 +1,10 @@
 snippet import "import standard stuff"
+from dataclasses import dataclass, field
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd 
+import seaborn as sns
+from importlib import reload
 $0
 endsnippet
 
@@ -30,6 +34,11 @@ endsnippet
 
 snippet pr "print variable"
 print($1)
+$0
+endsnippet
+
+snippet pf "print fstring"
+print(f'$1 = {$1}')
 $0
 endsnippet
 

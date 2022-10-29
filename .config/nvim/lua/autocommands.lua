@@ -15,6 +15,7 @@ vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
 -- autocmd DiffUpdated,BufEnter * if &diff | set cursorline | endif 
 -- ]]
 -- use lua 
+--
 
 -- Matlab
 vim.cmd('autocmd BufRead,BufNewFile *.m set filetype=matlab')
