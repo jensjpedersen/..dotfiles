@@ -3,6 +3,7 @@ local opts = { noremap=true, silent=true }
 
 -- Git fugitive mappings
 vim.keymap.set('n', '<localleader>b', ':Git branch<CR>', opts)
+vim.keymap.set('n', '<localleader>B', ':Git blame<CR>', opts)
 vim.keymap.set('n', '<localleader>g', ':Git<CR>', opts)
 vim.keymap.set('n', '<localleader>i', ':Git status<CR>', opts)
 vim.keymap.set('n', '<localleader>p', ':Git push<CR>', opts)
@@ -10,14 +11,22 @@ vim.keymap.set('n', '<localleader>P', ':Git pull<CR>', opts)
 vim.keymap.set('n', '<localleader>c', ':Git commit<CR>', opts)
 vim.keymap.set('n', '<localleader>a', ':Git add %<CR>', opts)
 vim.keymap.set('n', '<localleader>A', ':Git reset %<CR>', opts)
--- vim.keymap.set('n', '<localleader>u', ':Git add -u<CR>', opts)
+vim.keymap.set('n', '<localleader>u', ':Git add -u<CR>', opts)
 vim.keymap.set('n', '<localleader>h', ':Git log<CR>', opts)
-vim.keymap.set('n', '<localleader>H', ':0Gclog!<CR>', opts)
-vim.keymap.set('n', '<localleader>L', ':Git log -p %<CR>', opts)
-vim.keymap.set('n', '<localleader>v', ':Gdiffsplit!<CR>', opts)
-vim.keymap.set('v', '<localleader>v', ':diffput<CR>', opts)
+vim.keymap.set('n', '<localleader>L', ':0Gclog!<CR>', opts)
+vim.keymap.set('v', '<localleader>L', ':Gclog!<CR>', opts)
+vim.keymap.set('n', '<localleader>H', ':Git log -p %<CR>', opts)
 vim.keymap.set('n', '<localleader>r', ':Git reflog<CR>', opts)
 vim.keymap.set('n', '<localleader>q', ':bdelete fugitive:*<C-a><CR>', opts)
+
+
+-- Vimdiff
+vim.keymap.set('n', '<localleader>v', ':Gdiffsplit!<CR>', opts)
+vim.keymap.set('v', '<localleader>v', ':diffput<CR>', opts)
+vim.keymap.set('v', '<localleader>l', ':Linediff<CR>', opts)
+
+vim.keymap.set('n', '<leader>dt', ':diffthis<CR>', opts)
+vim.keymap.set('n', '<leader>do', ':diffoff<CR>', opts)
 
 -- Git signs
 require('gitsigns').setup{
@@ -63,8 +72,8 @@ require('gitsigns').setup{
         -- map('n', '<leader>hd', gs.diffthis)
         -- map('n', '<leader>hD', function() gs.diffthis('~') end)
         -- map('n', '<leader>td', gs.toggle_deleted)
-        map('n', '<localleader>d', gs.setqflist)
-        map('n', '<localleader>D', function() gs.setqflist('all') end)
+        map('n', '<localleader>D', gs.setqflist)
+        map('n', '<localleader>d', function() gs.setqflist('all') end)
 
         -- Text object
         -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

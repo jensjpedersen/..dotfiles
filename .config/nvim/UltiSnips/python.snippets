@@ -1,5 +1,6 @@
 snippet import "import standard stuff"
 from dataclasses import dataclass, field
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd 
@@ -42,10 +43,14 @@ print(f'$1 = {$1}')
 $0
 endsnippet
 
-snippet timer "timer count"
-start = perf_counter()
+snippet time "timer count"
+tic = perf_counter()
 $1
-end = perf_counter()
+toc = perf_counter()
 print(end-start)
 $0
+endsnippet
+
+snippet log "create logger"
+logging.basicConfig(filename='debug.log', encoding='utf-8', level=logging.DEBUG)
 endsnippet

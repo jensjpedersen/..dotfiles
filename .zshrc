@@ -85,6 +85,7 @@ alias trash='/home/jensjp/.local/share/Trash/files'
 alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
+alias ju="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
 
 # ========================= Config =========================
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' # Old config
@@ -109,7 +110,7 @@ export FZF_ALT_C_COMMAND="fd -H -t d . $HOME"
 # ======================== pdf nvim backward serach =========================
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # ========================= Python =========================
-# export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
+export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # ========================= Tabcompletion =========================

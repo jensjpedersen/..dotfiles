@@ -11,7 +11,7 @@ require('packer').startup(function()
   -- Lsp
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/mason.nvim'
 
   -- Cmp
   use 'hrsh7th/cmp-buffer'
@@ -21,7 +21,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'onsails/lspkind.nvim'
   use 'hrsh7th/cmp-nvim-lua'
-  use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
+  -- use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
   use  "kdheepak/cmp-latex-symbols"
 
   -- For ultisnips users.
@@ -89,7 +89,7 @@ require('packer').startup(function()
   use 'preservim/tagbar'
   -- use 'liuchengxu/vista.vim'
   use 'kshenoy/vim-signature'
-
+  use 'AndrewRadev/linediff.vim'
   -- Etc
   use {
       'glacambre/firenvim', -- Turn your browser into a nvimclient
