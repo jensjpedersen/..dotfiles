@@ -35,7 +35,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'cmp_tabnine' },
+        -- { name = 'cmp_tabnine' },
         { name = 'ultisnips' },
         { name = 'vim-dadbod-completion' },
         { name = 'buffer' },

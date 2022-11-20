@@ -22,6 +22,11 @@ vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
 
 -- Search 
 vim.keymap.set('n', 'sf', ':vimgrep /\\<def\\>/j % <CR>', opts)
+vim.keymap.set('n', 'sc', ':vimgrep /\\<class\\>/j % <CR>', opts)
+
+-- go to first instance of word  
+vim.keymap.set('n', 'gw', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
+vim.keymap.set('n', 'gW', ':norm *<CR> :vimgrep /<c-r>//g **/*.py<CR>', opts)
 
 
 -- Debug

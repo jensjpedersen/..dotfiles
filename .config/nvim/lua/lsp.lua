@@ -105,8 +105,9 @@ require'lspconfig'.emmet_ls.setup{
     flags = lsp_flags
 }
 
--- Server setup with LSP installer --
-require("nvim-lsp-installer").setup {}
+
+-- Install servers with mason
+require("mason").setup()
 
 -- Ltex setup
 require'lspconfig'.ltex.setup{
@@ -115,4 +116,7 @@ require'lspconfig'.ltex.setup{
     filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex" }
 }
 
-
+require'lspconfig'.julials.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}

@@ -15,7 +15,7 @@ vim.keymap.set('n', '<localleader><localleader>h', ':set cursorline!<CR>', opts)
 vim.keymap.set('n', '<localleader><localleader>v', ':execute "set colorcolumn="  . (&colorcolumn == "" ? "80" : "")<CR>', opts)
 
 -- Realod file
-vim.keymap.set('n', '<localleader><localleader>e', ':e %<CR>', opts)
+vim.keymap.set('n', '<localleader><localleader>e', ':e! %<CR>', opts)
 
 -- Set foldmethod
 vim.keymap.set('n', 'zm', ':setlocal foldmethod=marker<CR>', opts)
@@ -24,6 +24,10 @@ vim.keymap.set('n', 'zm', ':setlocal foldmethod=marker<CR>', opts)
 vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
 vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
+
+-- Delete no register
+-- vim.keymap.set('n', 'd<leader>, '_d)
+
 -- vim.keymap.set('c', 'ww', 'w !sudo tee % <CR>', opts)
 --
 
