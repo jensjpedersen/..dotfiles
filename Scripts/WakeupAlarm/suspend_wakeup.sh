@@ -52,8 +52,9 @@ if (( ${array[1]} >= $diff - $delta_alarm )); then
     min=$(( ${array[1]} - $diff + $delta_alarm ))
     hour=${array[0]}
 else
-    min=$(( 60 - ${array[1]} - $diff + $delta_alarm ))
+    min=$(( 60 + ${array[1]} - $diff + $delta_alarm ))
     hour=$(( ${array[0]} - 1 ))
+    echo $hour $min 
 fi
 
 # Enable wakeup scripts
