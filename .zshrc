@@ -87,6 +87,10 @@ alias t="task"
 alias to="taskopen"
 alias ju="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
 
+# Bitwarden
+alias bwu='eval $(bw unlock | grep -o "export BW_SESSION.*$")'
+alias bwg='bash ~/Scripts/bwg.sh'
+
 # ========================= Config =========================
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' # Old config
 alias c='/usr/bin/git --git-dir=$HOME/..dotfiles/ --work-tree=$HOME' # New config
