@@ -8,6 +8,9 @@ fi
 items=$(bw list items)
 names=$(printf "%s" $(bw list items) | jq '.[].name')
 select=$(echo "$names" | fzf)
+
+(( $? == 130 )) && exit 1
+
 element=$(printf "%s" "$items" | jq ".[] | select(.name == ${select})")
 username=( $(echo "$element" | jq '.login.username') )
 password=( $(echo "$element" | jq '.login.password') )
