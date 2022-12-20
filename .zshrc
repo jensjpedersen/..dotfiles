@@ -81,11 +81,15 @@ alias m="/home/jensjp/Scripts/Menu/menu"
 alias di="export DISPLAY=:0"
 alias yt="youtube-dl"
 alias xo="cp ~/Templates/notes.xopp"
-alias trash='/home/jensjp/.local/share/Trash/files'
 alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
-alias ju="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
+
+
+# Julia
+alias jun="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
+alias jur='jupyter console --ZMQTerminalInteractiveShell.editing_mode=vi \
+           --kernel=julia-1.8' #-compiled-0.6'
 
 # Bitwarden
 alias bwu='eval $(bw unlock | grep -o "export BW_SESSION.*$")'
@@ -164,5 +168,3 @@ if [[ $HWMODEL == "ThinkPad W530" ]]; then
     (( $SHLVL == 1 )) && task next && timew summary day # Print on startup
     eval "$(starship init zsh)" # Prompt
 fi 
-
-

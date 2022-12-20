@@ -19,12 +19,14 @@ done
 min_vol=${volume%\%}
 
 echo $min_vol >> volume.log
+echo $(pactl list sinks) >> volume.log
 
 spt play --uri "spotify:playlist:3jCrURN2fLkFnxfNkwCoXH" || playerctl -p spotify play
 n=$(($max_vol-$min_vol))
 for i in $(seq 1 1 $n); do
     sleep 2
-    pactl set-sink-volume @DEFAULT_SINK@ +1%
+    # pactl set-sink-volume @DEFAULT_SINK@ +1%
+    pactl set-sink-volume @DEFAULT_SINK@ $(($min_vol+$i))%
     echo $i >> volume.log
 done
 

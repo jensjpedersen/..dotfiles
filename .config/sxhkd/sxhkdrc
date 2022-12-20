@@ -26,7 +26,7 @@ super+return
     alacritty --working-directory=$HOME
 
 super+w
-    librewolf
+    qutebrowser
 
 super + {b, n,m,comma,period}
     alacritty --working-directory=$HOME -e {cointop, ranger,nvim,calcurse,btop}

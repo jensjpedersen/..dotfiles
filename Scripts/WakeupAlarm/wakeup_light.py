@@ -3,8 +3,15 @@ from PyP100 import PyP100
 from PyP100 import PyL530
 import keyring
 import time
+import logging
+import datetime
 
 from credentials import *
+
+logging.basicConfig(format='%(message)s', filename='./light.log', encoding='utf-8', level=logging.DEBUG, force=True)
+logging.getLogger().disabled = False
+
+logging.info(datetime.datetime.now())
 
 cycle = 60*30
 
@@ -17,6 +24,7 @@ for i in range(5):
         owen.handshake()
         owen.login()
         owen.turnOn()
+        logging.info(f'DeviceInfo: {owen.getDeviceInfo()}')
     except:
         time.sleep(1)
         pass
@@ -46,6 +54,8 @@ for val in levels_red:
     except KeyError:
         pass
     time.sleep(sleep)
+    logging.info(f'Level red: {val}')
+    logging.info(f'DeviceInfo: {owen.getDeviceInfo()}')
 
 for val in levels_white:
     try:
@@ -54,6 +64,9 @@ for val in levels_white:
         pass
     bulb.setColorTemp(2500)
     time.sleep(sleep)
+
+    logging.info(f'Level white: {val}')
+    logging.info(f'DeviceInfo: {owen.getDeviceInfo()}')
 
 
 for i in range(5):
@@ -67,3 +80,5 @@ for i in range(5):
     else:
         break
 
+logging.info(f'DeviceInfo: {owen.getDeviceInfo()}')
+logging.info(f'Completed')
