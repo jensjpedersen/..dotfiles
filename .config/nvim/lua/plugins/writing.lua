@@ -68,7 +68,7 @@ vim.keymap.set('n', '<localleader>md',  ':w<CR>:! rm %:r.pdf <CR>', opts)
 -- MarkdownPreview in new window
 vim.cmd[[
 function OpenMarkdownPreview (url)
-  execute "silent ! librewolf --new-window " . a:url
+  execute "silent ! qutebrowser --target window " . a:url
 endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]]

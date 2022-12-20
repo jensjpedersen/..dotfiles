@@ -108,6 +108,9 @@ vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 -- Ranger
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
 
+-- OpenAI
+vim.keymap.set('n', '<leader>a', '<cmd> lua require("nvim_openai").send_current_line()<CR>', opts)
+
 
 -- Vim signature
 vim.keymap.set('n', '[<leader>', ':<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>', opts)

@@ -52,5 +52,6 @@ $0
 endsnippet
 
 snippet log "create logger"
-logging.basicConfig(filename='debug.log', encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(format='%(message)s', filename='./flow.log', encoding='utf-8', level=logging.DEBUG, force=True)
+logging.getLogger().disabled = False
 endsnippet
