@@ -48,3 +48,12 @@ autocmd BufNewFile,BufRead *.tsv
     \ set softtabstop=20 | 
     \ set tabstop=20 
 ]]
+
+
+-- Indent lines
+-- local mygroup = vim.api.nvim_create_augroup('indent_blankline', { clear = true })
+-- vim.api.nvim_create_autocmd( {'BufNewFile', 'BufRead' }, {
+--   pattern = {"*.py, *.lua"},
+--   group = mygroup,
+--   command = 'lua require("indent_blankline").setup {}',
+-- })

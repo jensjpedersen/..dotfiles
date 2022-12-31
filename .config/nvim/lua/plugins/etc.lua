@@ -33,9 +33,6 @@ vim.keymap.set('n', '<localleader>nv',  ':!sxiv %:r.png<CR>', opts)
 vim.keymap.set('n', '<localleader>nd',  ':!rm %:r.png<CR>', opts)
 
 
--- Indent guides
--- vim.keymap.set('n', '<Leader>I',  '<Plug>IndentGuidesToggle', opts)
-
 -- Table mode 
 vim.cmd([[
 let g:table_mode_disable_mappings = 1
@@ -80,6 +77,14 @@ let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 ]]
 vim.keymap.set('n', '<leader>u',  ':UndotreeToggle<CR>', opts)
 
+-- Indent balank lines
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = false,
+}
+
+vim.g.indent_blankline_filetype_exclude = {"lspinfo", "packer", "checkhealth", "help", "man", "", "startify"}
 
 -- Startify 
 vim.cmd([[
@@ -104,6 +109,7 @@ let g:startify_files_number = 10
 let g:startify_change_to_dir = 0 " autochdir is enabled, not needed
 let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 ]])
+
 
 
 -- Nvim tree

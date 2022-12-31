@@ -91,6 +91,7 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'mhinz/vim-startify'
   use 'rafi/awesome-vim-colorschemes'
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Tools
   use 'mbbill/undotree'
