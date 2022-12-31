@@ -34,5 +34,12 @@ vim.keymap.set('n', '<leader>dk', ":call jobstart('tmux send -t left q Enter')<C
 vim.keymap.set('n', '<leader>dj', ":call jobstart('tmux send -t left %debug Enter')<CR>", opts)
 
 
-
+-- Set tmux mappings
+vim.keymap.set('n', '<localleader><localleader>t', function()
+    vim.keymap.set('n', '<leader>j', ":call jobstart('tmux send -t left c Enter')<CR>", opts)
+    vim.keymap.set('n', '<leader>k', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
+    vim.keymap.set('n', '<leader>i', ":call jobstart('tmux send -t left step Enter')<CR>", opts)
+    vim.keymap.set('n', '<leader>o', ":call jobstart('tmux send -t left return Enter')<CR>", opts)
+    vim.keymap.set('n', '<leader>n', ":call jobstart('tmux send -t left n Enter')<CR>", opts)
+end)
 

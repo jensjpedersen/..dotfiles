@@ -56,9 +56,16 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'             -- git plugin
   use 'lewis6991/gitsigns.nvim'
 
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'mfussenegger/nvim-dap-python'
+  use 'nvim-telescope/telescope-dap.nvim'
+  use 'theHamsta/nvim-dap-virtual-text'
+
   -- Coding
   use 'benmills/vimux'                 -- vim tmux compatibility
-  use 'nathanaelkane/vim-indent-guides'
+  -- use 'nathanaelkane/vim-indent-guides'
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
   use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
@@ -70,8 +77,10 @@ require('packer').startup(function()
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
-  use 'vimwiki/vimwiki'		           -- vimwiki
-  -- use 'lervag/wiki.vim'
+  -- use 'vimwiki/vimwiki'		           -- vimwiki
+  -- use 'jensjpedersen/vimwiki_fork'
+  use '~/Projects/vimwiki_fork'		           -- vimwiki
+
   use({
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
@@ -95,7 +104,7 @@ require('packer').startup(function()
   -- Etc
   use {
       'glacambre/firenvim', -- Turn your browser into a nvimclient
-      run = function() vim.fn['firenvim#install'](0) end 
+      run = function() vim.fn['firenvim#install'](0) end
   }
 end)
 

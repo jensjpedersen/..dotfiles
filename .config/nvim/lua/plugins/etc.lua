@@ -7,7 +7,8 @@ vim.cmd('colorscheme gruvbox')
 -- Lualine
 require('lualine').setup({
     options = {
-        theme = 'powerline'
+        theme = 'powerline',
+        globalstatus = true,
     }
 })
 
@@ -33,14 +34,19 @@ vim.keymap.set('n', '<localleader>nd',  ':!rm %:r.png<CR>', opts)
 
 
 -- Indent guides
-vim.keymap.set('n', '<Leader>i',  '<Plug>IndentGuidesToggle', opts)
+-- vim.keymap.set('n', '<Leader>I',  '<Plug>IndentGuidesToggle', opts)
 
 -- Table mode 
+vim.cmd([[
+let g:table_mode_disable_mappings = 1
+let g:table_mode_map_prefix = '<leader>T'
+]])
+
 vim.keymap.set('n', '<localleader><localleader>t', ':TableModeToggle<CR>', opts)
-vim.keymap.set('n', '<leader>tl', '<Plug>(table-mode-motion-right)', opts)
-vim.keymap.set('n', '<leader>th', '<Plug>(table-mode-motion-left)', opts)
-vim.keymap.set('n', '<leader>tj', '<Plug>(table-mode-motion-down)', opts)
-vim.keymap.set('n', '<leader>tk', '<Plug>(table-mode-motion-up)', opts)
+-- vim.keymap.set('n', '<leader>tl', '<Plug>(table-mode-motion-right)', opts)
+-- vim.keymap.set('n', '<leader>th', '<Plug>(table-mode-motion-left)', opts)
+-- vim.keymap.set('n', '<leader>tj', '<Plug>(table-mode-motion-down)', opts)
+-- vim.keymap.set('n', '<leader>tk', '<Plug>(table-mode-motion-up)', opts)
 
 
 -- Tagbar
@@ -101,9 +107,9 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 
 
 -- Nvim tree
-require("nvim-tree").setup()
+-- require("nvim-tree").setup()
 -- nvim-tree.view.preserve_window_proportions
-vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
+-- vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Ranger
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
