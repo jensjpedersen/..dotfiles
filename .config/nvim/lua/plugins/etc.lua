@@ -47,7 +47,7 @@ vim.keymap.set('n', '<localleader><localleader>t', ':TableModeToggle<CR>', opts)
 
 
 -- Tagbar
-vim.keymap.set('n', '<leader>l',   ':TagbarToggle<CR>', opts)
+vim.keymap.set('n', '<leader>t',   ':TagbarToggle<CR>', opts)
 vim.cmd([[
 let g:tagbar_width = 50
 let g:tagbar_position = 'topleft vertical' 
@@ -85,6 +85,7 @@ require("indent_blankline").setup {
 }
 
 vim.g.indent_blankline_filetype_exclude = {"lspinfo", "packer", "checkhealth", "help", "man", "", "startify"}
+vim.cmd('highlight IndentBlanklineContextChar ctermfg=8 cterm=nocombine')
 
 -- Startify 
 vim.cmd([[
