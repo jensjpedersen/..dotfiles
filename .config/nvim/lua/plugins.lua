@@ -94,6 +94,8 @@ require('packer').startup(function()
   use "lukas-reineke/indent-blankline.nvim"
 
   -- Tools
+  --
+  use 'folke/todo-comments.nvim'
   use 'mbbill/undotree'
   use 'kyazdani42/nvim-tree.lua'
   use 'szw/vim-maximizer'

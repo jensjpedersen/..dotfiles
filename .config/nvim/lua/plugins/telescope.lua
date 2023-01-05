@@ -1,6 +1,7 @@
 
 -- local opts = { noremap=true, silent=false, buffer=0 }
 local opts = { noremap=true, silent=false }
+local opts2 = { noremap=true, silent=true }
 
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope find_files<CR>', opts)
 vim.keymap.set('n', '<leader>sg', '<cmd>Telescope live_grep<CR>', opts)
@@ -48,10 +49,10 @@ vim.keymap.set('n', '<leader>sr', function ()
         prompt_title = "Run Commands",
         finder = finders.new_table {
             results = {
-               [[:call jobstart("tmux send -t left '%run ]] .. buf ..  [[' Enter")]],
-               [[:call jobstart("tmux send -t left '%run -i ]] .. buf ..  [[' Enter")]],
-               [[:call jobstart("tmux send -t left 'python ]] .. buf ..  [[' Enter")]],
-               [[:DapContinue]]
+               [[call jobstart("tmux send -t left '%run ]] .. buf ..  [[' Enter")]],
+               [[call jobstart("tmux send -t left '%run -i ]] .. buf ..  [[' Enter")]],
+               [[call jobstart("tmux send -t left 'python ]] .. buf ..  [[' Enter")]],
+               [[DapContinue]]
             }
         },
         sorter = conf.generic_sorter(opts),
@@ -59,19 +60,20 @@ vim.keymap.set('n', '<leader>sr', function ()
               actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
-                print(selection[1])
-                -- vim.api.nvim_put({ selection[1] }, "", false, true)
+                -- print(selection[1])
+                --
+                vim.cmd[[call jobstart("tmux send-keys -t left -X cancel")]] -- Cancel tmux mode
                 vim.cmd(selection[1])
                 vim.g.last_run_command = selection[1]
               end)
               return true
             end,
     }):find()
-end)
+end, opts2)
 
 -- https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#guide-to-your-first-picker
 
-vim.keymap.set('n', '<leader>l', '<cmd>execute g:last_run_command <CR>')
+vim.keymap.set('n', '<leader>l', '<cmd> execute g:last_run_command <CR>', opts2)
 
 
 

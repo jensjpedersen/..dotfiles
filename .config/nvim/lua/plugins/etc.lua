@@ -131,6 +131,19 @@ vim.keymap.set('n', ']<leader>', ':<C-U>call signature#mark#Goto("next", "line",
 vim.keymap.set('n', '[8', ':<C-U>call signature#marker#Goto("prev", "same", v:count)<CR>', opts)
 vim.keymap.set('n', ']9', ':<C-U>call signature#marker#Goto("next", "same", v:count)<CR>', opts)
 
+-- TODO comments
+--
+-- require("trouble").setup()
+require("todo-comments").setup()
+
+-- vim.keymap.set("n", "]t", function()
+--   require("todo-comments").jump_next()
+-- end, { desc = "Next todo comment" })
+
+-- vim.keymap.set("n", "[t", function()
+--   require("todo-comments").jump_prev()
+-- end, { desc = "Previous todo comment" })
+
 
 -- Database | DadbodUI
 -- vim.cmd[[
