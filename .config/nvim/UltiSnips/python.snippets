@@ -62,3 +62,16 @@ parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
 src_dir = os.path.abspath(os.path.join(parent_dir, 'src'))
 sys.path.append(src_dir)
 endsnippet
+
+# Load ipython namespace
+snippet loadns "Load namespace"
+import IPython
+try: 
+    ipython = IPython.get_ipython()
+    $1 = ipython.user_ns['$1']
+except:
+    # Load the data
+	$0
+endsnippet
+
+
