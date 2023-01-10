@@ -30,7 +30,7 @@ vim.keymap.set('n', '<leader>do', ':diffoff<CR>', opts)
 
 -- Git signs
 require('gitsigns').setup{
-    attach_to_untracked = false,
+    attach_to_untracked = true,
     signs = {
         add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
         change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},

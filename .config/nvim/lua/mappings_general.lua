@@ -25,7 +25,7 @@ vim.keymap.set('n', 'Q', ':.!bash<CR>', opts)
 vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
 vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
 
--- Delete no register
+--  Delete no register
 -- vim.keymap.set('n', 'd<leader>, '_d)
 
 -- vim.keymap.set('c', 'ww', 'w !sudo tee % <CR>', opts)
@@ -117,6 +117,25 @@ endfunction
 nnoremap <leader>q :call ToggleLocationList()<CR>
 ]])
 
+
+-- Create tmux session
+vim.api.nvim_create_user_command(
+    'Tmux',
+    function()
+        local path = os.getenv('HOME') .. '/last_session.vim'
+        vim.cmd(':mksession! ' .. path)
+        os.execute('tmux new-session \\; splitw -h nvim -S ' .. path)
+        vim.cmd(':q')
+    end,
+    { nargs = 0 }
+)
 -- fucks up quickfix list ENTER ? 
 -- vim.keymap.set('n', '<C-m>', ':lnext<CR>', opts)
 -- vim.keymap.set('n', '<C-å>', ':lprevious<CR>', opts) 
+--
+--
+
+-- Lua development
+-- vim.keymap.set('n', '<localleader><localleader>r', ':luafile %<CR>')
+-- vim.keymap.set('v', '<localleader><localleader>r', ':luafile %<CR>')
+

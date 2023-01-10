@@ -15,7 +15,9 @@ vim.api.nvim_command('autocmd BufWinEnter *.* silent! loadview')
 -- autocmd DiffUpdated,BufEnter * if &diff | set cursorline | endif 
 -- ]]
 -- use lua 
---
+
+-- Vimwiki
+-- vim.cmd('autocmd BufReadPost,BufNewFile *.md set filetype=vimwiki')
 
 -- Matlab
 vim.cmd('autocmd BufRead,BufNewFile *.m set filetype=matlab')
@@ -46,3 +48,12 @@ autocmd BufNewFile,BufRead *.tsv
     \ set softtabstop=20 | 
     \ set tabstop=20 
 ]]
+
+
+-- Indent lines
+-- local mygroup = vim.api.nvim_create_augroup('indent_blankline', { clear = true })
+-- vim.api.nvim_create_autocmd( {'BufNewFile', 'BufRead' }, {
+--   pattern = {"*.py, *.lua"},
+--   group = mygroup,
+--   command = 'lua require("indent_blankline").setup {}',
+-- })

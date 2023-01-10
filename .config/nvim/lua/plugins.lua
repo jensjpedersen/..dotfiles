@@ -7,6 +7,8 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use 'jensjpedersen/ranger_nvim'
+  use '~/Projects/NvimOpenAI/'
+  -- use 'jensjpedersen/openai_nvim'
 
   -- Lsp
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
@@ -54,9 +56,16 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'             -- git plugin
   use 'lewis6991/gitsigns.nvim'
 
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'mfussenegger/nvim-dap-python'
+  use 'nvim-telescope/telescope-dap.nvim'
+  use 'theHamsta/nvim-dap-virtual-text'
+
   -- Coding
   use 'benmills/vimux'                 -- vim tmux compatibility
-  use 'nathanaelkane/vim-indent-guides'
+  -- use 'nathanaelkane/vim-indent-guides'
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
   use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
@@ -68,8 +77,10 @@ require('packer').startup(function()
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
-  use 'vimwiki/vimwiki'		           -- vimwiki
-  -- use 'lervag/wiki.vim'
+  -- use 'vimwiki/vimwiki'		           -- vimwiki
+  -- use 'jensjpedersen/vimwiki_fork'
+  use '~/Projects/vimwiki_fork'		           -- vimwiki
+
   use({
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
@@ -80,8 +91,11 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'mhinz/vim-startify'
   use 'rafi/awesome-vim-colorschemes'
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Tools
+  --
+  use 'folke/todo-comments.nvim'
   use 'mbbill/undotree'
   use 'kyazdani42/nvim-tree.lua'
   use 'szw/vim-maximizer'
@@ -91,10 +105,10 @@ require('packer').startup(function()
   use 'kshenoy/vim-signature'
   use 'AndrewRadev/linediff.vim'
   -- Etc
-  use {
-      'glacambre/firenvim', -- Turn your browser into a nvimclient
-      run = function() vim.fn['firenvim#install'](0) end 
-  }
+  -- use {
+  --     'glacambre/firenvim', -- Turn your browser into a nvimclient
+  --     run = function() vim.fn['firenvim#install'](0) end
+  -- }
 end)
 
 

@@ -7,7 +7,8 @@ vim.cmd('colorscheme gruvbox')
 -- Lualine
 require('lualine').setup({
     options = {
-        theme = 'powerline'
+        theme = 'powerline',
+        globalstatus = true,
     }
 })
 
@@ -32,19 +33,21 @@ vim.keymap.set('n', '<localleader>nv',  ':!sxiv %:r.png<CR>', opts)
 vim.keymap.set('n', '<localleader>nd',  ':!rm %:r.png<CR>', opts)
 
 
--- Indent guides
-vim.keymap.set('n', '<Leader>i',  '<Plug>IndentGuidesToggle', opts)
-
 -- Table mode 
+vim.cmd([[
+let g:table_mode_disable_mappings = 1
+let g:table_mode_map_prefix = '<leader>T'
+]])
+
 vim.keymap.set('n', '<localleader><localleader>t', ':TableModeToggle<CR>', opts)
-vim.keymap.set('n', '<leader>tl', '<Plug>(table-mode-motion-right)', opts)
-vim.keymap.set('n', '<leader>th', '<Plug>(table-mode-motion-left)', opts)
-vim.keymap.set('n', '<leader>tj', '<Plug>(table-mode-motion-down)', opts)
-vim.keymap.set('n', '<leader>tk', '<Plug>(table-mode-motion-up)', opts)
+-- vim.keymap.set('n', '<leader>tl', '<Plug>(table-mode-motion-right)', opts)
+-- vim.keymap.set('n', '<leader>th', '<Plug>(table-mode-motion-left)', opts)
+-- vim.keymap.set('n', '<leader>tj', '<Plug>(table-mode-motion-down)', opts)
+-- vim.keymap.set('n', '<leader>tk', '<Plug>(table-mode-motion-up)', opts)
 
 
 -- Tagbar
-vim.keymap.set('n', '<leader>l',   ':TagbarToggle<CR>', opts)
+vim.keymap.set('n', '<leader>t',   ':TagbarToggle<CR>', opts)
 vim.cmd([[
 let g:tagbar_width = 50
 let g:tagbar_position = 'topleft vertical' 
@@ -74,6 +77,15 @@ let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 ]]
 vim.keymap.set('n', '<leader>u',  ':UndotreeToggle<CR>', opts)
 
+-- Indent balank lines
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = false,
+}
+
+vim.g.indent_blankline_filetype_exclude = {"lspinfo", "packer", "checkhealth", "help", "man", "", "startify"}
+vim.cmd('highlight IndentBlanklineContextChar ctermfg=8 cterm=nocombine')
 
 -- Startify 
 vim.cmd([[
@@ -100,13 +112,23 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 ]])
 
 
+
 -- Nvim tree
-require("nvim-tree").setup()
+-- require("nvim-tree").setup()
 -- nvim-tree.view.preserve_window_proportions
-vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
+-- vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Ranger
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
+
+-- OpenAI
+vim.keymap.set('n', '<leader>as', '<cmd> lua require("openai_nvim").send_current_line()<CR>', opts)
+vim.keymap.set('v', '<leader>as', '<cmd> lua require("openai_nvim").send_visual_selection()<CR>', opts)
+
+-- Copilot
+vim.keymap.set('n', '<leader>ap', '<cmd> Copilot panel<CR>', opts)
+vim.keymap.set('n', '<leader>ao', '<cmd> Copilot open<CR>', opts)
+
 
 
 -- Vim signature
@@ -114,6 +136,19 @@ vim.keymap.set('n', '[<leader>', ':<C-U>call signature#mark#Goto("prev", "line",
 vim.keymap.set('n', ']<leader>', ':<C-U>call signature#mark#Goto("next", "line", "pos")<CR>', opts)
 vim.keymap.set('n', '[8', ':<C-U>call signature#marker#Goto("prev", "same", v:count)<CR>', opts)
 vim.keymap.set('n', ']9', ':<C-U>call signature#marker#Goto("next", "same", v:count)<CR>', opts)
+
+-- TODO comments
+--
+-- require("trouble").setup()
+require("todo-comments").setup()
+
+-- vim.keymap.set("n", "]t", function()
+--   require("todo-comments").jump_next()
+-- end, { desc = "Next todo comment" })
+
+-- vim.keymap.set("n", "[t", function()
+--   require("todo-comments").jump_prev()
+-- end, { desc = "Previous todo comment" })
 
 
 -- Database | DadbodUI

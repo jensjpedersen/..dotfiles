@@ -153,7 +153,7 @@ snippet ii "Item" bA
 endsnippet
 
 snippet tab "Begin tabular"
-\begin{table}
+\begin{table}[H]
 	\centering
 	\begin{tabular}{$1}
 		\hline
@@ -250,7 +250,6 @@ snippet article "Article template"
 \usepackage{siunitx} % converts expression to SI units/notation , \num{10e-10}
 \usepackage[hidelinks]{hyperref}
 \usepackage{biblatex}
-\addbibresource{../Papers/refs.bib}
 
 % Code higligthing
 \usepackage{listings}

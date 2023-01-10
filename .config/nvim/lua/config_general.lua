@@ -18,7 +18,8 @@ vim.o.smartcase = true
 
 -- Backup
 vim.o.swapfile = false
-vim.o.undodir = '/home/jensjp/.config/nvim/undodir/'
+-- vim.o.undodir = '/home/jensjp/.config/nvim/undodir/'
+vim.o.undodir = os.getenv("HOME") .. "/.config/nvim/undodir/"
 vim.o.undofile = true
 
 -- style 
@@ -30,6 +31,7 @@ vim.wo.cursorline = true
 vim.o.clipboard = 'unnamedplus'
 vim.o.wrap = false
 vim.o.mouse = 'a'
+vim.o.scrolloff = 4
 
 vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 0
