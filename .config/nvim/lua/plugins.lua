@@ -8,7 +8,7 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use 'jensjpedersen/ranger_nvim'
   use '~/Projects/NvimOpenAI/'
-  -- use 'jensjpedersen/NvimOpenAI'
+  -- use 'jensjpedersen/openai_nvim'
 
   -- Lsp
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
@@ -105,10 +105,10 @@ require('packer').startup(function()
   use 'kshenoy/vim-signature'
   use 'AndrewRadev/linediff.vim'
   -- Etc
-  use {
-      'glacambre/firenvim', -- Turn your browser into a nvimclient
-      run = function() vim.fn['firenvim#install'](0) end
-  }
+  -- use {
+  --     'glacambre/firenvim', -- Turn your browser into a nvimclient
+  --     run = function() vim.fn['firenvim#install'](0) end
+  -- }
 end)
 
 

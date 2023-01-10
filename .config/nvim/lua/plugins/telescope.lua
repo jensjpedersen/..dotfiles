@@ -73,7 +73,12 @@ end, opts2)
 
 -- https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#guide-to-your-first-picker
 
-vim.keymap.set('n', '<leader>l', '<cmd> execute g:last_run_command <CR>', opts2)
+-- vim.keymap.set('n', '<leader>l', '<cmd> execute g:last_run_command <CR>', opts2)
+vim.keymap.set('n', '<leader>l', function ()
+    vim.cmd[[call jobstart("tmux send-keys -t left -X cancel")]] -- Cancel tmux mode
+    vim.cmd'execute g:last_run_command'
+end, opts2)
+
 
 
 

@@ -122,7 +122,13 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
 
 -- OpenAI
-vim.keymap.set('n', '<leader>a', '<cmd> lua require("nvim_openai").send_current_line()<CR>', opts)
+vim.keymap.set('n', '<leader>as', '<cmd> lua require("openai_nvim").send_current_line()<CR>', opts)
+vim.keymap.set('v', '<leader>as', '<cmd> lua require("openai_nvim").send_visual_selection()<CR>', opts)
+
+-- Copilot
+vim.keymap.set('n', '<leader>ap', '<cmd> Copilot panel<CR>', opts)
+vim.keymap.set('n', '<leader>ao', '<cmd> Copilot open<CR>', opts)
+
 
 
 -- Vim signature

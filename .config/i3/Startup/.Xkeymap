@@ -1480,7 +1480,7 @@ xkb_symbols "pc+no+inet(evdev)+level3(lalt_switch)+capslock(escape)" {
     key <HKTG> {         [ Hiragana_Katakana ] };
     key <MUHE> {         [        Muhenkan ] };
     key <KPEN> {         [        KP_Enter ] };
-    key <RCTL> {         [       Control_R ] };
+    key <RCTL> {         [        Alt_L ] };
     key <KPDV> {
         type= "CTRL+ALT",
         symbols[Group1]= [       KP_Divide,           U2215,       0x10000f7,      VoidSymbol,      XF86Ungrab ]
