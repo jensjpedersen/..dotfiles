@@ -1,7 +1,7 @@
 #!/bin/bash
-xsetwacom set "HUION Huion Tablet_H950P Pen stylus" MapToOutput DP-2
-#xsetwacom set "HUION Huion Tablet_H950P Pen stylus" MapToOutput 1100x680+2510+50
-#xsetwacom set "HUION Huion Tablet_H950P Pen stylus" MapToOutput 900x550+2910+100
+xsetwacom set "HUION Huion Tablet_H950P stylus" MapToOutput DP-2
+#xsetwacom set "HUION Huion Tablet_H950P stylus" MapToOutput 1100x680+2510+50
+#xsetwacom set "HUION Huion Tablet_H950P stylus" MapToOutput 900x550+2910+100
 
 xsetwacom set "HUION Huion Tablet_H950P Pad pad" Button 8 key "down down down down down down down down down down"
 xsetwacom set "HUION Huion Tablet_H950P Pad pad" Button 3 key "up up up up up up up up up up"

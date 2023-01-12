@@ -90,6 +90,19 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 -- Grep search
 vim.keymap.set('n', '<leader>ss', ':silent grep! ', opts2)
 
+-- Jump to tag
+-- [[file|tag]] -> [tag] in file
+vim.keymap.set('n', 'gs', function ()
+    local line = vim.api.nvim_get_current_line()
+    local file = line:match("%[%[(.*)|")
+    local tag = line:match("|(.*)%]%]")
+    if file == nil or tag == nil then return end
+    vim.cmd('vimgrep /\\[' .. tag .. '\\]/ ' .. file)
+    print(file)
+    print(tag)
+    vim.cmd('cclose')
+end, opts)
+
 -- Quick fix list
 vim.cmd([[
 function! ToggleQuickFix()

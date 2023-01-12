@@ -46,6 +46,9 @@ config.bind('R', 'tab-next')
 config.bind('<Shift>-k', 'tab-prev')
 config.bind('<Shift>-j', 'tab-next')
 
+# Passthrough
+# config.bind('<Ctrl-v>', 'enter-mode passthrough', mode='normal')
+
 # External editor
 c.editor.command = ['/usr/bin/alacritty',  '--class', 'qbeditor', '-e', 'nvim', '{file}']
 
@@ -59,4 +62,8 @@ config.bind('pf', 'hint links spawn --detach mpv {hint-url}')
 config.bind('pd', 'hint links spawn yt-dlp {hint-url}')
 
 
+# Insert mode bindings
+# paste text
+config.bind('<Ctrl-v>', 'insert-text {primary}', mode='insert')
+# delte word
 

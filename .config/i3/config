@@ -16,7 +16,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
 # ========================= Startup scripts =========================
-exec --no-startup-id /home/jensjp/.config/i3/Startup/exec_keyboard_settings.sh &
+# exec --no-startup-id /home/jensjp/.config/i3/Startup/exec_keyboard_settings.sh &
 exec --no-startup-id '/home/jensjp/.config/i3/Startup/exec_programs.sh' &
 exec_always --no-startup-id '/home/jensjp/.config/i3/Startup/exec_always.sh' &
 
