@@ -92,6 +92,7 @@ require('packer').startup(function()
   use 'mhinz/vim-startify'
   use 'rafi/awesome-vim-colorschemes'
   use "lukas-reineke/indent-blankline.nvim"
+  use 'mechatroner/rainbow_csv'
 
   -- Tools
   --

@@ -28,6 +28,7 @@ endif
 " }}}2
 
 
+" Mardown
+hi markdownHeader1 ctermfg=10 cterm=Bold
+match markdownHeader1 /^#\s.*$/
 
-"syn match texMathDelim /\\begin{equation}/ conceal cchar=ﬦ
-"syn match texMathDelim /\\end{equation}/ conceal cchar=ﬦ

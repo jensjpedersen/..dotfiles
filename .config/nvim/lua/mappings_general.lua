@@ -94,8 +94,8 @@ vim.keymap.set('n', '<leader>ss', ':silent grep! ', opts2)
 -- [[file|tag]] -> [tag] in file
 vim.keymap.set('n', 'gs', function ()
     local line = vim.api.nvim_get_current_line()
-    local file = line:match("%[%[(.*)|")
-    local tag = line:match("|(.*)%]%]")
+    local file = line:match("%[(.*)|")
+    local tag = line:match("|(.*)%]")
     if file == nil or tag == nil then return end
     vim.cmd('vimgrep /\\[' .. tag .. '\\]/ ' .. file)
     print(file)
@@ -116,6 +116,9 @@ nnoremap <leader>c :call ToggleQuickFix()<CR>
 ]])
 vim.keymap.set('n', '<C-n>', ':cn<CR>', opts)
 vim.keymap.set('n', '<C-p>', ':cp<CR>', opts)
+
+-- vim.keymap.set('n', '<C-n>', ':cbelow<CR>', opts)
+-- vim.keymap.set('n', '<C-p>', ':cabove<CR>', opts)
 
 
 -- Location list

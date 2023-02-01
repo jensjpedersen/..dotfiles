@@ -49,6 +49,7 @@ autocmd BufNewFile,BufRead *.tsv
     \ set tabstop=20 
 ]]
 
+vim.cmd[[autocmd BufNewFile,BufRead *.csv set filetype=csv]]
 
 -- Indent lines
 -- local mygroup = vim.api.nvim_create_augroup('indent_blankline', { clear = true })

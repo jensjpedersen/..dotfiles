@@ -130,6 +130,14 @@ vim.keymap.set('n', '<leader>ap', '<cmd> Copilot panel<CR>', opts)
 vim.keymap.set('n', '<leader>ao', '<cmd> Copilot open<CR>', opts)
 
 
+vim.cmd[[
+imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+]]
+
+-- <Plug>(copilot-dismiss)
+
+
 
 -- Vim signature
 vim.keymap.set('n', '[<leader>', ':<C-U>call signature#mark#Goto("prev", "line", "pos")<CR>', opts)

@@ -93,7 +93,8 @@ alias jur='jupyter console --ZMQTerminalInteractiveShell.editing_mode=vi \
 
 # Bitwarden
 alias bwu='eval $(bw unlock | grep -o "export BW_SESSION.*$")'
-alias bwg='bash ~/Scripts/bwg.sh'
+alias bwg='bash ~/Scripts/BitWarden/bwg.sh'
+alias bwa='bash ~/Scripts/BitWarden/bwa.sh'
 
 # ========================= Config =========================
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' # Old config

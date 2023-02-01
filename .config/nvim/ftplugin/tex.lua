@@ -18,9 +18,9 @@ require('cmp').setup.buffer {
     --     end,
     -- },
     sources = {
-        { name = 'cmp_tabnine' },
         { name = 'latex_symbols' },
         { name = 'ultisnips' },
+        -- { name = 'omni'},
         { name = 'buffer' },
         { name = 'path' },
         -- other sources

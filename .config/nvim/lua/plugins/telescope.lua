@@ -10,7 +10,7 @@ vim.keymap.set('n', '<leader>g', '<cmd>Telescope current_buffer_fuzzy_find<CR>',
 vim.keymap.set('n', '<leader>b', "<cmd> lua require('telescope.builtin').buffers({sort_mru=true, ignore_current_buffer=true})<CR>", opts)
 vim.keymap.set('n', '<leader>h', '<cmd>Telescope oldfiles<CR>', opts)
 vim.keymap.set('n', '<leader>sh', '<cmd>Telescope help_tags<CR>', opts)
-vim.keymap.set('n', '<leader>sc', '<cmd>Telescope commands<CR>', opts)
+-- vim.keymap.set('n', '<leader>sc', '<cmd>Telescope commands<CR>', opts)
 vim.keymap.set('n', '<leader>sT', '<cmd>Telescope tags<CR>', opts)
 vim.keymap.set('n', '<leader>st', '<cmd>Telescope current_buffer_tags<CR>', opts)
 vim.keymap.set('n', '<localleader>f', '<cmd>Telescope git_files<CR>', opts)
@@ -52,7 +52,10 @@ vim.keymap.set('n', '<leader>sr', function ()
                [[call jobstart("tmux send -t left '%run ]] .. buf ..  [[' Enter")]],
                [[call jobstart("tmux send -t left '%run -i ]] .. buf ..  [[' Enter")]],
                [[call jobstart("tmux send -t left 'python ]] .. buf ..  [[' Enter")]],
-               [[DapContinue]]
+               [[DapContinue]],
+               [[call jobstart("tmux send -t left 'run ]] .. buf ..  [[' Enter")]],
+               [[call jobstart("tmux send -t left 'bash ]] .. buf ..  [[' Enter")]],
+               [[call jobstart("tmux send -t left 'lua ]] .. buf ..  [[' Enter")]],
             }
         },
         sorter = conf.generic_sorter(opts),

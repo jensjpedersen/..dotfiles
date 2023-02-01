@@ -44,10 +44,10 @@ $0
 endsnippet
 
 snippet time "timer count"
-tic = perf_counter()
+tic = time.perf_counter()
 $1
-toc = perf_counter()
-print(end-start)
+toc = time.perf_counter()
+print(f'took: {toc-tic}')
 $0
 endsnippet
 

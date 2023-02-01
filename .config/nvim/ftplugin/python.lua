@@ -22,9 +22,49 @@ vim.keymap.set('n', '<Leader>vz', ':VimuxZoomRunner<CR>', opts)
 vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
 
 
+
+local function search_function()
+    vim.cmd('norm mx')
+    vim.cmd[[
+    "norm mx
+    vimgrep /\<def\>/j % 
+    wincmd p
+    cabove
+    norm 'x
+    wincmd p
+    ]]
+end
+
+local function search_class()
+    vim.cmd[[
+    norm mx
+    vimgrep /\<class\>/j %  
+    wincmd p
+    cabove
+    norm 'x
+    wincmd p
+    ]]
+end
+
+vim.keymap.set('n', '<leader>sf', search_function, opts)
+vim.keymap.set('n', '<leader>sc', search_class, opts)
+
+-- Example - use args 
+-- [Question: give arguments to vim.keymap.set's function : neovim](https://www.reddit.com/r/neovim/comments/sjiwox/question_give_arguments_to_vimkeymapsets_function/)
+-- local wrap = function(func, ...)
+--   local args = {...}
+--   return function()
+--     func(unpack(args))
+--   end
+-- end
+
+-- vim.keymap.set("n", "...", wrap(argfunc, "foo", "bar"))
+
+
+
 -- Search 
-vim.keymap.set('n', 'sf', ':vimgrep /\\<def\\>/j % <CR>', opts)
-vim.keymap.set('n', 'sc', ':vimgrep /\\<class\\>/j % <CR>', opts)
+-- vim.keymap.set('n', 'sf', ':vimgrep /\\<def\\>/j % <CR>', opts)
+-- vim.keymap.set('n', 'sc', ':vimgrep /\\<class\\>/j % <CR>', opts)
 
 -- go to first instance of word  
 vim.keymap.set('n', 'gw', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
@@ -37,11 +77,14 @@ vim.keymap.set('n', '<leader>dj', ":call jobstart('tmux send -t left %debug Ente
 
 
 -- Set tmux mappings
-vim.keymap.set('n', '<localleader><localleader>t', function()
+local function tmux_mappings()
     vim.keymap.set('n', '<leader>j', ":call jobstart('tmux send -t left c Enter')<CR>", opts)
     vim.keymap.set('n', '<leader>k', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
     vim.keymap.set('n', '<leader>i', ":call jobstart('tmux send -t left step Enter')<CR>", opts)
     vim.keymap.set('n', '<leader>o', ":call jobstart('tmux send -t left return Enter')<CR>", opts)
     vim.keymap.set('n', '<leader>n', ":call jobstart('tmux send -t left n Enter')<CR>", opts)
-end)
+end
+
+vim.keymap.set('n', '<localleader><localleader>v', tmux_mappings)
+tmux_mappings()
 
