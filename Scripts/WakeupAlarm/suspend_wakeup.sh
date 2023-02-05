@@ -62,15 +62,18 @@ echo "${array[1]} ${array[0]} * * * jensjp /bin/bash ${HOME}/Scripts/WakeupAlarm
 echo "${min} ${hour} * * * jensjp /bin/python3 ${HOME}/Scripts/WakeupAlarm/wakeup_light.py" | sudo tee /etc/cron.d/wakeup_light
 
 # Ready for next day  
+xset dpms force on
 xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
-sleep 2
-# Bedtime rutine
-sleep 2m 
+mpv --no-audio --fullscreen /home/jensjp/fireplace.mp4 &
+pid=$!
+sleep 1m 
+kill $pid
+sleep 1 
 xset dpms force off
 playerctl -p spotify,ncspot pause
 python $HOME/Scripts/TapoScripts/tapo.py n & # Turn off light
 # mpv "/mnt/ssd/Meditation/Relaxing Sleep Music • Deep Sleeping Music, Relaxing Music, Stress Relief, Meditation Music (Flying)-1ZYbU82GVz4.m4a"
-mpv --no-video "https://www.youtube.com/watch?v=xke2SoJVrbc"
+mpv --no-video "/mnt/ssd/Media/Yoga/Yoga Nidra Sleep Meditation Guided with Female Voice-xke2SoJVrbc.webm"
 xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
 redshift -P -O 3000 -b 1
 sleep 5

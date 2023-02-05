@@ -122,3 +122,13 @@ require 'lspconfig'.julials.setup {
     on_attach = on_attach,
     flags = lsp_flags,
 }
+
+
+require'lspconfig'.grammarly.setup{
+    filetypes = { "tex" },
+}
+
+require'lspconfig'.tsserver.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
