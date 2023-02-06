@@ -169,3 +169,6 @@ if [[ $HWMODEL == "ThinkPad W530" ]]; then
     (( $SHLVL == 1 )) && task next && timew summary day # Print on startup
     eval "$(starship init zsh)" # Prompt
 fi 
+
+
+export TERM="alacritty" # fix for tmux (underline)

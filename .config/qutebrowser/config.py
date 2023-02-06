@@ -57,6 +57,7 @@ config.bind('eu', 'edit-url', mode='normal')
 # User scripts
 config.bind('I', 'spawn --userscript open_in_nvim.sh', mode='normal')
 config.bind('ø', 'spawn --userscript quick_search.sh', mode='normal')
+config.bind('<Ctrl-s>', 'spawn --userscript nvim_append_clipboard.sh', mode='normal')
 
 config.bind('pf', 'hint links spawn --detach mpv {hint-url}')
 config.bind('pd', 'hint links spawn yt-dlp {hint-url}')

@@ -114,9 +114,9 @@ let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 
 
 -- Nvim tree
--- require("nvim-tree").setup()
+require("nvim-tree").setup()
 -- nvim-tree.view.preserve_window_proportions
--- vim.keymap.set('n', '<leader>o',  ':NvimTreeFindFileToggle<CR>', opts)
+vim.keymap.set('n', '<leader>y',  ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Ranger
 vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
@@ -149,6 +149,8 @@ vim.keymap.set('n', ']9', ':<C-U>call signature#marker#Goto("next", "same", v:co
 --
 -- require("trouble").setup()
 require("todo-comments").setup()
+vim.keymap.set('n', '<leader>sc', '<cmd>TodoQuckFix<CR>', opts)
+
 
 -- vim.keymap.set("n", "]t", function()
 --   require("todo-comments").jump_next()
