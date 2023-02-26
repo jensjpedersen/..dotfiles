@@ -97,6 +97,7 @@ require('packer').startup(function()
   use 'rafi/awesome-vim-colorschemes'
   use 'folke/tokyonight.nvim'
   use 'sainnhe/gruvbox-material'
+  use 'sainnhe/sonokai'
   use "lukas-reineke/indent-blankline.nvim"
   use 'mechatroner/rainbow_csv'
 

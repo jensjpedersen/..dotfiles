@@ -10,6 +10,11 @@
 --
 --
 --
+--
+-- Change coceal color from gray, markdown, latex
 vim.cmd[[
 hi Conceal ctermfg=Green
 ]]
+
+-- NvimTree background
+vim.cmd[[hi NvimTreeNormal ctermbg=0]]
