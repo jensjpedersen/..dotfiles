@@ -13,11 +13,23 @@ vim.keymap.set('n', '<localleader>a', ':Git add %<CR>', opts)
 vim.keymap.set('n', '<localleader>A', ':Git reset %<CR>', opts)
 vim.keymap.set('n', '<localleader>u', ':Git add -u<CR>', opts)
 vim.keymap.set('n', '<localleader>h', ':Git log<CR>', opts)
-vim.keymap.set('n', '<localleader>L', ':0Gclog!<CR>', opts)
+-- vim.keymap.set('n', '<localleader>L', ':0Gclog!<CR>', opts)
+vim.keymap.set('n', '<localleader>L', ':DiffviewFileHistory %<CR>', opts)
 vim.keymap.set('v', '<localleader>L', ':Gclog!<CR>', opts)
-vim.keymap.set('n', '<localleader>H', ':Git log -p %<CR>', opts)
+-- vim.keymap.set('v', '<localleader>L', ':DiffviewFileHistory<CR>', opts)
+-- vim.keymap.set('n', '<localleader>H', ':Git log -p %<CR>', opts)
+vim.keymap.set('n', '<localleader>H', ':DiffviewFileHistory<CR>', opts)
 vim.keymap.set('n', '<localleader>r', ':Git reflog<CR>', opts)
-vim.keymap.set('n', '<localleader>q', ':bdelete fugitive:*<C-a><CR>', opts)
+vim.keymap.set('n', '<localleader>q', function ()
+        local buf_nr = vim.fn.bufnr("fugitive://*")
+        if vim.api.nvim_buf_is_loaded(buf_nr) then
+            vim.cmd("bdelete " .. buf_nr)
+            return
+        end
+        vim.cmd("DiffviewClose")
+end, opts)
+-- vim.keymap.set('n', '<localleader>q', ':bdelete fugitive:*<C-a><CR>', opts)
+
 
 
 -- Vimdiff
@@ -89,3 +101,6 @@ function Tig()
     vim.keymap.set('t', 'q',  [[<C-\><C-n>]] .. ':bdelete! <CR>', { noremap=true, silent=true, buffer=0 })
 end
 vim.keymap.set('n', '<localleader>t', ':lua Tig()<CR>')
+
+
+

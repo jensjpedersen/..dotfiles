@@ -39,14 +39,18 @@ vim.keymap.set('n', '<leader>de', [[:call jobstart("tmux send -t left 'dbstop if
 vim.keymap.set('n', '<leader>dj', ':lua CheckCode()<CR>', opts) -- :cgetexpr system("cat vim_checkcode_output")]], opts)
 
 -- Set tmux mappings
-vim.keymap.set('n', '<localleader><localleader>t', function()
+
+
+local function tmux_mappings()
     vim.keymap.set('n', '<leader>j', ":call jobstart('tmux send -t left dbcont Enter')<CR>", opts)
     vim.keymap.set('n', '<leader>k', ":call jobstart('tmux send -t left dbquit Enter')<CR>", opts)
     -- vim.keymap.set('n', '<leader>i', ":call jobstart('tmux send -t left step Enter')<CR>", opts)
     -- vim.keymap.set('n', '<leader>o', ":call jobstart('tmux send -t left return Enter')<CR>", opts)
     -- vim.keymap.set('n', '<leader>n', ":call jobstart('tmux send -t left n Enter')<CR>", opts)
-end)
+end
 
+vim.keymap.set('n', '<localleader><localleader>v', tmux_mappings)
+tmux_mappings()
 
 -- go to first instance of word  
 vim.keymap.set('n', 'gd', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)

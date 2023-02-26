@@ -8,6 +8,7 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use 'jensjpedersen/ranger_nvim'
   use '~/Projects/NvimOpenAI/'
+  use '~/Projects/scim.nvim/'
   -- use 'jensjpedersen/openai_nvim'
 
   -- Lsp
@@ -55,6 +56,7 @@ require('packer').startup(function()
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
   use 'lewis6991/gitsigns.nvim'
+  use 'sindrets/diffview.nvim'
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
@@ -81,6 +83,8 @@ require('packer').startup(function()
   -- use 'jensjpedersen/vimwiki_fork'
   use '~/Projects/vimwiki_fork'		           -- vimwiki
 
+  use 'jbyuki/nabla.nvim'
+
   use({
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
@@ -91,6 +95,8 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'mhinz/vim-startify'
   use 'rafi/awesome-vim-colorschemes'
+  use 'folke/tokyonight.nvim'
+  use 'sainnhe/gruvbox-material'
   use "lukas-reineke/indent-blankline.nvim"
   use 'mechatroner/rainbow_csv'
 

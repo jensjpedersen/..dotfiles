@@ -2,7 +2,10 @@
 
 local opts = { noremap=true, silent=true }
 -- Colorscheme 
-vim.cmd('colorscheme gruvbox')
+-- vim.cmd('colorscheme gruvbox')
+-- vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme gruvbox-material')
+-- vim.cmd('colorscheme gruvbox-baby')
 
 -- Lualine
 require('lualine').setup({
@@ -125,6 +128,9 @@ vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<
 vim.keymap.set('n', '<leader>as', '<cmd> lua require("openai_nvim").send_current_line()<CR>', opts)
 vim.keymap.set('v', '<leader>as', '<cmd> lua require("openai_nvim").send_visual_selection()<CR>', opts)
 
+-- Scim
+require("scim-nvim").setup()
+
 -- Copilot
 vim.keymap.set('n', '<leader>ap', '<cmd> Copilot panel<CR>', opts)
 vim.keymap.set('n', '<leader>ao', '<cmd> Copilot open<CR>', opts)
@@ -149,7 +155,10 @@ vim.keymap.set('n', ']9', ':<C-U>call signature#marker#Goto("next", "same", v:co
 --
 -- require("trouble").setup()
 require("todo-comments").setup()
-vim.keymap.set('n', '<leader>sc', '<cmd>TodoQuckFix<CR>', opts)
+vim.keymap.set('n', '<leader>sc', '<cmd>TodoQuickFix<CR>', opts)
+
+
+
 
 
 -- vim.keymap.set("n", "]t", function()

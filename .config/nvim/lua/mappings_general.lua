@@ -62,6 +62,7 @@ vim.keymap.set('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', opts)
 vim.keymap.set('n', '<C-s>', ':buffer term://*<CR>', opts)
 vim.keymap.set('t', '<C-s>', [[<C-\><C-n>]] .. ':e #<CR>', { noremap = true, silent = true })
 
+
 -- Better mappings --
 -- keeping it centered
 vim.keymap.set('n', 'n', 'nzz', opts)
@@ -91,7 +92,7 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 vim.keymap.set('n', '<leader>ss', ':silent grep! ', opts2)
 
 -- Jump to tag
--- [[file|tag]] -> [tag] in file
+-- [file|tag] -> [tag] in file
 vim.keymap.set('n', 'gs', function ()
     local line = vim.api.nvim_get_current_line()
     local file = line:match("%[(.*)|")
@@ -134,17 +135,6 @@ nnoremap <leader>q :call ToggleLocationList()<CR>
 ]])
 
 
--- Create tmux session
-vim.api.nvim_create_user_command(
-    'Tmux',
-    function()
-        local path = os.getenv('HOME') .. '/last_session.vim'
-        vim.cmd(':mksession! ' .. path)
-        os.execute('tmux new-session \\; splitw -h nvim -S ' .. path)
-        vim.cmd(':q')
-    end,
-    { nargs = 0 }
-)
 -- fucks up quickfix list ENTER ? 
 -- vim.keymap.set('n', '<C-m>', ':lnext<CR>', opts)
 -- vim.keymap.set('n', '<C-å>', ':lprevious<CR>', opts) 

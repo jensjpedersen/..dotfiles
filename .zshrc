@@ -172,3 +172,4 @@ fi
 
 
 export TERM="alacritty" # fix for tmux (underline)
+export PATH=/home/jensjp/.cargo/bin:$PATH

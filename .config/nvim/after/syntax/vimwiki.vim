@@ -32,3 +32,16 @@ endif
 hi markdownHeader1 ctermfg=10 cterm=Bold
 match markdownHeader1 /^#\s.*$/
 
+
+" Markdonw custom tag 
+" syntax region markdownTag matchgroup=markdownTagDelimiter start=/^\[\a\+/ end=/\]$/ contains=@markdownTagContent
+syntax match markdownTag /^\[\w\+]$/ 
+syntax match markdownTag /\s\[\w\+]$/ 
+syntax match markdownTag /^\[\w\+]\s/ 
+syntax match markdownTag /\s\[\w\+]\s/ 
+highlight markdownTag ctermfg=red
+
+" highlight markdownTagDelimiter ctermfg=red
+
+" syn match markdownTagContent contained /\s\+/
+" highlight markdownTagContent ctermfg=red
