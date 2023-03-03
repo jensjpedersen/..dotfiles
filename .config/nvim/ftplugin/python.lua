@@ -20,6 +20,7 @@ vim.keymap.set('n', '<leader>vj', ":w<CR>:VimuxRunCommand('%run ' . bufname('%')
 vim.keymap.set('n', '<leader>vJ', ":w<CR>:VimuxRunCommand('%run -i ' . bufname('%'))<CR>", opts)
 vim.keymap.set('n', '<Leader>vz', ':VimuxZoomRunner<CR>', opts)
 vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
+vim.keymap.set('n', '<Leader>vo', ':VimuxOpenRunner<CR>', opts)
 
 
 

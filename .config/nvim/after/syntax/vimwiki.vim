@@ -29,8 +29,8 @@ endif
 
 
 " Mardown
-hi markdownHeader1 ctermfg=10 cterm=Bold
-match markdownHeader1 /^#\s.*$/
+" hi markdownHeader1 ctermfg=10 cterm=Bold
+" match markdownHeader1 /^#\s.*$/
 
 
 " Markdonw custom tag 
@@ -39,6 +39,12 @@ syntax match markdownTag /^\[\w\+]$/
 syntax match markdownTag /\s\[\w\+]$/ 
 syntax match markdownTag /^\[\w\+]\s/ 
 syntax match markdownTag /\s\[\w\+]\s/ 
+
+syntax match markdownTag /^\[\w\+|\w\+]$/ 
+syntax match markdownTag /\s\[\w\+|\w\+]$/ 
+syntax match markdownTag /^\[\w\+|\w\+]\s/ 
+syntax match markdownTag /\s\[\w\+|\w\+]\s/ 
+
 highlight markdownTag ctermfg=red
 
 " highlight markdownTagDelimiter ctermfg=red

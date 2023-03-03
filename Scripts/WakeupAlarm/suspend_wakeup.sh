@@ -66,7 +66,7 @@ xset dpms force on
 xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
 mpv --no-audio --fullscreen /home/jensjp/fireplace.mp4 &
 pid=$!
-sleep 2m 
+sleep 10m 
 kill $pid
 sleep 1 
 xset dpms force off
