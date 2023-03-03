@@ -524,7 +524,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -601,6 +601,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
 
 awful.spawn.with_shell("~/.fehbg")
--- awful.spawn.with_shell("~/.config/polybar/launch.sh")
+awful.spawn.with_shell("~/.config/polybar/launch.sh")
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')
