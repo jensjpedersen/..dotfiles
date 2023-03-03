@@ -16,6 +16,20 @@ super+ctrl+Delete
 super+ctrl+BackSpace 
 	playerctl -i spotify,ncspot,vlc play-pause
 
+
+# ---------- Volume control ----------------
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 #    _                _ _           _   _                 
 #   / \   _ __  _ __ | (_) ___ __ _| |_(_) ___  _ __  ___ 
 #  / _ \ | '_ \| '_ \| | |/ __/ _` | __| |/ _ \| '_ \/ __|
