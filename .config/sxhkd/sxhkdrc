@@ -63,6 +63,12 @@ super+space;b
 
 super+space;e
     rofi -show emoji -modi emoji
+
+
+# ---------- Dmenu ----------
+super+c
+    clipmenu
+
 # ____            _       _       
 #/ ___|  ___ _ __(_)_ __ | |_ ___ 
 #\___ \ / __| '__| | '_ \| __/ __|
@@ -79,6 +85,7 @@ super+space;{c,m,w,t,s, shift+s }
 
 super+space;x
     bash ${HOME}/Scripts/Dmenu/dmenu_exec.sh
+
 
 # ------------------------- set wallpaper -------------------------
 #super+space;{s}

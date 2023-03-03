@@ -601,6 +601,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
 
 awful.spawn.with_shell("~/.fehbg")
-awful.spawn.with_shell("~/.config/polybar/launch.sh")
+-- awful.spawn.with_shell("~/.config/polybar/launch.sh")
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')

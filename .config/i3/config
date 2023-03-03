@@ -150,7 +150,7 @@ bindsym $mod+oslash focus mode_toggle
 #
 # focus the child container
 #bindsym $mod+c focus child
-bindsym $mod+c exec --no-startup-id clipmenu -nf "$light0" -nb "$dark0" -sb "$border" -sf "$text" -h 40 -fn 'MesloLGL Nerd Font Mono-13'
+# bindsym $mod+c exec --no-startup-id clipmenu -nf "$light0" -nb "$dark0" -sb "$border" -sf "$text" -h 40 -fn 'MesloLGL Nerd Font Mono-13'
 
 
 set $30 " "
