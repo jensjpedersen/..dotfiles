@@ -354,109 +354,91 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-tagkeys = { 'y', 'u', 'i', 'o', 'p', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5' }
-for i, k in ipairs(tagkeys) do
+--
+
+local secondary = 'DP-1'
+local primary = 'LVDS-1'
+
+-- Add screens to the table
+local screens = {}
+for s in screen do
+    for k, _ in pairs(s.outputs) do
+
+        if k == primary then
+            table.insert(screens, 1, s)
+        elseif k == secondary then
+            table.insert(screens, 2, s)
+        end
+
+    end
+end
+
+local tagkeys = {
+    [1]  = { 'Mod4',  "y",   screens[1]},
+    [2]  = { 'Mod4',  "u",   screens[1]},
+    [3]  = { 'Mod4',  "i",   screens[1]},
+    [4]  = { 'Mod4',  "o",   screens[1]},
+    [5]  = { 'Mod4',  "p",   screens[1]},
+    [6]  = { 'Mod4',  "6", screens[2]},
+    [7]  = { 'Mod4',  "7", screens[2]},
+    [8]  = { 'Mod4',  "8", screens[2]},
+    [9]  = { 'Mod4',  "9", screens[2]},
+    [11] = {     '', "F1",   screens[1]},
+    [12] = {     '', "F2",   screens[1]},
+    [13] = {     '', "F3",   screens[1]},
+    [14] = {     '', "F4",   screens[1]},
+    [15] = {     '', "F5",   screens[1]},
+    [16] = {     '', "F6",   screens[1]},
+    [17] = {     '', "F7",   screens[1]},
+}
+
+for k, v in pairs(tagkeys) do
+-- for i, k in ipairs(tagkeys) do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
-        awful.key({ modkey }, k,
+        awful.key({ v[1] }, v[2],
                   function ()
                         local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
+                        local tag = screen.tags[k]
                         if tag then
                            tag:view_only()
                         end
                   end,
-                  {description = "view tag #"..i, group = "tag"}),
+                  {description = "view tag #"..k, group = "tag"}),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, k,
+        awful.key({ v[1], "Control" }, v[2],
                   function ()
                       local screen = awful.screen.focused()
-                      local tag = screen.tags[i]
+                      local tag = screen.tags[k]
                       if tag then
                          awful.tag.viewtoggle(tag)
                       end
                   end,
-                  {description = "toggle tag #" .. i, group = "tag"}),
+                  {description = "toggle tag #" .. k, group = "tag"}),
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, k,
+        awful.key({ v[1], "Shift" }, v[2],
                   function ()
                       if client.focus then
-                          local tag = client.focus.screen.tags[i]
+                          local tag = client.focus.screen.tags[k]
                           if tag then
                               client.focus:move_to_tag(tag)
                           end
                      end
                   end,
-                  {description = "move focused client to tag #"..i, group = "tag"}),
+                  {description = "move focused client to tag #"..k, group = "tag"}),
         -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, k,
+        awful.key({ v[1], "Control", "Shift" }, v[2],
                   function ()
                       if client.focus then
-                          local tag = client.focus.screen.tags[i]
+                          local tag = client.focus.screen.tags[k]
                           if tag then
                               client.focus:toggle_tag(tag)
                           end
                       end
                   end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"})
+                  {description = "toggle focused client on tag #" .. k, group = "tag"})
     )
 end
-
-tagkeys = { 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12' }
-for i, k in ipairs(tagkeys) do
-    i = 10 + i 
-    globalkeys = gears.table.join(globalkeys,
-        -- View tag only.
-        awful.key({}, k,
-                  function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
-                        if tag then
-                           tag:view_only()
-                        end
-                  end,
-                  {description = "view tag #"..i, group = "tag"}),
-        -- Toggle tag display.
-        awful.key({ "Control" }, k,
-                  function ()
-                      local screen = awful.screen.focused()
-                      local tag = screen.tags[i]
-                      if tag then
-                         awful.tag.viewtoggle(tag)
-                      end
-                  end,
-                  {description = "toggle tag #" .. i, group = "tag"}),
-        -- Move client to tag.
-        awful.key({ "Shift" }, k,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                     end
-                  end,
-                  {description = "move focused client to tag #"..i, group = "tag"}),
-        -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, k,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"})
-    )
-end
-
-
--- {{{ Key bindings
--- globalkeys = awful.util.table.join(
---      -- My Bindings
---      awful.key({ }, "F1", function () awful.util.spawn_with_shell("qutebrowser") end)
---      )
 
 clientbuttons = gears.table.join(
     awful.button({ }, 1, function (c)
