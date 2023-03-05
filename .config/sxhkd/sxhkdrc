@@ -104,8 +104,8 @@ super+space;l
     i3-msg workspace back_and_forth
 
 # -------------------------- move workspace -------------------------
-super+r
-    i3-msg move workspace to output right || i3-msg move workspace to output up
+# super+r
+#     i3-msg move workspace to output right || i3-msg move workspace to output up
 
 super+Left
     i3-msg move workspace to output left
