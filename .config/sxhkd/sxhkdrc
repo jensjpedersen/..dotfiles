@@ -92,6 +92,16 @@ super+space;x
 #    alacritty --working-directory=$HOME -e sh ${HOME}/Scripts/set_wallpaper.sh
 
 
+
+#     _                                         
+#    / \__      _____  ___  ___  _ __ ___   ___ 
+#   / _ \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
+#  / ___ \ V  V /  __/\__ \ (_) | | | | | |  __/
+# /_/   \_\_/\_/ \___||___/\___/|_| |_| |_|\___|
+#
+super+space;l
+    awesome-client < ~/.config/awesome/scripts/previous_tag.lua
+
 # ___ _____                           
 #|_ _|___ /       _ __ ___  ___  __ _ 
 # | |  |_ \ _____| '_ ` _ \/ __|/ _` |
@@ -100,8 +110,8 @@ super+space;x
 #                               |___/ 
 #
 # Switch to last workspace
-super+space;l
-    i3-msg workspace back_and_forth
+# super+space;l
+#     i3-msg workspace back_and_forth
 
 # -------------------------- move workspace -------------------------
 # super+r
