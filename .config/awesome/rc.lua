@@ -398,17 +398,20 @@ for k, v in pairs(tagkeys) do
         -- View tag only.
         awful.key({ v[1] }, v[2],
                   function ()
-                        local screen = awful.screen.focused()
+                        -- local screen = awful.screen.focused()
+                        local screen = v[3]
                         local tag = screen.tags[k]
                         if tag then
                            tag:view_only()
+                           awful.screen.focus(screen)
                         end
                   end,
                   {description = "view tag #"..k, group = "tag"}),
         -- Toggle tag display.
         awful.key({ v[1], "Control" }, v[2],
                   function ()
-                      local screen = awful.screen.focused()
+                      -- local screen = awful.screen.focused()
+                      local screen = v[3]
                       local tag = screen.tags[k]
                       if tag then
                          awful.tag.viewtoggle(tag)
@@ -419,13 +422,16 @@ for k, v in pairs(tagkeys) do
         awful.key({ v[1], "Shift" }, v[2],
                   function ()
                       if client.focus then
-                          local tag = client.focus.screen.tags[k]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
+                          client.focus:move_to_tag(v[3].tags[k])
+
+                          -- local tag = client.focus.screen.tags[k]
+                          -- if tag then
+                          --     -- client.focus:move_to_tag(tag)
+                          -- end
                      end
                   end,
                   {description = "move focused client to tag #"..k, group = "tag"}),
+        -- TODO: not fixed for multi monitor
         -- Toggle tag on focused client.
         awful.key({ v[1], "Control", "Shift" }, v[2],
                   function ()
