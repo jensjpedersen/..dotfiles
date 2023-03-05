@@ -102,6 +102,9 @@ super+space;x
 super+space;l
     awesome-client < ~/.config/awesome/scripts/previous_tag.lua
 
+super+t
+    awesome-client < ~/.config/awesome/scripts/move_clients.lua
+
 # ___ _____                           
 #|_ _|___ /       _ __ ___  ___  __ _ 
 # | |  |_ \ _____| '_ ` _ \/ __|/ _` |
