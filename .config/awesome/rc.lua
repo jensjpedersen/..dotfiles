@@ -658,9 +658,11 @@ require("./lua/scratch")
 
 
 ---------- Autostart ----------
+-- Spawn once 
+awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
+
+-- Spawn always
 awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
 awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')
 
--- awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
-awful.spawn.once('/home/jensjp/.config/i3/Startup/exec_programs.sh')
