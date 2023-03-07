@@ -216,7 +216,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, 'Ctrl'}, "f",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "l", function()
-        awful.client.focus.byidx(1)
+        master = awful.client.getmaster()
+        awful.client.focus.byidx(1, master)
         local c = client.focus
         c:swap(awful.client.getmaster())
     end,
