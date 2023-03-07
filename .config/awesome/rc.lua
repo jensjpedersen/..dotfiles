@@ -477,8 +477,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = 2,
-                     border_width = beautiful.border_width,
+      properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -653,11 +652,15 @@ screen.connect_signal("added", function(s)
 end)
 --- }}}
 
+-- {{ Extensions
+require("./lua/scratch")
+-- }}
+
 
 ---------- Autostart ----------
 awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
-
 awful.spawn.with_shell("~/.fehbg")
--- awful.spawn.with_shell("~/.config/polybar/launch.sh")
-awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')
+
+-- awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
+awful.spawn.once('/home/jensjp/.config/i3/Startup/exec_programs.sh')
