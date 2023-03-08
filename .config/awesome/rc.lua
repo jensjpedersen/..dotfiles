@@ -147,6 +147,7 @@ local tasklist_buttons = gears.table.join(
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     -- set_wallpaper(s)
+    awful.spawn.with_shell("~/.fehbg")
 
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17" }, s, awful.layout.layouts[1])
@@ -361,12 +362,12 @@ clientkeys = gears.table.join(
 -- This should map on the top row of your keyboard, usually 1 to 9.
 --
 
+
+
+-- FIXME: should work independent of connected monitors
 local secondary = 'DP-1'
 local primary = 'LVDS-1'
 
-
-
--- Add screens to the table
 screens = {}
 for s in screen do
     for k, _ in pairs(s.outputs) do
@@ -381,6 +382,11 @@ for s in screen do
 end
 
 
+if #screens == 1 then
+    table.insert(screens, 2, screens[1])
+end
+
+
 local tagkeys = {
     [1]  = { 'Mod4',  "y",   screens[1]},
     [2]  = { 'Mod4',  "u",   screens[1]},
@@ -391,6 +397,7 @@ local tagkeys = {
     [7]  = { 'Mod4',  "7", screens[2]},
     [8]  = { 'Mod4',  "8", screens[2]},
     [9]  = { 'Mod4',  "9", screens[2]},
+    [10] = { 'Mod4',  "0", screens[2]},
     [11] = {     '', "F1",   screens[1]},
     [12] = {     '', "F2",   screens[1]},
     [13] = {     '', "F3",   screens[1]},
@@ -586,9 +593,9 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
--- client.connect_signal("mouse::enter", function(c)
---     c:emit_signal("request::activate", "mouse_enter", {raise = false})
--- end)
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
@@ -663,6 +670,5 @@ awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
 
 -- Spawn always
 awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
-awful.spawn.with_shell("~/.fehbg")
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')
 

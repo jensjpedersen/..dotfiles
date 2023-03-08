@@ -112,12 +112,16 @@ require('packer').startup(function()
   -- use 'liuchengxu/vista.vim'
   use 'kshenoy/vim-signature'
   use 'AndrewRadev/linediff.vim'
+  use 'Exafunction/codeium.vim'
   -- Etc
   -- use {
   --     'glacambre/firenvim', -- Turn your browser into a nvimclient
   --     run = function() vim.fn['firenvim#install'](0) end
   -- }
 end)
+
+
+
 
 
 
