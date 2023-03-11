@@ -1,27 +1,39 @@
+
+
+
+
 awful = require("awful")
 naughty = require("naughty")
 gears = require("gears")
 
 
---{{ Scratchpad
+local screen_name = 'LVDS-1'
 local function create_scratch(name, cmd)
+
+    -- TODO: check if already exists 
     os.execute("pkill -f \"alacritty --class " .. name .. " -e " .. cmd .. '"')
 
+
     awful.tag.add(name, {
-      layout = awful.layout.suit.floating,
-      hide = true,
+        layout = awful.layout.suit.floating,
+        hide = true,
+        screen = awful.screen.focused()
     })
 
-    local tag = awful.tag.find_by_name(awful.screen.focused(), name)
+    table.insert(awful.rules.rules, 
+    { rule = { class = name },
+        properties = {
+            tag = name,
+            screen = screen_name,
+            floating = true,
+            width = 1400,
+            } }
+        )
 
-    table.insert(awful.rules.rules,
-    { rule_any = { instance = { name } },
-        properties = { placement = awful.placement.centered , floating = true, ontop = true, border_width = 1,
-        tag = tag, width=1600, height=800, x=0, y=0, opacity=0.5, focus=true, focusable=true
-        } }
-    )
-    awful.spawn("alacritty --class " .. name .. " -e " .. cmd)
+    awful.spawn.with_shell("alacritty --class " .. name .. " -e " .. cmd)
 end
+
+
 
 local function toggle_scratch(name)
     local screen = awful.screen.focused()
@@ -53,7 +65,13 @@ globalkeys = gears.table.join(globalkeys,
     )
 
 root.keys(globalkeys)
---}}
+
+
+
+
+
+
+
 
 
 

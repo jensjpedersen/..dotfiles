@@ -5,7 +5,6 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
 -- Theme handling library
@@ -246,8 +245,8 @@ globalkeys = gears.table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
+    -- awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
+    --           {description = "jump to urgent client", group = "client"}),
     -- awful.key({ modkey,           }, "Tab",
     --     function ()
     --         awful.client.focus.history.previous()
@@ -531,6 +530,9 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
+    { rule = { class = "Polybar" },
+      properties = { focusable = false } }, -- Fix auto focus on polybar
+
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
@@ -660,6 +662,7 @@ end)
 --- }}}
 
 -- {{ Extensions
+require("awful.autofocus")
 require("./lua/scratch")
 -- }}
 
@@ -669,6 +672,6 @@ require("./lua/scratch")
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
 
 -- Spawn always
-awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')
+awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
 

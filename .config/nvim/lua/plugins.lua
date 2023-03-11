@@ -56,7 +56,12 @@ require('packer').startup(function()
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
   use 'lewis6991/gitsigns.nvim'
+  use {
+      'ldelossa/gh.nvim',
+      requires = { { 'ldelossa/litee.nvim' } }
+  }
   use 'sindrets/diffview.nvim'
+
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
