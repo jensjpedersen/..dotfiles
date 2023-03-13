@@ -117,7 +117,7 @@ require('packer').startup(function()
   -- use 'liuchengxu/vista.vim'
   use 'kshenoy/vim-signature'
   use 'AndrewRadev/linediff.vim'
-  use 'Exafunction/codeium.vim'
+  -- use 'Exafunction/codeium.vim'
   -- Etc
   -- use {
   --     'glacambre/firenvim', -- Turn your browser into a nvimclient

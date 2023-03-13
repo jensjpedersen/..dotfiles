@@ -131,21 +131,18 @@ vim.keymap.set('v', '<leader>as', '<cmd> lua require("openai_nvim").send_visual_
 -- Scim
 require("scim-nvim").setup()
 
--- -- Copilot
--- vim.keymap.set('n', '<leader>ap', '<cmd> Copilot panel<CR>', opts)
--- vim.keymap.set('n', '<leader>ao', '<cmd> Copilot open<CR>', opts)
--- vim.cmd[[
--- imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
--- let g:copilot_no_tab_map = v:true
--- ]]
+-- Copilot
+vim.keymap.set('n', '<leader>ap', '<cmd> Copilot panel<CR>', opts)
+vim.keymap.set('n', '<leader>ao', '<cmd> Copilot open<CR>', opts)
+vim.cmd[[
+imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+]]
 
 -- Codium
 
-vim.g.codeium_no_map_tab = true
-vim.keymap.set('i', '<C-h>', function () return vim.fn['codeium#Accept']() end, { expr = true })
--- vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
--- vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
--- vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+-- vim.g.codeium_no_map_tab = true
+-- vim.keymap.set('i', '<C-h>', function () return vim.fn['codeium#Accept']() end, { expr = true })
 
 
 
