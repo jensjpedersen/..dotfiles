@@ -34,16 +34,17 @@ local function sort_table(tbl, ref_tbl)
     local keys = {}
 
     -- Populate the temporary table with the keys of tbl
-    for k, v in pairs(tbl) do
+    for k, _ in pairs(tbl) do
         table.insert(keys, k)
+        naughty.notify({text = tostring(k)})
     end
 
-    -- Define a comparison function that compares the values in screen_priority
+    -- Define a comparison function that compares the values in ref_tbl
     local function compare(a, b)
-        return screen_priority[a] < screen_priority[b]
+        return ref_tbl[a] < ref_tbl[b]
     end
 
-    -- Sort the keys table based on the values in screen_priority
+    -- Sort the keys table based on the values in ref_tbl
     table.sort(keys, compare)
 
     -- Create the new_tbl table by iterating over the sorted keys table
