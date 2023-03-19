@@ -42,8 +42,8 @@ super+return
 super+w
     qutebrowser
 
-super + {b, n,m,comma,period}
-    alacritty --working-directory=$HOME -e {cointop, ranger,nvim,calcurse,btop}
+super + {n,m,comma,period}
+    alacritty --working-directory=$HOME -e {ranger,nvim,calcurse,btop}
 
 super+ctrl+{n,m, comma, period}
     alacritty --working-directory=$HOME -e {ranger /mnt/ssd, nvim -c VimwikiIndex, nvim -c "2 VimwikiIndex", htop}
