@@ -66,8 +66,11 @@ super+space;e
 
 
 # ---------- Dmenu ----------
-super+c
-    clipmenu
+super+c 
+    clipmenu -i -nf "#fbf1c7" -nb "#282828" -sb "#004d58" -sf "#c3c2ca" -h 40 -fn 'MesloLGL Nerd Font Mono-13'
+
+super+d
+    dmenu_run -i -nf "#fbf1c7" -nb "#282828" -sb "#004d58" -sf "#c3c2ca" -h 40 -fn 'MesloLGL Nerd Font Mono-13'
 
 # ____            _       _       
 #/ ___|  ___ _ __(_)_ __ | |_ ___ 
