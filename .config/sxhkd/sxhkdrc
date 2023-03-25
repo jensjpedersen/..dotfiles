@@ -80,8 +80,8 @@ super+d
 #                  |_|            
 
 # ========================= Ffz Scripts =========================
-super+space;{c,m,w,t,s, shift+s }
-    alacritty --working-directory=$HOME -e sh ${HOME}/Scripts/Fzf/{config_fzf.sh,master_fzf.sh,wiki_fzf.sh,tmux_fzf.sh,scripts_fzf.sh}
+super+space;{c,m,w,t,shift+w}
+    alacritty --working-directory=$HOME -e sh ${HOME}/Scripts/Fzf/{config_fzf.sh,master_fzf.sh,wiki_fzf.sh,tmux_fzf.sh,wiki2_fzf.sh}
 
 #super+space;x
 #    alacritty --working-directory=$HOME -e bash ${HOME}/Scripts/Dmenu/dmenu_exec.sh
