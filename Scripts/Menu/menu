@@ -22,22 +22,22 @@ while true; do
                 read -n 1 opt2
                 case $opt2 in
                     5)
-                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 5:15 
+                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 5:00 
                         ;;
                     6)
-                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 6:15 
+                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 6:00 
                         ;;
                     7)
-                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 7:15 
+                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 7:00 
                         ;;
                     8)
-                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 8:15 
+                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 8:00 
                         ;;
                     9)
-                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 9:15 
+                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 9:00 
                         ;;
                     1)
-                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 10:15
+                        ${HOME}/Scripts/WakeupAlarm/suspend_wakeup.sh 10:00
                         ;;
                     q)
                         break

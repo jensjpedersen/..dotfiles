@@ -29,8 +29,8 @@ endif
 
 
 " Mardown
-" hi markdownHeader1 ctermfg=10 cterm=Bold
-" match markdownHeader1 /^#\s.*$/
+hi markdownHeader1 ctermfg=10 cterm=Bold
+match markdownHeader1 /^#\s.*$/
 
 
 " Markdonw custom tag 
