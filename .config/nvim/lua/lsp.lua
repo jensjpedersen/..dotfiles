@@ -117,6 +117,11 @@ require 'lspconfig'.ltex.setup {
     filetypes = { "bib", "gitcommit", "org", "plaintex", "rst", "rnoweb", "tex" }
 }
 
+-- require'lspconfig'.texlab.setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+-- }
+
 require 'lspconfig'.julials.setup {
     on_attach = on_attach,
     flags = lsp_flags,

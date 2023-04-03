@@ -1,10 +1,12 @@
+
+
+-- omnifunc is slow, create your own completion menu instead
+
 -- Enalbe omnifunc
 -- vim.cmd([[
 -- if &omnifunc == ""
 --     setlocal omnifunc=syntaxcomplete#Complete 
 -- endif
--- ]])
-
 
 require('cmp').setup.buffer {
     -- formatting = {
@@ -20,8 +22,8 @@ require('cmp').setup.buffer {
     sources = {
         { name = 'latex_symbols' },
         { name = 'ultisnips' },
-        -- { name = 'omni'},
-        { name = 'buffer' },
+        { name = 'omni'},
+        -- { name = 'buffer' },
         { name = 'path' },
         -- other sources
     }
@@ -33,6 +35,8 @@ local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<leader>sf', ':vimgrep /label{fig:/j *.tex<CR>', opts)
 vim.keymap.set('n', '<leader>se', ':vimgrep /label{eq:/j *.tex<CR>', opts)
 vim.keymap.set('n', '<leader>st', ':vimgrep /label{tab:/j *.tex<CR>', opts)
+vim.keymap.set('n', '<leader>sb', ':vimgrep /^@/j *.bib<CR>', opts)
+
 
 
 -- require('cmp').setup.buffer { sources = { { name = 'dictionary' } } } 

@@ -23,6 +23,10 @@ require("telescope").setup({
         mappings = {
             i = {
                 ["<esc>"] = actions.close,
+                ["<C-x>"] = actions.delete_buffer,
+                ["<C-s>"] = actions.select_horizontal,
+                -- ["<C-v>"] = actions.select_vertical,
+                -- ["<C-t>"] = actions.select_tab,
             },
         },
     },

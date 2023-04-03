@@ -122,7 +122,14 @@ require("nvim-tree").setup()
 vim.keymap.set('n', '<leader>y',  ':NvimTreeFindFileToggle<CR>', opts)
 
 -- Ranger
-vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
+--
+require("ranger_nvim").setup({
+    fileopener = "rifle",
+    mapping = '<leader>f',
+})
+
+
+-- vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
 
 -- OpenAI
 vim.keymap.set('n', '<leader>as', '<cmd> lua require("openai_nvim").send_current_line()<CR>', opts)
