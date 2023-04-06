@@ -179,6 +179,7 @@ vim.keymap.set('n', '<leader>sc', '<cmd>TodoQuickFix<CR>', opts)
 
 
 -- Database | DadbodUI
+vim.keymap.set('n', '<leader>du', ':DBUIToggle<CR>', opts)
 -- vim.cmd[[
 -- nnoremap <silent> <leader>du :DBUIToggle<CR>
 -- nnoremap <silent> <leader>df :DBUIFindBuffer<CR>

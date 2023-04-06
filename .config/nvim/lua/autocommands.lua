@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWrite"}, {
     callback = function () require("nabla").enable_virt() end
 })
 
+
 -- Tsv 
 vim.cmd[[
 autocmd BufNewFile,BufRead *.tsv 
