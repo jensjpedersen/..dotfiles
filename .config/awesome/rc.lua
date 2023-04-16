@@ -323,6 +323,8 @@ clientkeys = gears.table.join(
     awful.key({ modkey }, "oslash", function () awful.screen.focus_relative(-1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey }, "b", function () awful.screen.focus_relative(-1) end,
+              {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey }, "n", function () awful.screen.focus_relative(1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey }, "h", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
