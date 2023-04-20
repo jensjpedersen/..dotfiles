@@ -324,8 +324,10 @@ clientkeys = gears.table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey }, "b", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey }, "n", function () awful.screen.focus_relative(1) end,
-              {description = "focus the next screen", group = "screen"}),
+    -- awful.key({ modkey }, "n", function () awful.screen.focus_relative(1) end,
+    --         -- XXX: function is called,  but focus_relative(-1) does not work. Only for mod+n binding. Super weird.
+    --         -- Realted to Xmodmap
+    --           {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey }, "h", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey }, "r",      function (c) c:move_to_screen()               end,

@@ -26,7 +26,11 @@ local function create_scratch(name, cmd)
             tag = name,
             screen = screen_name,
             floating = true,
-            width = 1400,
+            width = 1700,
+            height = 800,
+            callback = function(c)
+                      awful.placement.centered(c, {honor_workarea=true})
+                  end
             } }
         )
 

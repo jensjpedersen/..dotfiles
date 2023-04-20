@@ -1,6 +1,8 @@
 keycode 65 = space space space space 0 U202F nobreakspace
 
-keycode 57 =n N n N plus rightsinglequotemark rightdoublequotemark	
+! This line is not compatible with mod+n binding in awesome wm. Workaround use: sxhkd
+keycode 57 = n N n N plus rightsinglequotemark rightdoublequotemark	
+
 keycode 58 = m M m M 1 masculine mu	
 keycode 59 = comma semicolon comma semicolon 2 dead_ogonek dead_cedilla	
 keycode 60 = period colon period colon 3 periodcentered ellipsis	
