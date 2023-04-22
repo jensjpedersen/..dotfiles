@@ -691,8 +691,8 @@ new_float none
 no_focus [class='firefox']
 
 # Scrot screenshot
-bindsym --release Print exec --no-startup-id scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
-bindsym --release Shift+Print exec --no-startup-id scrot -s -f -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
-bindsym --release Ctrl+Print exec --no-startup-id scrot -u -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+# bindsym --release Print exec --no-startup-id scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
+# bindsym --release Shift+Print exec --no-startup-id scrot -s -f -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+# bindsym --release Ctrl+Print exec --no-startup-id scrot -u -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
 #bindsym Shift+Print --release exec --no-startup-id i3-scrot -sc
 
