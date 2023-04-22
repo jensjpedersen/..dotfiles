@@ -33,14 +33,14 @@ XF86AudioMicMute
 
 # ---------- Print Screen ----------------
 
-# Print
-#     scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
+Print
+    scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
 
-# Print+shift
-#     scrot -s -f -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+Print+shift
+    scrot -s -f -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
 
-# Print+ctrl
-#     scrot -u -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+Print+ctrl
+    scrot -u -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
 
 
 #    _                _ _           _   _                 
