@@ -32,10 +32,16 @@ XF86AudioMicMute
 
 
 # ---------- Print Screen ----------------
-#
-# bindsym --release Print exec --no-startup-id scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
-# bindsym --release Shift+Print exec --no-startup-id scrot -s -f -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
-# bindsym --release Ctrl+Print exec --no-startup-id scrot -u -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+
+# Print
+#     scrot -s -f ~/Pictures/%Y-%m-%d-%H%M%S.png
+
+# Print+shift
+#     scrot -s -f -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+
+# Print+ctrl
+#     scrot -u -o "/tmp/image.png" && xclip -selection clipboard -t image/png -i /tmp/image.png
+
 
 #    _                _ _           _   _                 
 #   / \   _ __  _ __ | (_) ___ __ _| |_(_) ___  _ __  ___ 
@@ -49,7 +55,7 @@ super+return
 super+w
     qutebrowser
 
-super + {n,m,comma,period}
+super+{n,m,comma,period}
     alacritty --working-directory=$HOME -e {ranger, nvim, calcurse, btop}
 
 super+ctrl+{n,m, comma, period}
