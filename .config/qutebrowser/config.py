@@ -4,6 +4,17 @@ c.content.javascript.enabled = True
 c.tabs.position = "top"
 c.zoom.default = "125%"
 
+# Search engines
+
+# c.url.searchengines = ''
+c.url.searchengines = {"DEFAULT": "https://search.brave.com/search?q={}", 
+                       "x": "https://paulgo.io/search?q={}",
+                       "s": "https://www.semanticscholar.org/search?q={}&sort=relevance", 
+                       "w": "https://en.wikipedia.org/wiki/{}", 
+                       "r": "https://www.reddit.com/search/?q={}",
+                       "t": "https://www.deepl.com/translator#nb/en/{}",
+                       }
+
 # Styling
 ## Dark mode
 c.colors.webpage.darkmode.enabled=True
