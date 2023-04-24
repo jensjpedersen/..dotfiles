@@ -151,6 +151,11 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17" }, s, awful.layout.layouts[1])
 
+    -- iterate through all tags and set master width factor
+    for _, t in ipairs(s.tags) do
+        t.master_width_factor = 0.65
+    end
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -584,4 +589,10 @@ awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_programs.sh')
 -- Spawn always
 awful.spawn.with_shell('/home/jensjp/.config/i3/Startup/exec_always.sh')
 awful.spawn.with_shell("~/.config/i3/Startup/exec_keyboard_settings.sh")
+
+
+
+
+
+
 
