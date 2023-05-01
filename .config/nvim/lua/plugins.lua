@@ -80,8 +80,10 @@ require('packer').startup(function()
   use 'tpope/vim-dadbod' -- Interact with databases 
   use 'kristijanhusak/vim-dadbod-ui'
   use 'kristijanhusak/vim-dadbod-completion'
+  use 'vim-test/vim-test'
   use { 'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate' }
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Writing
   use 'lervag/vimtex'		           -- Latex
@@ -124,6 +126,22 @@ require('packer').startup(function()
   --     'glacambre/firenvim', -- Turn your browser into a nvimclient
   --     run = function() vim.fn['firenvim#install'](0) end
   -- }
+  --
+  -- AI
+  use({
+      "jackMort/ChatGPT.nvim",
+      config = function()
+          require("chatgpt").setup()
+      end,
+      requires = {
+          "MunifTanjim/nui.nvim",
+          "nvim-lua/plenary.nvim",
+          "nvim-telescope/telescope.nvim"
+      }
+  })
+
+  use 'Bryley/neoai.nvim'
+
 end)
 
 

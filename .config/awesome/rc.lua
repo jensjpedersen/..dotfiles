@@ -256,7 +256,12 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey }, "x",      function (c) c:kill()                         end,
+    awful.key({ modkey }, "x",      function (c) 
+        -- Kill client and focus master client
+        c:kill()
+        awful.client.focus.byidx(1) -- focus 2. client
+        client.focus = awful.client.getmaster() -- focus master, as defined before kill
+    end,
               {description = "close", group = "client"}),
     -- awful.key({ modkey }, 'oslash',  awful.client.floating.toggle                     ,
     --           {description = "toggle floating", group = "client"}),
