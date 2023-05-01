@@ -19,6 +19,8 @@ if t then
 
     if result == "\n" then
         t.name = tag_nr
+    elseif result == "" then
+        t.name = tag_nr
     else
         t.name = tag_nr .. ':' .. result
     end
