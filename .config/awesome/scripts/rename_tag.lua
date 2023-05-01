@@ -22,7 +22,7 @@ if t then
     elseif result == "" then
         t.name = tag_nr
     else
-        t.name = tag_nr .. ':' .. result
+        t.name = tag_nr .. '|' .. result
     end
 
 
