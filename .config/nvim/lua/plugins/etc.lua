@@ -132,8 +132,8 @@ require("ranger_nvim").setup({
 -- vim.keymap.set('n', '<leader>f', '<cmd>lua require("ranger_nvim").ranger_nvim()<CR>')
 
 -- OpenAI
-vim.keymap.set('n', '<leader>as', '<cmd> lua require("openai_nvim").send_current_line()<CR>', opts)
-vim.keymap.set('v', '<leader>as', '<cmd> lua require("openai_nvim").send_visual_selection()<CR>', opts)
+-- vim.keymap.set('n', '<leader>as', '<cmd> lua require("openai_nvim").send_current_line()<CR>', opts)
+-- vim.keymap.set('v', '<leader>as', '<cmd> lua require("openai_nvim").send_visual_selection()<CR>', opts)
 
 -- Scim
 require("scim-nvim").setup()
