@@ -18,10 +18,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'wbthomason/packer.nvim' -- Package manager
+  -- use '~/Projects/ranger_nvim'
   -- use 'jensjpedersen/ranger_nvim'
-  use '~/Projects/ranger_nvim'
   use '~/Projects/NvimOpenAI/'
-  use '~/Projects/scim.nvim/'
+  -- use '~/Projects/scim.nvim/'
+  use 'jensjpedersen/scim.nvim'
   -- use 'jensjpedersen/openai_nvim'
 
   -- Lsp
