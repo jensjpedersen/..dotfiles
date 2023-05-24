@@ -25,6 +25,7 @@ require("telescope").setup({
                 ["<esc>"] = actions.close,
                 ["<C-x>"] = actions.delete_buffer,
                 ["<C-s>"] = actions.select_horizontal,
+                ["<leader>c"] = actions.send_to_qflist,
                 -- ["<C-v>"] = actions.select_vertical,
                 -- ["<C-t>"] = actions.select_tab,
             },

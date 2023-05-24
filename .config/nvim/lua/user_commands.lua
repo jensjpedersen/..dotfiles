@@ -14,5 +14,5 @@ vim.api.nvim_create_user_command(
 
 
 -- Nabla diable/enable virt
-vim.api.nvim_create_user_command( 'NablaDisable', function() require"nabla".disable_virt() end, { nargs = 0 })
-vim.api.nvim_create_user_command( 'NablaEnable', function() require"nabla".enable_virt() end, { nargs = 0 })
+-- vim.api.nvim_create_user_command( 'NablaDisable', function() require"nabla".disable_virt() end, { nargs = 0 })
+-- vim.api.nvim_create_user_command( 'NablaEnable', function() require"nabla".enable_virt() end, { nargs = 0 })
