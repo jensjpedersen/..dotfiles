@@ -263,8 +263,8 @@ clientkeys = gears.table.join(
         client.focus = awful.client.getmaster() -- focus master, as defined before kill
     end,
               {description = "close", group = "client"}),
-    -- awful.key({ modkey }, 'oslash',  awful.client.floating.toggle                     ,
-    --           {description = "toggle floating", group = "client"}),
+    awful.key({ modkey, "Shift" }, 'f',  awful.client.floating.toggle                     ,
+              {description = "toggle floating", group = "client"}),
     awful.key({ modkey }, "oslash", function () awful.screen.focus_relative(-1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey }, "b", function () awful.screen.focus_relative(-1) end,
