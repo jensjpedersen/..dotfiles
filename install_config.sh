@@ -1,9 +1,9 @@
 #!/bin/sh
 
-sudo apt install git tmux ranger fzf curl cmake
+sudo apt install git tmux ranger fzf curl cmake python3
 
 # Install syntching 
-if which syncthing >/dev/null; then  
+if ! which syncthing >/dev/null; then  
     ## Add the release PGP keys:
     sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
     # Add the "stable" channel to your APT sources:
