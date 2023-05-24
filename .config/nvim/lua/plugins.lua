@@ -15,8 +15,8 @@ local packer_bootstrap = ensure_packer()-- This file can be loaded by calling `l
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-local use = require('packer').use
-require('packer').startup(function()
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'jensjpedersen/ranger_nvim'
   use '~/Projects/ranger_nvim'
@@ -153,6 +153,10 @@ require('packer').startup(function()
   -- })
 
   -- use 'Bryley/neoai.nvim'
+  --
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 
 end)
 
