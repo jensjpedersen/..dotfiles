@@ -1,0 +1,94 @@
+snippet % " comment " -b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% $1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$0
+endsnippet
+
+snippet br "breakpoint" -i
+keyboard
+endsnippet
+
+snippet %% "sub comment " -b
+%%%%%%%%%%%%%%% $1 %%%%%%%%%%%%%%%
+$0
+endsnippet
+
+snippet # " header "
+fprintf('=============== $1 ===============\n')
+$0
+endsnippet
+
+snippet pr " print "
+fprintf("$1 = " + $1 + "\n")
+endsnippet
+
+snippet si " print size "
+"$1: ", size($1)
+$0
+endsnippet
+
+snippet su " sum "
+sum_$1 = sum($1, 'all')
+$0
+endsnippet
+
+snippet savef "save fig"
+figure('Position', [100 100 1000 700])
+$2
+saveas(gcf, "./Figures/$1.png")
+$0
+endsnippet
+
+# Figures
+
+snippet im "plot image"
+figure(); imshow($1, [])
+$0
+endsnippet
+
+snippet slice "plot orthoslice"
+figure(); orthosliceViewer($1) 
+$0
+endsnippet
+
+snippet hist "plot histogram"
+figure(); histogram(reshape($1, 1, []), 200)
+$0
+endsnippet
+
+
+snippet me "Merge symbols"
+%<<<<<
+%=====
+%>>>>>
+endsnippet
+
+snippet re "return"
+return
+$0
+endsnippet
+
+snippet ke "keyboard"
+keyboard
+$0
+endsnippet
+
+# Logging
+
+snippet in "info"
+obj.logger.info($0)
+endsnippet
+
+snippet de "debug"
+obj.logger.debug($0)
+endsnippet
+
+snippet er "debug"
+obj.logger.error($0)
+endsnippet
+
+
+
+
+

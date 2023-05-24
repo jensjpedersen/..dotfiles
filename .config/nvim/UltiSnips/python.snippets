@@ -1,0 +1,77 @@
+snippet import "import standard stuff"
+from dataclasses import dataclass, field
+import sys
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd 
+import seaborn as sns
+from importlib import reload
+$0
+endsnippet
+
+snippet br "breakpoint"
+breakpoint() $0
+endsnippet
+
+# snippet br "breakpoint"
+# ipdb.set_trace() $0
+# endsnippet
+
+
+snippet # " comment " -b
+# =============== $1 ===============
+$0
+endsnippet
+
+snippet ty "print type"
+print(type($1))
+$0
+endsnippet
+
+snippet sh "print shape"
+print(np.shape($1))
+$0
+endsnippet
+
+snippet pr "print variable"
+print($1)
+$0
+endsnippet
+
+snippet pf "print fstring"
+print(f'$1 = {$1}')
+$0
+endsnippet
+
+snippet time "timer count"
+tic = time.perf_counter()
+$1
+toc = time.perf_counter()
+print(f'took: {toc-tic}')
+$0
+endsnippet
+
+snippet log "create logger"
+logging.basicConfig(format='%(message)s', filename='./flow.log', encoding='utf-8', level=logging.DEBUG, force=True)
+logging.getLogger().disabled = False
+endsnippet
+
+snippet srcpath "Get path to src dir"
+script_dir = os.path.dirname(os.path.realpath(__file__))
+parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
+src_dir = os.path.abspath(os.path.join(parent_dir, 'src'))
+sys.path.append(src_dir)
+endsnippet
+
+# Load ipython namespace
+snippet loadns "Load namespace"
+import IPython
+try: 
+    ipython = IPython.get_ipython()
+    $1 = ipython.user_ns['$1']
+except:
+    # Load the data
+	$0
+endsnippet
+
+
