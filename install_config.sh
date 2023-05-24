@@ -17,6 +17,7 @@ fi
 
 # Install latest nvim
 if [ ! -d "$HOME/neovim" ]; then
+    sudo apt-get install ninja-build gettext cmake unzip curl # required for building
     git clone https://github.com/neovim/neovim
     cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo 
     sudo make install
