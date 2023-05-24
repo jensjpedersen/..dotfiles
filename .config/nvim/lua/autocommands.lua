@@ -41,17 +41,12 @@ autocmd BufNewFile,BufRead *.md
    \ set textwidth=79 |
 ]]
 
--- vim.cmd[[
--- autocmd BufRead,BufWrite *.md
---     \ lua require"nabla".enable_virt()
--- ]]
 
-
-vim.api.nvim_create_autocmd({"BufEnter", "BufWrite"}, {
-    group = vim.api.nvim_create_augroup("MarkdownMath", { clear = true }), 
-    pattern = {"*.md", "*.tex"},
-    callback = function () require("nabla").enable_virt() end
-})
+-- vim.api.nvim_create_autocmd({"BufEnter", "BufWrite"}, {
+--     group = vim.api.nvim_create_augroup("MarkdownMath", { clear = true }), 
+--     pattern = {"*.md", "*.tex"},
+--     callback = function () require("nabla").enable_virt() end
+-- })
 
 
 -- Tsv 
