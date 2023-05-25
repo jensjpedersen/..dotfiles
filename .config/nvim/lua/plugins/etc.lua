@@ -28,7 +28,7 @@ vim.keymap.set('n', '<leader>z',  ':MaximizerToggle<CR>', opts)
 vim.cmd('let g:user_emmet_leader_key="<C-c>"')
 
 -- Notes --
-vim.keymap.set('n', '<localleader>ns',  ':!bash ~/Scripts/Vim/screencapture.sh <CR>', opts)
+-- vim.keymap.set('n', '<localleader>ns',  ':!bash ~/Scripts/Vim/screencapture.sh <CR>', opts)
 
 -- QR-code" Make slide show'
 vim.keymap.set('n', '<localleader>nq',  ':w<CR>:! qrencode -r % -o %:r.png<CR>', opts)

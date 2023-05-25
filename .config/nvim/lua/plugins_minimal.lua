@@ -1,3 +1,4 @@
+
 -- Bootstrapping packer.nvim
 local ensure_packer = function()
   local fn = vim.fn
@@ -19,33 +20,33 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   -- use '~/Projects/ranger_nvim'
   -- use 'jensjpedersen/ranger_nvim'
-  use '~/Projects/NvimOpenAI/'
+  -- use '~/Projects/NvimOpenAI/'
   -- use '~/Projects/scim.nvim/'
-  use 'jensjpedersen/scim.nvim'
+  -- use 'jensjpedersen/scim.nvim'
   -- use 'jensjpedersen/openai_nvim'
 
   -- Lsp
-  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'williamboman/mason.nvim'
+  -- use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+  -- use 'hrsh7th/cmp-nvim-lsp'
+  -- use 'williamboman/mason.nvim'
 
   -- Cmp
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'onsails/lspkind.nvim'
-  use 'hrsh7th/cmp-nvim-lua'
-  -- use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
-  use  "kdheepak/cmp-latex-symbols"
+  -- use 'hrsh7th/cmp-buffer'
+  -- use 'hrsh7th/cmp-path'
+  -- use 'hrsh7th/cmp-cmdline'
+  -- use 'hrsh7th/nvim-cmp'
+  -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  -- use 'onsails/lspkind.nvim'
+  -- use 'hrsh7th/cmp-nvim-lua'
+  -- -- use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
+  -- use  "kdheepak/cmp-latex-symbols"
 
   -- For ultisnips users.
-  use 'SirVer/ultisnips'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  -- use 'SirVer/ultisnips'
+  -- use 'quangnguyen30192/cmp-nvim-ultisnips'
 
-  -- Omnicompletion
-  use 'hrsh7th/cmp-omni'
+  -- -- Omnicompletion
+  -- use 'hrsh7th/cmp-omni'
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
@@ -77,11 +78,11 @@ return require('packer').startup(function(use)
 
 
   -- Debugging
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'mfussenegger/nvim-dap-python'
-  use 'nvim-telescope/telescope-dap.nvim'
-  use 'theHamsta/nvim-dap-virtual-text'
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'rcarriga/nvim-dap-ui'
+  -- use 'mfussenegger/nvim-dap-python'
+  -- use 'nvim-telescope/telescope-dap.nvim'
+  -- use 'theHamsta/nvim-dap-virtual-text'
 
   -- Coding
   use 'benmills/vimux'                 -- vim tmux compatibility
@@ -89,26 +90,26 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
   use 'yinflying/matlab.vim'
   use 'mattn/emmet-vim'
-  use 'tpope/vim-dadbod' -- Interact with databases 
-  use 'kristijanhusak/vim-dadbod-ui'
-  use 'kristijanhusak/vim-dadbod-completion'
-  use 'vim-test/vim-test'
-  use { 'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate' }
-  use 'nvim-treesitter/nvim-treesitter-context'
+  -- use 'tpope/vim-dadbod' -- Interact with databases 
+  -- use 'kristijanhusak/vim-dadbod-ui'
+  -- use 'kristijanhusak/vim-dadbod-completion'
+  -- use 'vim-test/vim-test'
+  -- use { 'nvim-treesitter/nvim-treesitter',
+  --       run = ':TSUpdate' }
+  -- use 'nvim-treesitter/nvim-treesitter-context'
 
   -- Writing
-  use 'lervag/vimtex'		           -- Latex
+  -- use 'lervag/vimtex'		           -- Latex
   -- use 'vimwiki/vimwiki'		           -- vimwiki
   -- use 'jensjpedersen/vimwiki_fork'
-  use '~/Projects/vimwiki_fork'		           -- vimwiki
+  -- use '~/Projects/vimwiki_fork'		           -- vimwiki
 
   -- use 'jbyuki/nabla.nvim'
 
-  use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  })
+  -- use({
+  --     "iamcco/markdown-preview.nvim",
+  --     run = function() vim.fn["mkdp#util#install"]() end,
+  -- })
 
   -- Styling
   use 'nvim-lualine/lualine.nvim'
