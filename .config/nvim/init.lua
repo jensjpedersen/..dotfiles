@@ -17,6 +17,9 @@ require('plugins/navigation')
 require('highlight')
 
 
+vim.cmd('colorscheme gruvbox')
+
+
 
 
 
