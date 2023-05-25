@@ -16,7 +16,6 @@ local packer_bootstrap = ensure_packer()-- This file can be loaded by calling `l
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
   use 'wbthomason/packer.nvim' -- Package manager
   -- use '~/Projects/ranger_nvim'
   -- use 'jensjpedersen/ranger_nvim'
