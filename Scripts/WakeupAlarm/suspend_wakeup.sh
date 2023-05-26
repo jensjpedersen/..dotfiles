@@ -2,6 +2,8 @@
 diff=35 # Wake pc int minutes before alarm
 delta_alarm=5 # Start alarm $delta_alarm after pc wakeup
 
+export DISPLAY=:0
+
 PROGNAME=$(basename $0)
 function error_exit
 {
