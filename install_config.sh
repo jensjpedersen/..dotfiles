@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt install git tmux ranger fzf curl cmake python3
+sudo apt install git tmux ranger fzf curl cmake python3 ripgrep
 
 # Install syntching 
 if ! which syncthing >/dev/null; then  
