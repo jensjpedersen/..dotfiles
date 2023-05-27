@@ -70,10 +70,10 @@ return require('packer').startup(function(use)
   -- Git 
   use 'tpope/vim-fugitive'             -- git plugin
   use 'lewis6991/gitsigns.nvim'
-  -- use {
-  --     'ldelossa/gh.nvim',
-  --     requires = { { 'ldelossa/litee.nvim' } }
-  -- }
+  use {
+      'ldelossa/gh.nvim',
+      requires = { { 'ldelossa/litee.nvim' } }
+  }
   use 'sindrets/diffview.nvim'
 
 
