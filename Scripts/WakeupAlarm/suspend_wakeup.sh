@@ -9,6 +9,7 @@ PROGNAME=$(basename $0)
 
 function handle_interrupt {
     echo "Script interrupted."
+    killall mpv
     exit 1
 }
 
@@ -30,6 +31,8 @@ IFS=':' read -r -a array <<< "$alarm"
 array[0]=${array[0]#0}
 array[1]=${array[1]#0}
 
+echo "Alarm set to ${array[0]}:${array[1]}"
+
 
 today=$(date -d "today ${1}" '+%s')
 now=$(date '+%s')
@@ -39,7 +42,6 @@ now=$(date '+%s')
 if (( ${array[1]} >= $diff )); then
     min=$(( ${array[1]} - $diff ))
     wake="${array[0]}:$min"
-    echo $wake
 else
     min=$(( 60 + ${array[1]} - $diff ))
     hour=$(( ${array[0]} - 1 ))
@@ -57,14 +59,13 @@ elif (( $now < $today )); then
     echo "Computer wakeup: Today ${wake}"
 fi
 
-# Find start time alarm
+# Find start time Light
 if (( ${array[1]} >= $diff - $delta_alarm )); then
     min=$(( ${array[1]} - $diff + $delta_alarm ))
     hour=${array[0]}
 else
     min=$(( 60 + ${array[1]} - $diff + $delta_alarm ))
     hour=$(( ${array[0]} - 1 ))
-    echo $hour $min 
 fi
 
 # Enable wakeup scripts
