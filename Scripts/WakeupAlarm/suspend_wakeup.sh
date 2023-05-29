@@ -3,13 +3,21 @@ diff=35 # Wake pc int minutes before alarm
 delta_alarm=5 # Start alarm $delta_alarm after pc wakeup
 
 export DISPLAY=:0
+export XDG_RUNTIME_DIR=/run/user/1000
 
 PROGNAME=$(basename $0)
-function error_exit
-{
+
+function handle_interrupt {
+    echo "Script interrupted."
+    exit 1
+}
+
+function error_exit {
     echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
     exit 1
 }
+
+trap handle_interrupt SIGINT
 
 (( diff < 60 )) || error_exit "$LINENO: Not implemented" 
 
@@ -60,25 +68,12 @@ else
 fi
 
 # Enable wakeup scripts
-echo "${array[1]} ${array[0]} * * * jensjp /bin/bash ${HOME}/Scripts/WakeupAlarm/wakeup_music.sh" | sudo tee /etc/cron.d/wakeup_music
-echo "${min} ${hour} * * * jensjp /bin/python3 ${HOME}/Scripts/WakeupAlarm/wakeup_light.py" | sudo tee /etc/cron.d/wakeup_light
+echo "${array[1]} ${array[0]} * * * jensjp /bin/bash /home/jensjp/Scripts/WakeupAlarm/wakeup_music.sh" | sudo tee /etc/cron.d/wakeup_music
+echo "${min} ${hour} * * * jensjp /bin/python3 /home/jensjp/Scripts/WakeupAlarm/wakeup_light.py" | sudo tee /etc/cron.d/wakeup_light
 
-# Ready for next day  
-xset dpms force on
-xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
-mpv --no-audio --fullscreen /home/jensjp/fireplace.mp4 &
-pid=$!
-sleep 10m 
-kill $pid
-sleep 1 
-xset dpms force off
-playerctl -p spotify,ncspot pause
-python $HOME/Scripts/TapoScripts/tapo.py n & # Turn off light
-# mpv "/mnt/ssd/Meditation/Relaxing Sleep Music • Deep Sleeping Music, Relaxing Music, Stress Relief, Meditation Music (Flying)-1ZYbU82GVz4.m4a"
-mpv --no-video "/mnt/ssd/Media/Yoga/Yoga Nidra Sleep Meditation Guided with Female Voice-xke2SoJVrbc.webm"
-xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
-redshift -P -O 3000 -b 1
-sleep 5
-systemctl suspend
+su jensjp -c /home/jensjp/Scripts/WakeupAlarm/prepare_suspend.sh
+
+exit 0  
+
 
 
