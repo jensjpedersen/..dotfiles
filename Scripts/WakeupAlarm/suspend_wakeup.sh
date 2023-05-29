@@ -45,17 +45,15 @@ if (( ${array[1]} >= $diff )); then
 else
     min=$(( 60 + ${array[1]} - $diff ))
     hour=$(( ${array[0]} - 1 ))
-    echo $hour
-    echo $min
     wake="$hour:$min"
 fi
 
 # Set machine wakeup
 if (( $now > $today)); then
-    sudo rtcwake -m no -l -t $(date -d "tomorrow ${wake}" '+%s')
+    sudo rtcwake -m no -l -t $(date -d "tomorrow ${wake}" '+%s') >/dev/null
     echo "Computer wakeup: Tomorrow ${wake}"
 elif (( $now < $today )); then
-    sudo rtcwake -m no -l -t $(date -d "today ${wake}" '+%s')
+    sudo rtcwake -m no -l -t $(date -d "today ${wake}" '+%s') >/dev/null
     echo "Computer wakeup: Today ${wake}"
 fi
 
