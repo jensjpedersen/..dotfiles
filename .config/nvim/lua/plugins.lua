@@ -18,7 +18,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   -- use '~/Projects/ranger_nvim'
-  -- use 'jensjpedersen/ranger_nvim'
+  use 'jensjpedersen/ranger_nvim'
   use '~/Projects/NvimOpenAI/'
   -- use '~/Projects/scim.nvim/'
   use 'jensjpedersen/scim.nvim'
@@ -152,11 +152,12 @@ return require('packer').startup(function(use)
   --     }
   -- })
 
-  -- use 'Bryley/neoai.nvim'
-  --
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+  -- use "Bryley/neoai.nvim"
+  -- use "MunifTanjim/nui.nvim"
+
+  -- if packer_bootstrap then
+  --   require('packer').sync()
+  -- end
 
 end)
 

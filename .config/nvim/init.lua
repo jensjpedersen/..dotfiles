@@ -13,6 +13,9 @@ require('plugins/writing')
 require('plugins/treesitter')
 require('plugins/dap')
 require('highlight')
+-- require('plugins/neoai')
+-- require('plugins/chatgpt')
+
 
 
 
