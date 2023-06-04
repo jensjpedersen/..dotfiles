@@ -85,6 +85,8 @@ alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
 
+# ========================= Ssh =========================
+alias ssht="ssh -i ~/.ssh/thinkcentre jensjp@10.0.0.7"
 
 # Julia
 alias jun="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
@@ -167,9 +169,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 HWMODEL=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
 if [[ $HWMODEL == "ThinkPad W530" ]]; then
     (( $SHLVL == 1 )) && task next && timew summary day # Print on startup
-    eval "$(starship init zsh)" # Prompt
 fi 
 
+eval "$(starship init zsh)" # Prompt
 
 export TERM="alacritty" # fix for tmux (underline)
 export PATH=/home/jensjp/.cargo/bin:$PATH
