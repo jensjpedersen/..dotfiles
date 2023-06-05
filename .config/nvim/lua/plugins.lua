@@ -100,8 +100,8 @@ return require('packer').startup(function(use)
   -- Writing
   use 'lervag/vimtex'		           -- Latex
   -- use 'vimwiki/vimwiki'		           -- vimwiki
-  -- use 'jensjpedersen/vimwiki_fork'
-  use '~/Projects/vimwiki_fork'		           -- vimwiki
+  use 'jensjpedersen/vimwiki_fork'
+  -- use '~/Projects/vimwiki_fork'		           -- vimwiki
 
   -- use 'jbyuki/nabla.nvim'
 
