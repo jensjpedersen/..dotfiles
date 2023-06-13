@@ -1,8 +1,6 @@
 #!/bin/bash
 #
-console_dir=( $(ls $games_dir) )
-root_dir=$(dirname $(realpath $0))
-thumb_dir="$root_dir/libretro-thumbnails"
+export DISPLAY=:0
 
 hwmodel=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
 
@@ -11,6 +9,10 @@ if [[ $hwmodel == "ThinkCentre M900" ]]; then
 elif [[ $hwmodel == "ThinkPad W530" ]]; then
     games_dir="/mnt/ssd/Games/"
 fi
+
+console_dir=( $(ls $games_dir) )
+root_dir=$(dirname $(realpath $0))
+thumb_dir="$root_dir/libretro-thumbnails"
 
 
 function download_thumbnails { 
@@ -23,6 +25,7 @@ function download_thumbnails {
         cd $root_dir
         mkdir thumbnails
     fi
+
 
     for d in "${console_dir[@]}"; do 
         console=$(echo $d | tr '_' ' ')
@@ -58,6 +61,7 @@ function download_thumbnails {
                     wget -q --directory-prefix "thumbnails/$console" "$url" || echo "download failed: $game_name"
                 fi
 
+
                 # ping -c 1 "$url" && echo $game_name
                 # wget -q "$url" || echo "download failed: $game_name"
             fi
@@ -86,6 +90,8 @@ function game_picker {
 
         result=$(find $games_dir -name "*$file_search*")
         dolphin-emu -e "$result" &
+
+        sleep 2 
 
         id=$(xdotool search --name "dolphin-emu" | head -n 1)
 
