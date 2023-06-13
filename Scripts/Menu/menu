@@ -4,7 +4,7 @@ export DISPLAY=:0
 while true; do 
     clear
     figlet Menu
-    printf " (a) alarm \n (x) plex \n (s) spotify \n (r) redhshift \n (p) power \n"
+    printf " (a) alarm \n (x) plex \n (g) games \n (s) spotify \n (r) redhshift \n (p) power \n"
 
     read -n 1 opt1
     case $opt1 in
@@ -12,7 +12,7 @@ while true; do
             while true; do
                 clear
                 figlet Alarm
-                printf " (5) 05:15 \n (6) 06:15 \n (7) 07:15 \n (8) 08:15 \n (9) 09:15 \n (1) 10:15 \n (q) main menu \n"
+                printf " (5) 05:00 \n (6) 06:00 \n (7) 07:00 \n (8) 08:00 \n (9) 09:00 \n (1) 10:00 \n (q) main menu \n"
                 read -n 1 opt2
                 case $opt2 in
                     5)
@@ -104,7 +104,7 @@ while true; do
                 read -n 1 opt2
                 case "$opt2" in 
                     o)
-                        firefox localhost:32400 >/dev/null &
+                        firefox localhost:32400 &>/dev/null &
                         sleep 2; xdotool key 'F11'
                         ;;
                     k) 
@@ -120,6 +120,30 @@ while true; do
             done
             ;;
 
+        g)
+            while true; do 
+                clear 
+                figlet Games
+                printf " (g) game menu \n (m) pulsemixer \n (k) kill \n (q) quit \n"
+                read -n 1 opt2 
+                case "$opt2" in 
+                    g)
+                        ehco "game menu"
+                        bash ${HOME}/Scripts/GameMenu/game_menu.sh
+                        ;;
+                    m)
+                        pulsemixer
+                        ;;
+
+                    k) 
+                        killall dolphin-emu; killall dolphin-emu
+                        ;;
+                    q)
+                        break
+                        ;;
+                esac
+            done
+            ;;
 
         p)
             while true; do
