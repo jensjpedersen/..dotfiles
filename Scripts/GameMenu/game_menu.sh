@@ -1,21 +1,16 @@
 #!/bin/bash
 #
-#
-#
-#
-# Get path of this script
-#
-
-
-games_dir="/mnt/ssd/Games/"
 console_dir=( $(ls $games_dir) )
 root_dir=$(dirname $(realpath $0))
 thumb_dir="$root_dir/libretro-thumbnails"
 
+hwmodel=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
 
-echo $root_dir
-
-
+if [[ $hwmodel == "ThinkCentre M900" ]]; then
+    games_dir="/mnt/hdd/ManjaroSSD/Games/"
+elif [[ $hwmodel == "ThinkPad W530" ]]; then
+    games_dir="/mnt/ssd/Games/"
+fi
 
 
 function download_thumbnails { 
