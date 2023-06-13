@@ -4,16 +4,10 @@ export DISPLAY=:0
 while true; do 
     clear
     figlet Menu
-    printf " (l) lvds1 \n (d) dp1 \n (a) alarm \n (m) mpv \n (n) netflix \n (k) kodi \n (x) plex \n (s) spotify \n (r) redhshift \n (p) power \n"
+    printf " (a) alarm \n (x) plex \n (s) spotify \n (r) redhshift \n (p) power \n"
 
     read -n 1 opt1
     case $opt1 in
-        l)
-            ${HOME}/Scripts/Menu/lvds1.sh
-            ;;
-        d)
-            ${HOME}/Scripts/Menu/dp1.sh
-            ;;
         a)
             while true; do
                 clear
@@ -46,81 +40,6 @@ while true; do
             done
             ;;
                         
-        m)
-            while true; do
-                clear
-                figlet Mpv
-                printf " (f) fireplace \n (y) yoga \n (p) play/pause \n (m) pulsemixer \n (k) kill mpv \n (q) main menu \n"
-                read -n 1 opt2
-                case $opt2 in
-                    f)
-                        mpv --fs --loop-file=inf --no-terminal ~/Scripts/Menu/fireplace.mp4 &
-                        ;;
-                    y) 
-                        ;;
-                    p)
-                        playerctl play-pause -p "mpv"
-                        ;;
-                    m)
-                        pulsemixer
-                        ;;
-                    k) 
-                        killall mpv
-                        ;;
-                    q)
-                        break
-                        ;;
-                esac
-            done
-            ;;
-        n)
-            while true; do 
-                clear 
-                figlet Netflix
-                printf " (n) netflix \n (m) pulsemixer \n (q) main menu \n"
-                read -n 1 opt2
-                case $opt2 in 
-                    n)
-                        i3-msg workspace Netflix && python ~/Projects/Netflix/netflix.py
-                        #i3-msg workspace netflix && setsid -f firefox --marionette $(cat ~/Projects/netflix/url)&
-                        #sleep 1 && i3-msg fullscreen
-                        ;;
-                    m)
-                        pulsemixer
-                        ;;
-                    q)
-                        break
-                        ;;
-                esac
-            done
-            ;;
-                        
-
-        k)
-            while true; do
-                clear
-                figlet Kodi
-                printf " (o) open kodi \n (k) kill kodi \n (m) pulsemixer \n (q) main menu \n"
-                read -n 1 opt2
-                case $opt2 in
-                    o)
-                        i3-msg workspace Kodi && kodi &
-                        ;;
-                    k)
-                        killall kodi
-                        ;;
-                    m)
-                        pulsemixer
-                        ;;
-                    q)
-                        break
-                        ;;
-                    *)
-                        ;;
-
-                esac
-            done
-            ;;
         s)
             while true; do
                 clear
@@ -185,11 +104,11 @@ while true; do
                 read -n 1 opt2
                 case "$opt2" in 
                     o)
-                        i3-msg workspace Plex && plexmediaplayer --fullscreen &
-                        sleep 5 && xdotool mousemove 1920 540
+                        firefox localhost:32400 >/dev/null &
+                        sleep 2; xdotool key 'F11'
                         ;;
                     k) 
-                        killall plexmediaplayer
+                        killall firefox
                         ;;
                     m)
                         pulsemixer
