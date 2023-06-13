@@ -124,18 +124,22 @@ while true; do
             while true; do 
                 clear 
                 figlet Games
-                printf " (g) game menu \n (m) pulsemixer \n (k) kill \n (q) quit \n"
+                printf " (g) game menu \n (r) retroarch \n (m) pulsemixer \n (k) kill \n (q) quit \n"
                 read -n 1 opt2 
                 case "$opt2" in 
                     g)
                         bash ${HOME}/Scripts/GameMenu/game_menu.sh
+                        ;;
+                    r)
+                        retroarch
                         ;;
                     m)
                         pulsemixer
                         ;;
 
                     k) 
-                        killall dolphin-emu; killall dolphin-emu
+                        pgrep dolphin-emu && (killall dolphin-emu; killall dolphin-emu)
+                        pgrep retroarch && pkill retroarch
                         ;;
                     q)
                         break

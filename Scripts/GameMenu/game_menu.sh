@@ -69,7 +69,7 @@ function download_thumbnails {
 
 function game_picker {
 
-    choice=$(sxiv -of $root_dir/thumbnails/**/*)
+    choice=$(sxiv -t -z 150 -of $root_dir/thumbnails/**/*)
     choice=$(echo "$choice" | head -n 1) 
 
     [[ -z "$choice" ]] && exit 0
@@ -78,9 +78,10 @@ function game_picker {
     file_search=$(echo "$choice" | sed -e 's/\.png//')
     file_search=$(basename "$file_search")
 
-    result=$(find $games_dir -name "*$file_search*")
 
     if echo $choice | grep -q "gamecube"; then
+
+        result=$(find "$games_dir/gamecube" -name "*$file_search*")
 
         dolphin-emu -e "$result" &
 
@@ -93,18 +94,22 @@ function game_picker {
 
 
     elif echo $choice | grep -q "nintendo_64"; then 
+
+        result=$(find "$games_dir/nintendo_64" -name "*$file_search*")
         # Nintendo 64
 
         if which org.libretro.RetroArch && [ -f "${HOME}/.var/app/org.libretro.RetroArch/config/retroarch/cores/mupen64plus_next_libretro.so" ]; then
             org.libretro.RetroArch -f -L "${HOME}/.var/app/org.libretro.RetroArch/config/retroarch/cores/mupen64plus_next_libretro.so" "$result" &
+
+        elif which retroarch; then
+            echo "fix autorization error"
         fi
+
 
     elif echo $choice | grep -q "play_station_2"; then
         # Playstation 2
-        which pcsx2-qt && pcsx2-qt "$result" &
-
-
-
+        result=$(find "$games_dir/play_station_2" -name "*$file_search*")
+        which pcsx2-qt && pcsx2-qt -fullscreen "$result" &
     fi
 
 
