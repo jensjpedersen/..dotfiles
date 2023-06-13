@@ -128,7 +128,6 @@ while true; do
                 read -n 1 opt2 
                 case "$opt2" in 
                     g)
-                        ehco "game menu"
                         bash ${HOME}/Scripts/GameMenu/game_menu.sh
                         ;;
                     m)
