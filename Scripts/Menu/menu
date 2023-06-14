@@ -144,6 +144,7 @@ while true; do
                         pgrep dolphin-emu && (killall dolphin-emu; killall dolphin-emu)
                         pgrep retroarch && pkill retroarch
                         pgrep m64py && pkill m64py
+                        pgrep citra-qt && pkill -9 citra-qt
                         ;;
                     q)
                         break
