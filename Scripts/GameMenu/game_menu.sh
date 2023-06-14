@@ -91,28 +91,30 @@ function game_picker {
 
         result=$(find "$games_dir/gamecube" -name "*$file_search*")
 
-        dolphin-emu -e "$result" &
+        if which dolphin-emu; then 
+            dolphin-emu -e "$result" &
+            sleep 2 
+            id=$(xdotool search --name "dolphin-emu" | head -n 1)
+            xdotool key --window $id 'super+f'
+        else 
+            notify-send "Not installed: dolphin-emu"
+        fi
 
-        sleep 2 
-
-        id=$(xdotool search --name "dolphin-emu" | head -n 1)
-
-        xdotool key --window $id 'super+f'
 
 
     elif echo $choice | grep -q "play_station_2"; then
         # Playstation 2
         result=$(find "$games_dir/play_station_2" -name "*$file_search*")
-        which pcsx2-qt && pcsx2-qt -fullscreen "$result" &
+        which pcsx2-qt && pcsx2-qt -fullscreen "$result" & || notify-send "Not installed: pcsx2-qt"
 
     elif echo $choice | grep -q "nintendo_64"; then 
         result=$(find "$games_dir/nintendo_64" -name "*$file_search*")
 
-        which m64py && m64py "$result" &
+        which m64py && m64py "$result" & || notify-send "Not installed: m64py"
 
     elif echo $choice | grep -q "nintendo_3ds"; then 
         result=$(find "$games_dir/nintendo_3ds" -name "*$file_search*")
-        which org.citra_emu.citra && org.citra_emu.citra "$result" &
+        which org.citra_emu.citra && org.citra_emu.citra "$result" & || notify-send "Not installed: org.citra_emu.citra_emu"
 
     fi
 
