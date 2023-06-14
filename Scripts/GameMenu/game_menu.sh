@@ -56,6 +56,7 @@ function download_thumbnails {
                 url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS/15dcea5c55f3ce0bd25a951616a7990a66e25f2d/Named_Boxarts/$img_url"
 
 
+
             else
                 break 
             fi
@@ -111,7 +112,7 @@ function game_picker {
             mupen64plus --windowed "$result" &
         fi 
 
-    elif echo $choice | grep -q "nintendo_64"; then 
+    elif echo $choice | grep -q "nintendo_3ds"; then 
         result=$(find "$games_dir/nintendo_3ds" -name "*$file_search*")
 
         which citra && citra "$result" &
