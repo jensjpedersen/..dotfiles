@@ -105,16 +105,28 @@ function game_picker {
     elif echo $choice | grep -q "play_station_2"; then
         # Playstation 2
         result=$(find "$games_dir/play_station_2" -name "*$file_search*")
-        which pcsx2-qt && pcsx2-qt -fullscreen "$result" & || notify-send "Not installed: pcsx2-qt"
+        if which pcsx2-qt; then 
+            pcsx2-qt -fullscreen "$result" & 
+        else
+            notify-send "Not installed: pcsx2-qt"
+        fi
 
     elif echo $choice | grep -q "nintendo_64"; then 
         result=$(find "$games_dir/nintendo_64" -name "*$file_search*")
 
-        which m64py && m64py "$result" & || notify-send "Not installed: m64py"
+        if which m64py; then 
+            m64py "$result" & 
+        else
+            notify-send "Not installed: m64py"
+        fi
 
     elif echo $choice | grep -q "nintendo_3ds"; then 
         result=$(find "$games_dir/nintendo_3ds" -name "*$file_search*")
-        which org.citra_emu.citra && org.citra_emu.citra "$result" & || notify-send "Not installed: org.citra_emu.citra_emu"
+        if flatpak list | grep -q org.citra_emu.citra; then 
+            flatpak run org.citra_emu.citra "$result" & 
+        else 
+            notify-send "Not installed: org.citra_emu.citra_emu"
+        fi
 
     fi
 
