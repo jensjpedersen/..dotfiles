@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+# TODO: remove thumbnails for deleted games
 export DISPLAY=:0
 
 hwmodel=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
@@ -49,6 +49,13 @@ function download_thumbnails {
                 img_url="$game_name"".png"
                 url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_64/c9278f93bfbcb41e4e728b952b25e6cc2ab6830f/Named_Boxarts/$img_url"
 
+            elif [ $d = 'nintendo_3ds' ]; then 
+
+                game_name=$(echo "$file_name" | sed -e 's/\.3ds//')
+                img_url="$game_name"".png"
+                url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS/15dcea5c55f3ce0bd25a951616a7990a66e25f2d/Named_Boxarts/$img_url"
+
+
             else
                 break 
             fi
@@ -92,24 +99,23 @@ function game_picker {
         xdotool key --window $id 'super+f'
 
 
-
-    elif echo $choice | grep -q "nintendo_64"; then 
-
-        result=$(find "$games_dir/nintendo_64" -name "*$file_search*")
-        # Nintendo 64
-
-        if which org.libretro.RetroArch && [ -f "${HOME}/.var/app/org.libretro.RetroArch/config/retroarch/cores/mupen64plus_next_libretro.so" ]; then
-            org.libretro.RetroArch -f -L "${HOME}/.var/app/org.libretro.RetroArch/config/retroarch/cores/mupen64plus_next_libretro.so" "$result" &
-
-        elif which retroarch; then
-            echo "fix autorization error"
-        fi
-
-
     elif echo $choice | grep -q "play_station_2"; then
         # Playstation 2
         result=$(find "$games_dir/play_station_2" -name "*$file_search*")
         which pcsx2-qt && pcsx2-qt -fullscreen "$result" &
+
+    elif echo $choice | grep -q "nintendo_64"; then 
+        result=$(find "$games_dir/nintendo_64" -name "*$file_search*")
+
+        if which mupen64plus; then 
+            mupen64plus --windowed "$result" &
+        fi 
+
+    elif echo $choice | grep -q "nintendo_64"; then 
+        result=$(find "$games_dir/nintendo_3ds" -name "*$file_search*")
+
+        which citra && citra "$result" &
+
     fi
 
 
