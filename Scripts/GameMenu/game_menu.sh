@@ -108,14 +108,11 @@ function game_picker {
     elif echo $choice | grep -q "nintendo_64"; then 
         result=$(find "$games_dir/nintendo_64" -name "*$file_search*")
 
-        if which mupen64plus; then 
-            mupen64plus --windowed "$result" &
-        fi 
+        which m64py && m64py "$result" &
 
     elif echo $choice | grep -q "nintendo_3ds"; then 
         result=$(find "$games_dir/nintendo_3ds" -name "*$file_search*")
-
-        which citra && citra "$result" &
+        which org.citra_emu.citra && org.citra_emu.citra "$result" &
 
     fi
 
