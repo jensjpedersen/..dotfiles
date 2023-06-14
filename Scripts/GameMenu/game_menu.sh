@@ -2,6 +2,12 @@
 # TODO: remove thumbnails for deleted games
 export DISPLAY=:0
 
+# Install emulators
+#
+#
+# flatpak install mgba
+# flatpak install citra
+
 hwmodel=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
 
 if [[ $hwmodel == "ThinkCentre M900" ]]; then
@@ -55,7 +61,10 @@ function download_thumbnails {
                 img_url="$game_name"".png"
                 url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS/15dcea5c55f3ce0bd25a951616a7990a66e25f2d/Named_Boxarts/$img_url"
 
-
+            elif [ $d = 'game_boy_advance' ]; then 
+                game_name=$(echo "$file_name" | sed -e 's/\.3ds//')
+                img_url="$game_name"".png"
+                url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/e0200a10a81e74a565f335b5ef3d9cb7e8e89672/Named_Boxarts/$img_url"
 
             else
                 break 
@@ -127,6 +136,16 @@ function game_picker {
         else 
             notify-send "Not installed: org.citra_emu.citra_emu"
         fi
+
+    elif echo $choice | grep -q "game_boy_advance"; then
+        result=$(find "$games_dir/game_boy_advance" -name "*$file_search*")
+
+        if flatpak list | grep -q io.mgba.mGBA; then 
+            setsid -f flatpak run io.mgba.mGBA "$result" &
+        else
+            notify-send "Not installed: io.mgba.mGBA"
+        fi
+
 
     fi
 
