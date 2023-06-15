@@ -1,10 +1,9 @@
 #!/bin/bash
 # TODO: remove thumbnails for deleted games
+# TODO: clone ghumbnails names and make searchable text file. 
 export DISPLAY=:0
 
 # Install emulators
-#
-#
 # flatpak install mgba
 # flatpak install citra
 
@@ -60,9 +59,11 @@ function download_thumbnails {
                 game_name=$(echo "$file_name" | sed -e 's/\.3ds//')
                 img_url="$game_name"".png"
                 url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS/15dcea5c55f3ce0bd25a951616a7990a66e25f2d/Named_Boxarts/$img_url"
+                echo $url
+
 
             elif [ $d = 'game_boy_advance' ]; then 
-                game_name=$(echo "$file_name" | sed -e 's/\.3ds//')
+                game_name=$(echo "$file_name" | sed -e 's/\# GBA\.GBA//' -e 's/\.gba//')
                 img_url="$game_name"".png"
                 url="https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/e0200a10a81e74a565f335b5ef3d9cb7e8e89672/Named_Boxarts/$img_url"
 
@@ -72,6 +73,7 @@ function download_thumbnails {
 
             if [ ! -f "thumbnails/$d/$img_url" ]; then 
                 wget -q --directory-prefix "thumbnails/$d" "$url" || echo "download failed: $game_name"
+                # If failed try to change url Europe, Japan -> USA
             fi
 
 
