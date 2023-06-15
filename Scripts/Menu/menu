@@ -146,6 +146,7 @@ while true; do
                         pgrep m64py && pkill m64py
                         pgrep citra-qt && pkill -9 citra-qt
                         pgrep mgba-qt && pkill mgba-qt
+                        pgrep pcsx2-qt && pkill pcsx2-qt
                         ;;
                     q)
                         break
