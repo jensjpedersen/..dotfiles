@@ -128,7 +128,7 @@ while true; do
                 read -n 1 opt2 
                 case "$opt2" in 
                     g)
-                        bash ${HOME}/Scripts/RetroFusion/game_menu.sh
+                        bash ${HOME}/Projects/RetroFusion/game_menu.sh
                         ;;
                     f)
                         xdotool key 'super+f'
