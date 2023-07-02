@@ -20,3 +20,5 @@ keycode 31 = i I i I 8 idotless rightarrow
 keycode 32 = o O o O 9 OE oe	
 keycode 33 = p P p P slash Greek_PI Greek_pi	
 
+keycode 118 = Alt_L NoSymbol Insert NoSymbol Insert
+

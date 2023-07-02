@@ -2,7 +2,6 @@ import sys
 import time
 from PyP100 import PyP100 
 from PyP100 import PyL530
-import keyring
 from credentials import *  # Imports variables: email, password, ip_owen, ip_bulb, ip_light
 
 # TODO: toggle swithc
