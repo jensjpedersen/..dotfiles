@@ -8,7 +8,8 @@ import datetime
 
 from credentials import *
 
-logging.basicConfig(format='%(message)s', filename='./light.log', encoding='utf-8', level=logging.DEBUG, force=True)
+dir = os.path.dirname(os.path.realpath(__file__))
+logging.basicConfig(format='%(message)s', filename=f'{dir}/light.log', encoding='utf-8', level=logging.DEBUG, force=True)
 logging.getLogger().disabled = False
 
 logging.info(datetime.datetime.now())
@@ -16,7 +17,8 @@ logging.info(datetime.datetime.now())
 cycle = 60*30
 
 owen = PyP100.P100(ip_owen, email, password)
-bulb = PyL530.L530(ip_bulb, email, password)
+bulb1 = PyL530.L530(ip_bulb1, email, password)
+bulb2 = PyL530.L530(ip_bulb2, email, password)
 light = PyP100.P100(ip_light, email, password)
 
 for i in range(5):
@@ -33,8 +35,10 @@ for i in range(5):
 
 for i in range(5):
     try:
-        bulb.handshake()
-        bulb.login()
+        bulb1.handshake()
+        bulb1.login()
+        bulb2.handshake()
+        bulb2.login()
     except:
         time.sleep(1)
         pass
@@ -49,8 +53,10 @@ sleep = round(cycle/n)
 
 for val in levels_red:
     try:
-        bulb.setColor(22, 100)
-        bulb.setBrightness(val)
+        bulb1.setColor(22, 100)
+        bulb1.setBrightness(val)
+        bulb2.setColor(22, 100)
+        bulb2.setBrightness(val)
     except KeyError:
         pass
     time.sleep(sleep)
@@ -59,10 +65,12 @@ for val in levels_red:
 
 for val in levels_white:
     try:
-        bulb.setBrightness(val)
+        bulb1.setBrightness(val)
+        bulb2.setBrightness(val)
     except KeyError:
         pass
-    bulb.setColorTemp(2500)
+    bulb1.setColorTemp(2500)
+    bulb2.setColorTemp(2500)
     time.sleep(sleep)
 
     logging.info(f'Level white: {val}')
