@@ -68,7 +68,7 @@ fi
 
 # Enable wakeup scripts
 echo "${array[1]} ${array[0]} * * * jensjp /bin/bash /home/jensjp/Scripts/WakeupAlarm/wakeup_music.sh" | sudo tee /etc/cron.d/wakeup_music
-echo "${min} ${hour} * * * jensjp /bin/python3 /home/jensjp/Scripts/WakeupAlarm/wakeup_light.py" | sudo tee /etc/cron.d/wakeup_light
+echo "${min} ${hour} * * * jensjp /bin/python3 /home/jensjp/Scripts/TapoScripts/wakeup_light.py" | sudo tee /etc/cron.d/wakeup_light
 
 su jensjp -c /home/jensjp/Scripts/WakeupAlarm/prepare_suspend.sh
 

@@ -4,6 +4,7 @@ from PyP100 import PyP100
 from PyP100 import PyL530
 import asyncio
 from credentials import *  # Imports variables: email, password, ip_owen, ip_bulb, ip_light
+import pprint
 
 
 
@@ -25,7 +26,15 @@ class Bulb:
 
 
     def set_brightness(self, brightness: int): 
-        self.bulb.setBrightness(brightness)
+        if 100 < brightness < 10: 
+            # Error from brightness [1-10] for some reason
+            raise ValueError("Brightness must be between 10 and 100")
+
+        try: 
+            self.bulb.setBrightness(brightness)
+        except Exception as e:
+            print(e)
+
         self.bulb.turnOn()
 
 
@@ -59,6 +68,13 @@ class Bulb:
     def turn_off(self): 
         self.bulb.turnOff()
 
+    def turn_on(self):
+        self.bulb.turnOn()
+
+
+    def print_info(self): 
+        pprint.pprint(self.bulb.getDeviceInfo())
+
 
 class Plug:
     def __init__(self, ip, email, password) -> None:
@@ -87,6 +103,9 @@ class Plug:
     def turn_off(self): 
         self.plug.turnOff()
 
+    def turn_on(self):
+        self.plug.turnOn()
+
 
 
 def cli(): 
@@ -106,7 +125,7 @@ def cli():
 
     elif option == "n":
         Plug(ip_light, email, password).turn_off()
-        Plug(ip_owen, email, password).turn_off()
+        # Plug(ip_owen, email, password).turn_off()
         Bulb(ip_bulb1, email, password).turn_off()
         Bulb(ip_bulb2, email, password).turn_off()
 
