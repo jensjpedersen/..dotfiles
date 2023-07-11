@@ -7,7 +7,6 @@ import sys
 
 
 cycle = 60*30
-cycle = 60
 levels_red = list(range(10,101,10))
 levels_white = list(range(50, 101, 10))
 n = len(levels_red) + len(levels_white)
