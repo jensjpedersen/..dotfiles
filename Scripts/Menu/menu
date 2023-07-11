@@ -124,7 +124,7 @@ while true; do
             while true; do 
                 clear 
                 figlet Games
-                printf " (g) game menu \n (f) fullscreen \n (r) retroarch \n (m) pulsemixer \n (k) kill \n (q) quit \n"
+                printf " (g) game menu \n (f) fullscreen \n (h) forza horizon \n (m) pulsemixer \n (k) kill \n (q) quit \n"
                 read -n 1 opt2 
                 case "$opt2" in 
                     g)
@@ -133,8 +133,8 @@ while true; do
                     f)
                         xdotool key 'super+f'
                         ;;
-                    r)
-                        retroarch
+                    h)
+                        setsid -f steam steam://rungameid/1293830 &
                         ;;
                     m)
                         pulsemixer
@@ -147,6 +147,7 @@ while true; do
                         pgrep citra-qt && pkill -9 citra-qt
                         pgrep mgba-qt && pkill mgba-qt
                         pgrep pcsx2-qt && pkill pcsx2-qt
+                        pgrep steam && pkill steam
                         ;;
                     q)
                         break
