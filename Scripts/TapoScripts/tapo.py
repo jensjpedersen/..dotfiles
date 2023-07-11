@@ -5,11 +5,6 @@ from PyP100 import PyL530
 import asyncio
 from credentials import *  # Imports variables: email, password, ip_owen, ip_bulb, ip_light
 
-try:
-    option = sys.argv[1]
-except:
-    print("missing input argument")
-    sys.exit(1)
 
 
 class Bulb: 
@@ -94,45 +89,55 @@ class Plug:
 
 
 
+def cli(): 
+
+    try:
+        option = sys.argv[1]
+    except:
+        print("missing input argument")
+        sys.exit(1)
 
 
-if option == "o":
-    Plug(ip_owen, email, password).toggle_power()
+    if option == "o":
+        Plug(ip_owen, email, password).toggle_power()
 
-elif option == "l":
-    Plug(ip_light, email, password).toggle_power()
+    elif option == "l":
+        Plug(ip_light, email, password).toggle_power()
 
-elif option == "n":
-    Plug(ip_light, email, password).turn_off()
-    Plug(ip_owen, email, password).turn_off()
-    Bulb(ip_bulb1, email, password).turn_off()
-    Bulb(ip_bulb2, email, password).turn_off()
+    elif option == "n":
+        Plug(ip_light, email, password).turn_off()
+        Plug(ip_owen, email, password).turn_off()
+        Bulb(ip_bulb1, email, password).turn_off()
+        Bulb(ip_bulb2, email, password).turn_off()
 
-elif option == "1":
-    # Brightness 10%
-    Bulb(ip_bulb1, email, password).set_brightness(10)
-    Bulb(ip_bulb2, email, password).set_brightness(10)
+    elif option == "1":
+        # Brightness 10%
+        Bulb(ip_bulb1, email, password).set_brightness(10)
+        Bulb(ip_bulb2, email, password).set_brightness(10)
 
-elif option == "2": 
-    # Brightness 25%
-    Bulb(ip_bulb1, email, password).set_brightness(25)
-    Bulb(ip_bulb2, email, password).set_brightness(25)
+    elif option == "2": 
+        # Brightness 25%
+        Bulb(ip_bulb1, email, password).set_brightness(25)
+        Bulb(ip_bulb2, email, password).set_brightness(25)
 
-elif option == "5":
-    # Brightness 50%
-    Bulb(ip_bulb1, email, password).set_brightness(50)
-    Bulb(ip_bulb2, email, password).set_brightness(50)
+    elif option == "5":
+        # Brightness 50%
+        Bulb(ip_bulb1, email, password).set_brightness(50)
+        Bulb(ip_bulb2, email, password).set_brightness(50)
 
-elif option == "0":
-    # Brightness 100%
-    Bulb(ip_bulb1, email, password).set_brightness(100)
-    Bulb(ip_bulb2, email, password).set_brightness(100)
+    elif option == "0":
+        # Brightness 100%
+        Bulb(ip_bulb1, email, password).set_brightness(100)
+        Bulb(ip_bulb2, email, password).set_brightness(100)
 
-elif option == "r":
-    Bulb(ip_bulb1, email, password).set_color('r')
-    Bulb(ip_bulb2, email, password).set_color('r')
+    elif option == "r":
+        Bulb(ip_bulb1, email, password).set_color('r')
+        Bulb(ip_bulb2, email, password).set_color('r')
 
-elif option == "w":
-    Bulb(ip_bulb1, email, password).set_color('w')
-    Bulb(ip_bulb2, email, password).set_color('w')
+    elif option == "w":
+        Bulb(ip_bulb1, email, password).set_color('w')
+        Bulb(ip_bulb2, email, password).set_color('w')
 
+
+if __name__ == "__main__":
+    cli()
