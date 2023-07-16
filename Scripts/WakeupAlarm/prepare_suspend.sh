@@ -12,6 +12,7 @@ kill $pid
 sleep 1 
 xset dpms force off
 playerctl -p spotify,ncspot pause
+echo 'standby 0.0.0.0' | sudo cec-client -s -d 1
 /home/jensjp/Scripts/TapoScripts/venv/bin/python3 /home/jensjp/Scripts/TapoScripts/tapo.py n & # Turn off light
 # mpv "/mnt/ssd/Meditation/Relaxing Sleep Music • Deep Sleeping Music, Relaxing Music, Stress Relief, Meditation Music (Flying)-1ZYbU82GVz4.m4a"
 mpv --no-video "$HOME/Scripts/WakeupAlarm/yoga_nidra.mp3" &>/dev/null
