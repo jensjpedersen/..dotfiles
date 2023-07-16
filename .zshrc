@@ -157,12 +157,16 @@ ranger() {
 
 
 # ========================= Plugins section =========================
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # Use syntax highlighting
+source $HOME/Extra/zsh-plugins/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
+source $HOME/Extra/zsh-plugins/zsh-history-substring-search.zsh
 source ~/Projects/fzf_widgets/fzf_widgets.zsh
 
 # Auto suggestion
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source $HOME/Extra/zsh-plugins/zsh-autosuggestions.zsh
+
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
