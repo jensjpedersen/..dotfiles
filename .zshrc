@@ -172,9 +172,15 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 # ========================= Machine spesific settings =========================
 HWMODEL=$(hostnamectl | awk -F ": " '/Hardware Model:/ {print $2}')
+OS=$(hostnamectl | awk -F ": " '/Operating System/ {print $2}')
+
 if [[ $HWMODEL == "ThinkPad W530" ]]; then
     (( $SHLVL == 1 )) && task next && timew summary day # Print on startup
 fi 
+
+if [[ $OS == "Debian"* ]]; then
+    export VIMRUNTIME="$HOME/Repos/neovim/runtime" # Set nvim runtime for source build. 
+fi
 
 eval "$(starship init zsh)" # Prompt
 
