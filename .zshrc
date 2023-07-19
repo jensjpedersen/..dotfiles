@@ -87,7 +87,7 @@ alias to="taskopen"
 
 # ========================= Ssh =========================
 alias ssht="ssh -i ~/.ssh/thinkcentre jensjp@10.0.0.7"
-alias sshtk="ssh -X -i ~/.ssh/thinkcentre jensjp@10.0.0.7 x2x -west -to :0"
+alias sshtk="ssh -Y -i ~/.ssh/thinkcentre jensjp@10.0.0.7 x2x -west -to :0"
 
 # Julia
 alias jun="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
