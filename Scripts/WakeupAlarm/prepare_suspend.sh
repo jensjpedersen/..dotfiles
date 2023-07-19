@@ -18,7 +18,7 @@ echo 'standby 0.0.0.0' | sudo cec-client -s -d 1
 mpv --no-video "$HOME/Scripts/WakeupAlarm/yoga_nidra.mp3" &>/dev/null
 # xrandr --output LVDS-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off
 redshift -P -O 3000 -b 1
-sleep 5
+sleep 5h
 systemctl suspend
 
 
