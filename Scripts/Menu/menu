@@ -104,11 +104,11 @@ while true; do
                 read -n 1 opt2
                 case "$opt2" in 
                     o)
-                        nohup firefox localhost:32400 &>/dev/null &
+                        setsid -f firefox localhost:32400 &>/dev/null &
                         sleep 2; xdotool key 'F11'
                         ;;
                     k) 
-                        killall firefox
+                        pkill firefox
                         ;;
                     m)
                         pulsemixer
