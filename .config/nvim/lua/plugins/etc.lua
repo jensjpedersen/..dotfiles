@@ -97,7 +97,8 @@ let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.lua'},
                            \ {'w': '~/vimwiki/index.md'}, 
                            \ {'p': '~/vimwiki2/index.md'}, 
                            \ {'m': '~/Sync/FAM/Master/Masteroppgave/Notes/index.md'}, 
-                           \ {'s': '~/Sync/FAM/Master/FYS-STK4155-AnvendtDataanalyseOgMaskinlæring/Notes/index.md'} ]
+                           \ {'s': '~/Sync/FAM/Master/FYS-STK4155-AnvendtDataanalyseOgMaskinlæring/Notes/index.md'}, 
+                           \ {'i': '~/Sync/DataIngeniør/index.md'} ]
 
 let g:startify_commands = [ {'d' : 'VimwikiMakeDiaryNote 2'},
                           \ {'n' : 'VimwikiMakeDiaryNote'} ]

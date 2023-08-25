@@ -74,6 +74,7 @@ return require('packer').startup(function(use)
       requires = { { 'ldelossa/litee.nvim' } }
   }
   use 'sindrets/diffview.nvim'
+  use 'rbong/vim-flog' -- git log graph
 
 
   -- Debugging

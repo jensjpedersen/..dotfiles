@@ -70,7 +70,8 @@ set vi-cmd-mode-string :
 
 
 # ========================= Aliases =========================
-alias ls="exa"
+# alias ls="exa"
+# alias "ls -tr"="exa --sort=time"
 alias p="ptipython" -c '%load_ext autoreload; %autoreload 2' -i
 alias r="ranger"
 alias v="nvim"
@@ -122,7 +123,7 @@ export FZF_ALT_C_COMMAND="fd -H -t d . $HOME"
 # ======================== pdf nvim backward serach =========================
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # ========================= Python =========================
-export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
+# export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # ========================= Tabcompletion =========================
