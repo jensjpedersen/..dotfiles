@@ -40,9 +40,9 @@ return require('packer').startup(function(use)
   -- use {'tzachar/cmp-tabnine', run='./install.sh'}-- requires = 'hrsh7th/nvim-cmp'}
   use  "kdheepak/cmp-latex-symbols"
 
-  -- For ultisnips users.
-  use 'SirVer/ultisnips'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  -- For luasnip users.
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- Omnicompletion
   use 'hrsh7th/cmp-omni'
@@ -133,6 +133,9 @@ return require('packer').startup(function(use)
   -- use 'liuchengxu/vista.vim'
   use 'kshenoy/vim-signature'
   use 'AndrewRadev/linediff.vim'
+
+
+
   -- use 'Exafunction/codeium.vim'
   -- Etc
   -- use {

@@ -5,7 +5,7 @@ local lspkind = require('lspkind')
 local source_mapping = {
 	buffer = "[Buffer]",
     omni = "[Omni]",
-    ultisnips = "[Snippet]",
+    luasnip = "[Snippet]",
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
@@ -14,12 +14,13 @@ local source_mapping = {
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
+local ls = require('luasnip')
 cmp.setup({
     -- completion = {autocomplete = true}, 
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
     window = {
@@ -32,11 +33,36 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+        -- Luasnip mappings - Place here to not interfere with normal tab.  
+        ['<Tab>'] = cmp.mapping(function()
+            if ls.expand_or_jumpable() then
+                ls.expand_or_jump()
+            end
+        end, { "i", "s" }),
+        ['<S-Tab>'] = cmp.mapping(function()
+            if ls.jumpable(-1) then
+                ls.jump(-1)
+            end
+        end, { "i", "s" }),
+        ['<C-k>'] = cmp.mapping(function()
+        	if ls.choice_active() then
+        		ls.change_choice(1)
+        	end
+        end, {"i", "s"}), 
+
+
+
+-- vim.keymap.set({"i", "s"}, "<C-E>", function()
+-- 	if ls.choice_active() then
+-- 		ls.change_choice(1)
+-- 	end
+-- end, {silent = true})
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         -- { name = 'cmp_tabnine' },
-        { name = 'ultisnips' },
+        { name = 'luasnip' },
         { name = 'vim-dadbod-completion' },
         { name = 'buffer' },
         { name = 'path' },
