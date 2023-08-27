@@ -6,11 +6,13 @@ import asyncio
 from credentials import *  # Imports variables: email, password, ip_owen, ip_bulb, ip_light
 import pprint
 
+# TODO: module fails often. Need to handle exceptions better. 
 
 
 class Bulb: 
     def __init__(self, ip, email, password) -> None:
         self.bulb = PyL530.L530(ip, email, password)
+        print(ip)
         self.__connect()
 
     def __connect(self): 
@@ -47,13 +49,19 @@ class Bulb:
 
 
         if color == 'r': 
-            self.bulb.setColor(10, 100)
-            self.bulb.turnOn()
+            try: 
+                self.bulb.setColor(10, 100)
+                self.bulb.turnOn()
+            except Exception as e:
+                print(e)
 
         elif color == 'w': 
-            self.bulb.setColorTemp(2500)
-            self.bulb.setBrightness(100)
-            self.bulb.turnOn()
+            try: 
+                self.bulb.setColorTemp(2500)
+                self.bulb.setBrightness(100)
+                self.bulb.turnOn()
+            except Exception as e:
+                print(e)
 
 
 
@@ -159,4 +167,15 @@ def cli():
 
 
 if __name__ == "__main__":
+    # try: 
     cli()
+    # except Exception as e:
+    #     print(e)
+
+
+    # 16 = 2. bulb
+    # ip=["10.0.0.16", "10.0.0.17", "10.0.0.18", "10.0.0.22"]
+
+    # Bulb(f"10.0.0.18", email, password).set_color('r')
+
+    # Bulb(ip_bulb2, email, password).set_color('r')
