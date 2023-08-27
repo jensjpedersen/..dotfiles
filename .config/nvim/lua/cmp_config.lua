@@ -33,32 +33,7 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-
-        -- Luasnip mappings - Place here to not interfere with normal tab.  
-        ['<Tab>'] = cmp.mapping(function()
-            if ls.expand_or_jumpable() then
-                ls.expand_or_jump()
-            end
-        end, { "i", "s" }),
-        ['<S-Tab>'] = cmp.mapping(function()
-            if ls.jumpable(-1) then
-                ls.jump(-1)
-            end
-        end, { "i", "s" }),
-        ['<C-k>'] = cmp.mapping(function()
-        	if ls.choice_active() then
-        		ls.change_choice(1)
-        	end
-        end, {"i", "s"}), 
-
-
-
--- vim.keymap.set({"i", "s"}, "<C-E>", function()
--- 	if ls.choice_active() then
--- 		ls.change_choice(1)
--- 	end
--- end, {silent = true})
-    }),
+   }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         -- { name = 'cmp_tabnine' },
