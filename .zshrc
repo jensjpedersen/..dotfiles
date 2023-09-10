@@ -150,6 +150,8 @@ bindkey "^X^X" edit-command-line
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
         /usr/bin/ranger "$@"
+    elif [ -v TMUX ]; then 
+        /usr/bin/ranger "$@"
     else
         exit
     fi

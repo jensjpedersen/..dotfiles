@@ -136,3 +136,18 @@ require'lspconfig'.tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+
+require'lspconfig'.clangd.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+require'lspconfig'.arduino_language_server.setup {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config", "/home/jensjp/.arduino15/arduino-cli.yaml",
+        "-fqbn", "arduino:avr:mega",
+        "-cli", "/home/jensjp/.local/bin/arduino-cli",
+        "-clangd", "/usr/bin/clangd"
+    }
+}

@@ -216,7 +216,7 @@ s({ trig="ti", name="Tilde", wordTrig=false }, fmt([[
 )),
 
 s({ trig="im", name="Inline math", wordTrig=false }, fmt([[
-    \$<>\$<>
+    $<>$<>
     ]],
     { i(1), i(0) },
     { delimiters='<>' }
