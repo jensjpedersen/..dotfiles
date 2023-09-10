@@ -12,7 +12,7 @@ import pprint
 class Bulb: 
     def __init__(self, ip, email, password) -> None:
         self.bulb = PyL530.L530(ip, email, password)
-        print(ip)
+        self.ip = ip
         self.__connect()
 
     def __connect(self): 
@@ -53,6 +53,7 @@ class Bulb:
                 self.bulb.setColor(10, 100)
                 self.bulb.turnOn()
             except Exception as e:
+                print(f"Exception for bulb with ip: {self.ip}")
                 print(e)
 
         elif color == 'w': 
@@ -61,6 +62,7 @@ class Bulb:
                 self.bulb.setBrightness(100)
                 self.bulb.turnOn()
             except Exception as e:
+                print(f"Exception for bulb with ip: {self.ip}")
                 print(e)
 
 
@@ -167,15 +169,4 @@ def cli():
 
 
 if __name__ == "__main__":
-    # try: 
     cli()
-    # except Exception as e:
-    #     print(e)
-
-
-    # 16 = 2. bulb
-    # ip=["10.0.0.16", "10.0.0.17", "10.0.0.18", "10.0.0.22"]
-
-    # Bulb(f"10.0.0.18", email, password).set_color('r')
-
-    # Bulb(ip_bulb2, email, password).set_color('r')
