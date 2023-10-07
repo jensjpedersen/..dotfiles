@@ -75,10 +75,10 @@ let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 vim.keymap.set('n', '<leader>u',  ':UndotreeToggle<CR>', opts)
 
 -- Indent balank lines
-require("indent_blankline").setup {
+require("ibl").setup {
     -- for example, context is off by default, use this to turn it on
-    show_current_context = true,
-    show_current_context_start = false,
+    -- show_current_context = true,
+    -- show_current_context_start = false,
 }
 
 vim.g.indent_blankline_filetype_exclude = {"lspinfo", "packer", "checkhealth", "help", "man", "", "startify"}
@@ -182,5 +182,6 @@ vim.keymap.set('n', '<leader>du', ':DBUIToggle<CR>', opts)
 -- nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
 -- let g:db_ui_save_location = '~/.config/db_ui'
 -- ]]
+
 
 

@@ -23,6 +23,28 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
+
+
+  --------------- Incremental selection ---------------
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      -- init_selection = "<leader>v", -- set to `false` to disable one of the mappings
+      node_incremental = "v",
+      scope_incremental = "grc",
+      node_decremental = "V",
+    },
+  },
+
+
+  --------------- Tresitter indentation on '=' ---------------
+  indent = {
+      enable = true
+  }
+
+
+
 }
 
-require'treesitter-context'.setup{}
+

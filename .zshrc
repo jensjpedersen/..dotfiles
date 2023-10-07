@@ -85,6 +85,7 @@ alias xo="cp ~/Templates/notes.xopp"
 alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
+alias am="arduino-cli monitor -p /dev/ttyACM3"
 
 # ========================= Ssh =========================
 alias ssht="ssh -i ~/.ssh/thinkcentre jensjp@10.0.0.7"

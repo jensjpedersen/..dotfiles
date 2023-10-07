@@ -26,9 +26,10 @@ vim.keymap.set('v', 'Q', ":'<,'>!bash<CR>", opts)
 vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
 
 --  Delete no register
--- vim.keymap.set('n', 'd<leader>, '_d)
+-- vim.keymap.set('n', '<leader>d, '_d)
 
--- vim.keymap.set('c', 'ww', 'w !sudo tee % <CR>', opts)
+vim.keymap.set('c', 'w!!', 'w !sudo tee > /dev/null %', opts)
+-- vim.cmd[[command! -nargs=0 Sudo execute ':silent w !sudo tee % > /dev/null' | edit!]]
 --
 
 -- Exec rempas
