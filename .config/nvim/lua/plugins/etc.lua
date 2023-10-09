@@ -76,12 +76,17 @@ vim.keymap.set('n', '<leader>u',  ':UndotreeToggle<CR>', opts)
 
 -- Indent balank lines
 require("ibl").setup {
+    -- exclude filetype
+    exclude = { filetypes = { "startify" } },
+
     -- for example, context is off by default, use this to turn it on
     -- show_current_context = true,
     -- show_current_context_start = false,
-}
+    --
 
-vim.g.indent_blankline_filetype_exclude = {"lspinfo", "packer", "checkhealth", "help", "man", "", "startify"}
+}
+-- vim.g.indent_blankline_filetype_exclude = {"lspinfo", "packer", "checkhealth", "help", "man", "", "startify"}
+--
 vim.cmd('highlight IndentBlanklineContextChar ctermfg=8 cterm=nocombine')
 
 -- Startify 
@@ -90,9 +95,9 @@ vim.cmd([[
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.lua'}, 
                            \ {'w': '~/vimwiki/index.md'}, 
                            \ {'p': '~/vimwiki2/index.md'}, 
-                           \ {'m': '~/Sync/FAM/Master/Masteroppgave/Notes/index.md'}, 
-                           \ {'s': '~/Sync/FAM/Master/FYS-STK4155-AnvendtDataanalyseOgMaskinlæring/Notes/index.md'}, 
-                           \ {'i': '~/Sync/DataIngeniør/index.md'} ]
+                           \ {'a': '~/vimwiki2/Jobb/index.md'}, 
+                           \ {'m': '~/vimwiki2/Mål/index.md'},
+                           \ ]
 
 let g:startify_commands = [ {'d' : 'VimwikiMakeDiaryNote 2'},
                           \ {'n' : 'VimwikiMakeDiaryNote'} ]
