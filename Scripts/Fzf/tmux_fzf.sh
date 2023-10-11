@@ -12,7 +12,8 @@ selected=$(echo -e "$sessions" | fzf)
 if (( $? == 0 )); then
 
     if echo "$selected" | grep -q ":.*(created"; then
-        tmux a -t $(echo "$selected" | cut --delimiter=":" --fields=1) 
+        tmux a -t "$(echo "$selected" | cut --delimiter=":" --fields=1)"
+        notify-send "Attaching to $selected"
     else
         tmuxifier load-session "$selected"
         # No server running
