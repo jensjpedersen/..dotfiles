@@ -30,3 +30,5 @@ imap <silent><expr> <C-K> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 smap <silent><expr> <C-K> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 ]]
+
+vim.keymap.set('n', '<localleader><localleader>l', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/LuaSnip/"})<CR>')

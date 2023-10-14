@@ -41,7 +41,7 @@ s({ trig='ri', name='Right coloumn' }, fmt([[
 --------------- Figures ---------------
 
 s({ trig='fig', name='image for presentation' }, fmt([[
-<img class="fragment" src="Figures/{}" width="800" height="Auto">
+<img class="fragment" src="Figures/{}" width="Auto" height="200">
 {}
 ]],
 { i(1), i(0) }
@@ -49,7 +49,7 @@ s({ trig='fig', name='image for presentation' }, fmt([[
 
 s({ trig='ov', name='Overlapping images' }, fmt([[
 <div class="r-stack">
-	<img class="fragment" src="Figures/{}" width="800" height="Auto">
+	<img class="fragment" src="Figures/{}" width="Auto" height="200">
 </div>
 {}
 ]],

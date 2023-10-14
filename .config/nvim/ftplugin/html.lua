@@ -5,7 +5,12 @@ vim.cmd[[autocmd FileType html setlocal commentstring=<!--\ %s\ -->]]
 
 
 -- Open file in firefox
-vim.keymap.set('n', '<localleader>jv', ':!firefox --new-window % & <CR>', opts)
+-- vim.keymap.set('n', '<localleader>jv', ':!firefox --new-window % & <CR>', opts)
+
+-- Open file in qutebrowser
+vim.keymap.set('n', '<localleader>jv', ':!qutebrowser --target window % & <CR>', opts)
+
+
 
 -- Toggle browser refresh. Depends on reload_browser.sh
 RefreshBrowser = false
@@ -25,4 +30,11 @@ vim.keymap.set('n', '<localleader>jl', function ()
         RefreshBrowser = true
     end
 end)
+
+
+-- Disable Treesitter indent and context
+vim.cmd('TSDisable indent')
+vim.cmd('TSContextDisable')
+
+
 
