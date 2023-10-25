@@ -34,10 +34,10 @@ class Bulb:
 
         try: 
             self.bulb.setBrightness(brightness)
+            self.bulb.turnOn()
         except Exception as e:
             print(e)
 
-        self.bulb.turnOn()
 
 
     def set_color(self, color: str): 
