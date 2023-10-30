@@ -6,7 +6,7 @@ xdotool key --clearmodifiers 'o'
 xdotool key 'Escape'
 # xdotool key --clearmodifiers 'p'
 #
-speep 0.2
+sleep 0.2
 xdotool key --clearmodifiers 'p'
 # xdotool key --clearmodifiers "super+h"
 
