@@ -19,7 +19,12 @@ require('lualine').setup({
 vim.keymap.set('n', '<leader>z',  ':MaximizerToggle<CR>', opts)
 
 -- Emmet
-vim.cmd('let g:user_emmet_leader_key="<C-c>"')
+-- vim.cmd('let g:user_emmet_leader_key="<C-c>"')
+vim.cmd[[
+imap ;; <C-y>,
+nmap ;; <C-y>,
+vmap ;; <C-y>,
+]]
 
 -- Notes --
 -- vim.keymap.set('n', '<localleader>ns',  ':!bash ~/Scripts/Vim/screencapture.sh <CR>', opts)

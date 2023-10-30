@@ -68,24 +68,24 @@ vim.keymap.set('n', '<leader>sc', search_class, opts)
 -- vim.keymap.set('n', 'sc', ':vimgrep /\\<class\\>/j % <CR>', opts)
 
 -- go to first instance of word  
-vim.keymap.set('n', 'gw', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
-vim.keymap.set('n', 'gW', ':norm *<CR> :vimgrep /<c-r>//g **/*.py<CR>', opts)
+-- vim.keymap.set('n', 'gw', ':norm *<CR> :vimgrep /<c-r>//g %<CR>', opts)
+-- vim.keymap.set('n', 'gW', ':norm *<CR> :vimgrep /<c-r>//g **/*.py<CR>', opts)
 
 
 -- Debug
-vim.keymap.set('n', '<leader>dk', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
-vim.keymap.set('n', '<leader>dj', ":call jobstart('tmux send -t left %debug Enter')<CR>", opts)
+-- vim.keymap.set('n', '<leader>dk', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
+-- vim.keymap.set('n', '<leader>dj', ":call jobstart('tmux send -t left %debug Enter')<CR>", opts)
 
 
 -- Set tmux mappings
-local function tmux_mappings()
-    vim.keymap.set('n', '<leader>j', ":call jobstart('tmux send -t left c Enter')<CR>", opts)
-    vim.keymap.set('n', '<leader>k', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
-    vim.keymap.set('n', '<leader>i', ":call jobstart('tmux send -t left step Enter')<CR>", opts)
-    vim.keymap.set('n', '<leader>o', ":call jobstart('tmux send -t left return Enter')<CR>", opts)
-    vim.keymap.set('n', '<leader>n', ":call jobstart('tmux send -t left n Enter')<CR>", opts)
-end
+-- local function tmux_mappings()
+--     vim.keymap.set('n', '<leader>j', ":call jobstart('tmux send -t left c Enter')<CR>", opts)
+--     vim.keymap.set('n', '<leader>k', ":call jobstart('tmux send -t left q Enter')<CR>", opts)
+--     vim.keymap.set('n', '<leader>i', ":call jobstart('tmux send -t left step Enter')<CR>", opts)
+--     vim.keymap.set('n', '<leader>o', ":call jobstart('tmux send -t left return Enter')<CR>", opts)
+--     vim.keymap.set('n', '<leader>n', ":call jobstart('tmux send -t left n Enter')<CR>", opts)
+-- end
 
-vim.keymap.set('n', '<localleader><localleader>v', tmux_mappings)
-tmux_mappings()
+-- vim.keymap.set('n', '<localleader><localleader>v', tmux_mappings)
+-- tmux_mappings()
 

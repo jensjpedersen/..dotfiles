@@ -41,7 +41,7 @@ s({ trig='ri', name='Right coloumn' }, fmt([[
 --------------- Figures ---------------
 
 s({ trig='fig', name='image for presentation' }, fmt([[
-<img class="fragment" src="Figures/{}" width="Auto" height="200">
+<img class="fragment" src="{}" width="Auto" height="200">
 {}
 ]],
 { i(1), i(0) }
@@ -49,7 +49,7 @@ s({ trig='fig', name='image for presentation' }, fmt([[
 
 s({ trig='ov', name='Overlapping images' }, fmt([[
 <div class="r-stack">
-	<img class="fragment" src="Figures/{}" width="Auto" height="200">
+	<img class="fragment" src="{}" width="Auto" height="200">
 </div>
 {}
 ]],
@@ -57,15 +57,38 @@ s({ trig='ov', name='Overlapping images' }, fmt([[
 )),
 
 s({ trig='st', name='Stretch image' }, fmt([[
-<img class="r-stretch" src="Figures/{}">
+<img class="r-stretch" src="{}">
 {}
 ]],
 { i(1), i(0) }
 )),
 
+--------------- Background ---------------
 
 s({ trig='bg', name='Image background' }, fmt([[
+<!---------------------------------------->
 <section data-background-image="{}">
+{}
+</section>
+]],
+{ i(1), i(0) }
+)),
+
+
+s({ trig='bgv', name='Video background' }, fmt([[
+<!---------------------------------------->
+<section data-background-video="{}" 
+          data-background-video-loop data-background-video-muted data-background-opacity=0.5>
+{}
+</section>
+]],
+{ i(1), i(0) }
+)),
+
+
+s({ trig='bgc', name='Colored background' }, fmt([[
+<!---------------------------------------->
+<section data-transition="zoom" data-background-color="{}">
 {}
 </section>
 ]],
@@ -91,6 +114,12 @@ s({ trig='eq', name='Equation' }, fmt([[
 ]],
 { i(1), i(0) },
 { delimiters='<>' }
+)),
+
+s({ trig='im', name='Inline math' }, fmt([[
+$ {} $ {}
+]],
+{ i(1), i(0) }
 )),
 
 s({ trig='sl', name='Slide' }, fmt([[
@@ -127,6 +156,18 @@ s({ trig='co', name='Code highlight' }, fmt([[
 ]],
 { i(1), i(0) }
 )),
+
+
+s({ trig='him', name='hyperlink image' }, fmt([[
+    <a href="{}"> 
+        <img style="vertical-align:middle" src="{}" width="Auto" height="100"> 
+    </a>
+    {}
+    ]],
+{ i(1), i(2), i(0) }
+)),
+
+
 
 --------------- Styling ---------------
 s({ trig='ye', name='Yellow highlight' }, fmt([[

@@ -87,6 +87,10 @@ require'lspconfig'.lua_ls.setup {
   },
 }
 
+
+-- Install servers with mason
+require("mason").setup()
+
 -- install bash language sever: npm i -g bash-language-server
 require 'lspconfig'.bashls.setup {
     on_attach = on_attach,
@@ -101,14 +105,20 @@ require 'lspconfig'.r_language_server.setup {
     flags = lsp_flags
 }
 
+-- Webdev setup
 require 'lspconfig'.emmet_ls.setup {
     on_attach = on_attach,
     flags = lsp_flags
 }
 
+-- html, css, jsonls and javascript server installed from: 
+-- npm i -g vscode-langservers-extracted
 
--- Install servers with mason
-require("mason").setup()
+-- eslint provides command; EslintFixAll: Fix all eslint problems for this buffer
+require'lspconfig'.eslint.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.jsonls.setup{}
+require'lspconfig'.cssls.setup{}
 
 -- Ltex setup
 require 'lspconfig'.ltex.setup {
