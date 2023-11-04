@@ -22,7 +22,7 @@ vim.keymap.set('n', '<leader>z',  ':MaximizerToggle<CR>', opts)
 -- vim.cmd('let g:user_emmet_leader_key="<C-c>"')
 vim.cmd[[
 imap ;; <C-y>,
-nmap ;; <C-y>,
+" nmap ;; <C-y>,
 vmap ;; <C-y>,
 ]]
 

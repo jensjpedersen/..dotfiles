@@ -86,6 +86,12 @@ return require('packer').startup(function(use)
 
     -- js debugging
     -- use 'mxsdev/nvim-dap-vscode-js' -- requires vscode-js-debug; check github for install instructions
+    --
+    use {
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+    }
 
     -- Coding
     use 'benmills/vimux'                 -- vim tmux compatibility
