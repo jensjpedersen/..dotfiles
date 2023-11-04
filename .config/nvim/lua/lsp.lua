@@ -106,19 +106,37 @@ require 'lspconfig'.r_language_server.setup {
 }
 
 -- Webdev setup
-require 'lspconfig'.emmet_ls.setup {
-    on_attach = on_attach,
-    flags = lsp_flags
-}
+-- require 'lspconfig'.emmet_ls.setup {
+--     on_attach = on_attach,
+--     flags = lsp_flags
+-- }
 
 -- html, css, jsonls and javascript server installed from: 
 -- npm i -g vscode-langservers-extracted
 
+--[[
+Neovim does not currently include built-in snippets. vscode-css-language-server only provides completions when snippet support is enabled. To enable completion, install a snippet plugin and add the following override to your language client capabilities during setup.
+--]]
+
+
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 -- eslint provides command; EslintFixAll: Fix all eslint problems for this buffer
-require'lspconfig'.eslint.setup{}
-require'lspconfig'.html.setup{}
-require'lspconfig'.jsonls.setup{}
-require'lspconfig'.cssls.setup{}
+require'lspconfig'.eslint.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.html.setup{
+  capabilities = capabilities,
+}
+require'lspconfig'.jsonls.setup{
+    capabilities = capabilities,
+}
+require'lspconfig'.cssls.setup{
+  capabilities = capabilities,
+}
+
 
 -- Ltex setup
 require 'lspconfig'.ltex.setup {
