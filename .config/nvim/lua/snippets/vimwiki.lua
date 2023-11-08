@@ -174,6 +174,10 @@ s({ trig="cs", name="Begin css block" }, fmt([[
     { i(1), i(0) }
 )),
 
+--------------- Comments --------------- 
+s({ trig="cc", name="Css comment"}, fmt([[
+/*--------------- {} ---------------*/
+]], { i(0) })),
 
 -- Figure
 s({ trig="fig", name="Figure" }, fmt([[
