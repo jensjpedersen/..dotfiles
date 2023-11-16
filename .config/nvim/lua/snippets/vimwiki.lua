@@ -174,6 +174,15 @@ s({ trig="cs", name="Begin css block" }, fmt([[
     { i(1), i(0) }
 )),
 
+s({ trig="js", name="Begin javascript block" }, fmt([[
+    ```javascript
+    {}
+    ```
+    {}
+    ]],
+    { i(1), i(0) }
+)),
+
 --------------- Comments --------------- 
 s({ trig="cc", name="Css comment"}, fmt([[
 /*--------------- {} ---------------*/
