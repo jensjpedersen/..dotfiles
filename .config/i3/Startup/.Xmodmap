@@ -21,4 +21,5 @@ keycode 32 = o O o O 9 OE oe
 keycode 33 = p P p P slash Greek_PI Greek_pi	
 
 keycode 118 = Alt_L NoSymbol Insert NoSymbol Insert
-
+! keycode 151 = Alt_L NoSymbol XF86WakeUp NoSymbol XF86WakeUp ! bind fn key - not working
+! keycode 105 = Alt_L NoSymbol Control_R NoSymbol Control_R ! bind right control key - not working

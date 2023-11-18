@@ -7,14 +7,14 @@ require('telescope').load_extension('dap')
 
 
 -- Set Debug motion mappings
-vim.keymap.set('n', '<localleader><localleader>d', function()
+-- vim.keymap.set('n', '<localleader><localleader>d', function()
     vim.keymap.set('n', '<C-b>', '<cmd> lua require("dap").toggle_breakpoint()<CR>', opts)
     vim.keymap.set('n', '<leader>j', '<cmd> lua require("dap").continue()<CR>', opts)
     vim.keymap.set('n', '<leader>k', '<cmd> lua require("dap").close()<CR>', opts)
     vim.keymap.set('n', '<leader>i', '<cmd> lua require("dap").step_into()<CR>', opts)
     vim.keymap.set('n', '<leader>o', '<cmd> lua require("dap").step_out()<CR>', opts)
     vim.keymap.set('n', '<leader>n', '<cmd> lua require("dap").step_over()<CR>', opts)
-end)
+-- end)
 
 
 
@@ -26,7 +26,6 @@ vim.keymap.set('n', '<leader>sb', '<cmd>Telescope dap list_breakpoints<CR>', opt
 vim.keymap.set('n', '<leader>sd', "<cmd>Telescope dap commands<CR>", opts)
 
 
-require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
 
 
@@ -116,3 +115,45 @@ require("dapui").setup({
 
 vim.keymap.set('n', '<leader>do', '<cmd>lua require("dapui").toggle()<CR>', opts)
 
+
+
+--------------- Adapter setup ---------------
+
+-- Python
+require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+
+
+-- -- -- Javascript
+-- local dap = require('dap')
+-- dap.adapters.firefox = {
+--   type = 'executable',
+--   command = 'node',
+--   args = {os.getenv('HOME') .. '/Repos/vscode-firefox-debug/dist/adapter.bundle.js'},
+-- }
+
+-- -- dap.configurations.typescript = {
+-- dap.configurations.html = {
+--   {
+--   name = 'Debug with Firefox',
+--   type = 'firefox',
+--   request = 'launch',
+--   reAttach = true,
+--   url = 'http://localhost:3000',
+--   webRoot = '${workspaceFolder}',
+--   firefoxExecutable = '/usr/bin/firefox'
+--   }
+-- }
+
+-- TODO
+-- require("dap").adapters["pwa-node"] = {
+--   type = "server",
+--   host = "localhost",
+--   port = "${port}",
+--   executable = {
+--     command = "node",
+--     -- 💀 Make sure to update this path to point to your installation
+--     args = {"/path/to/js-debug/src/dapDebugServer.js", "${port}"},
+-- /home/jensjp/.local/share/nvim/site/pack/packer/opt/vscode-js-debug
+--             os.getenv("HOME") .. "/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/src/dapDebugServer.js",
+--   }
+-- }
