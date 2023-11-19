@@ -157,3 +157,23 @@ require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 --             os.getenv("HOME") .. "/.local/share/nvim/site/pack/packer/opt/vscode-js-debug/src/dapDebugServer.js",
 --   }
 -- }
+require("dap").adapters["pwa-node"] = {
+  type = "server",
+  host = "localhost",
+  -- port = "${port}",
+  port = "${port}",
+  executable = {
+    command = "node",
+    -- 💀 Make sure to update this path to point to your installation
+    args = {"/home/jensjp/Repos/js-debug/src/dapDebugServer.js", "${port}"},
+  }
+}
+require("dap").configurations.javascript = {
+  {
+    type = "pwa-node",
+    request = "launch",
+    name = "Launch file",
+    program = "${file}",
+    cwd = "${workspaceFolder}",
+  },
+}

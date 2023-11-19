@@ -137,6 +137,7 @@ require'lspconfig'.cssls.setup{
   capabilities = capabilities,
 }
 
+-- require'lspconfig'.tailwindcss.setup{}
 
 -- Ltex setup
 require 'lspconfig'.ltex.setup {
