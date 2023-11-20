@@ -31,6 +31,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
                     \ {'path': '~/vimwiki2/', 'syntax': 'markdown', 'ext': '.md'}]
 ]]
 
+-- Add .md extension to markdown links
+vim.cmd("let g:vimwiki_markdown_link_ext = 1")
 
 -- vim.cmd[[
 -- let g:vimwiki_key_mappings =
@@ -66,6 +68,7 @@ hi VimwikiHeader5 ctermfg=9 cterm=Bold
 hi VimwikiHeader6 ctermfg=3 cterm=Bold
 hi VimwikiPre ctermfg=3
 ]])
+
 
 
 
