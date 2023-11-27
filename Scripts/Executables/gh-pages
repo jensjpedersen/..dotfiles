@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# TODO: better messega
+# Create gh pages from repo in cd path
+node -e "$(cat << EOF 
+let ghpages = require('gh-pages');
+const execution_dir = process.cwd();
+ghpages.publish(execution_dir, function (err) {console.log(err)}); 
+EOF
+)"
