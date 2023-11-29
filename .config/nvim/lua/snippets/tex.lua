@@ -1,218 +1,74 @@
 
-
 local fmt = require("luasnip.extras.fmt").fmt
--- local extras = require("luasnip.extras")
--- local rep = extras.rep
-
 
 return {
 
------------------- Templates ---------------
-s({ trig='mit', name="MIT license" }, fmt([[
-    MIT License
 
-    Copyright (c) {} Jens Junker Pedersen
+-- Templates
+s({ trig="article", name="Article template"}, fmt([[
+% {{{
+\documentclass[a4paper,10pt,norsk]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{graphicx, verbatim, amsmath, amsfonts, geometry, float, import, bm}
+\usepackage{siunitx} % converts expression to SI units/notation , \num{10e-10}
+\usepackage[hidelinks]{hyperref}
+\usepackage{biblatex}
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+% Code higligthing
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
 
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+\lstset{style=mystyle}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{1.5mm}
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-    ]],
-    { f(function() return os.date("%Y") end ) }
+% }}}
+
+\title{<>}
+\author{Jens Junker Pedersen}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+<>
+
+\end{document}
+]],
+{ i(1), i(2) },
+{ delimiters='<>' }
 )),
 
---------------- General ---------------
-s(
-    "date",
-    f(function()
-        -- return os.date "%D - %H:%M"
-        return os.date('%d/%m/%Y - %H:%M')
-    end)
-),
+--[[
 
-s({ trig="bfm", name="Bold symbol", wordTrig=false }, fmt([[
-    \mathbf{<>} <>
-    ]],
-    { i(1), i(0) },
-    { delimiters='<>' }
-)),
+ _____            _                                      _       
+| ____|_ ____   _(_)_ __ ___  _ __  _ __ ___   ___ _ __ | |_ ___ 
+|  _| | '_ \ \ / / | '__/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __/ __|
+| |___| | | \ V /| | | | (_) | | | | | | | | |  __/ | | | |_\__ \
+|_____|_| |_|\_/ |_|_|  \___/|_| |_|_| |_| |_|\___|_| |_|\__|___/
+                                                                 
+--]]
 
-
-s({ trig="ref", name="cross referance" }, fmt([[
-    \ref{<>} <> 
-    ]],
-    { i(1), i(0) },
-    { delimiters='<>' }
-)),
-
-
-s({ trig="ci", name="cite" }, fmt([[
-    \cite{<>} <>
-    ]],
-    { i(1), i(0) },
-    { delimiters='<>' }
-)),
-
-
-s({ trig="eq", name="Begin equation" }, fmt([[
-    $$<>$$
-    <>
-    ]],
-    { i(1), i(0) },
-    { delimiters='<>' }
-)),
-
-s({ trig="eqn", name="Begin equation" }, fmt([[
-    \begin{equation}
-       <> 
-    \end{equation}
-    ]],
-    { i(0) },
-    { delimiters='<>' }
-)),
-
-s({ trig="ali", name="begin align" }, fmt([[
-    \begin{align*}
-        <>
-    \end{align*}
-    ]],
-    { i(0) },
-    { delimiters='<>' }
-)),
-
-s({ trig="ma", name="Begin matrix" }, fmt([[
-    \begin{pmatrix}
-        <>
-    \end{pmatrix}
-    ]],
-    { i(0) },
-    { delimiters='<>' }
-)),
-
---------------- Code ---------------
-
-s({ trig="py", name="python block" }, fmt([[
-    ```python
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="ju", name="julia block" }, fmt([[
-    ```julia
-    {}
-    ```
-    ]],
-    { i(0) }
-)),
-
-s({ trig="lu", name="bash block" }, fmt([[
-    ```lua
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="ba", name="bash block" }, fmt([[
-    ```bash
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-
-)),
-
-
-s({ trig="co", name="sigle line code" }, fmt([[
-    `{}` {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="ver", name="Begin verbatim block" }, fmt([[
-    ```
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="ht", name="Begin html block" }, fmt([[
-    ```html
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="cs", name="Begin css block" }, fmt([[
-    ```css
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="sc", name="Begin scss block" }, fmt([[
-    ```scss
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
-s({ trig="js", name="Begin javascript block" }, fmt([[
-    ```javascript
-    {}
-    ```
-    {}
-    ]],
-    { i(1), i(0) }
-)),
-
---------------- Comments --------------- 
-s({ trig="cc", name="Css comment"}, fmt([[
-/*--------------- {} ---------------*/
-]], { i(0) })),
-
--- Figure
-s({ trig="fig", name="Figure" }, fmt([[
-    ![{}](Figures/{})
-    {}
-    ]],
-    { i(1), i(2), i(0) }
-)),
-
--- PDF
-s({ trig="pdf", name="PDF" }, fmt([[
-    ![{}]({})
-    {}
-    ]],
-    { i(1), i(2), i(0) }
-)),
-
+--------------- Figures ---------------
 
 --[[
 
@@ -281,14 +137,6 @@ s({ trig="ti", name="Tilde", wordTrig=false }, fmt([[
     { delimiters='<>' }
 )),
 
-s({ trig="im", name="Inline math", wordTrig=false }, fmt([[
-    $<>$<>
-    ]],
-    { i(1), i(0) },
-    { delimiters='<>' }
-)),
-
-
 ------------------------- Operators -------------------------
 
 s({ trig="//", name="Fraction", wordTrig=false, snippetType="autosnippet" }, fmt([[
@@ -318,9 +166,6 @@ s({ trig="int", name="Integral", wordTrig=false }, fmt([[
     { i(1), i(2), i(0) },
     { delimiters='<>' }
 )),
-
-
-
 
 --------------- Bracets ---------------
 
@@ -383,6 +228,9 @@ s({ trig="<>", name="Left rigth arrow", wordTrig=false }, fmt([[\Leftrightarrow 
 s({ trig="inf", name="infinity", wordTrig=false }, fmt([[\infty {}]], {i(0)})),
 s({ trig="na", name="nabla", wordTrig=false }, fmt([[\nabla {}]], {i(0)})),
 s({ trig="pa", name="partial", wordTrig=false }, fmt([[\partial {}]], {i(0)})),
+-- s({ trig="E", name="expectation", wordTrig=false }, fmt([[\mathbb{E} <>]], { delimiters='<>' }, {i(0)})),
+
+
 
 --------------- Greek ---------------
 s({ trig="al", name="alpha", wordTrig=false }, fmt([[\alpha {}]], {i(0)})),

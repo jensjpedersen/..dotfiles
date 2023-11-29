@@ -190,4 +190,4 @@ fi
 eval "$(starship init zsh)" # Prompt
 
 export TERM="alacritty" # fix for tmux (underline)
-export PATH=/home/jensjp/.cargo/bin:$PATH
+export PATH=/home/jensjp/.cargo/bin:/home/jensjp/Scripts/Executables/:$PATH

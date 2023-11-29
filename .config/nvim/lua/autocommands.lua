@@ -78,6 +78,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
         vim.keymap.set('n', '<leader>dd', [[:call jobstart('xdotool search "Mozilla Firefox" key --clearmodifiers ctrl+shift+z')<CR>]], opts)
         vim.keymap.set('n', '<leader>dt', [[:call jobstart('xdotool search "Mozilla Firefox" key --clearmodifiers ctrl+shift+k')<CR>]], opts)
         vim.keymap.set('n', '<leader>di', [[:call jobstart('xdotool search "Mozilla Firefox" key --clearmodifiers ctrl+shift+c')<CR>]], opts)
+        vim.keymap.set('n', '<leader>dm', [[:call jobstart('xdotool search "Mozilla Firefox" key --clearmodifiers ctrl+shift+m')<CR>]], opts)
         vim.keymap.set('n', '<leader>dh', [[:call jobstart('xdotool search "Mozilla Firefox" key --clearmodifiers F12')<CR>]], opts)
 
         -- Resume debugger 

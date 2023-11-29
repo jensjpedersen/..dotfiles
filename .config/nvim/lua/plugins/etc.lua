@@ -129,8 +129,8 @@ vim.keymap.set('n', '<leader>y',  ':NvimTreeFindFileToggle<CR>', opts)
 -- Ranger
 --
 require("ranger_nvim").setup({
-    fileopener = "rifle",
-    mapping = '<leader>f',
+--     fileopener = "rifle",
+--     mapping = '<leader>f',
 })
 
 

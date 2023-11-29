@@ -392,7 +392,7 @@ awful.rules.rules = {
       properties = { screen = 'LVDS-1', tag = "15" } },
 
     -- Disable floating and maximised (default = true by some reason) from inkscape and browser
-    { rule_any = { class = { "Inkscape", "Brave-browser" } },
+    { rule_any = { class = { "Inkscape", "Brave-browser", "firefox" } },
         properties = { floating = false, maximized = false } },
 
 
