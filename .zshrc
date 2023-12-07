@@ -86,7 +86,7 @@ alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
 alias am="arduino-cli monitor -p /dev/ttyACM3"
-alias live="live-server --port=3000 --browser=chromium"
+alias live="live-server --port=3000 --browser=firefox"
 
 # ========================= Ssh =========================
 alias ssht="ssh -i ~/.ssh/thinkcentre jensjp@10.0.0.7"
@@ -190,4 +190,4 @@ fi
 eval "$(starship init zsh)" # Prompt
 
 export TERM="alacritty" # fix for tmux (underline)
-export PATH=/home/jensjp/.cargo/bin:$PATH
+export PATH=/home/jensjp/.cargo/bin:/home/jensjp/Scripts/Executables/:$PATH
