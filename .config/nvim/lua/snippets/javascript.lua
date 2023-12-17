@@ -12,6 +12,12 @@ return {
     { i(0) }
     )),
 
+    s({ trig='tl', name='Template literal'}, fmt([[
+    `{}`
+    ]],
+    { i(0) }
+    )),
+
     s({ trig='ex', name='Trow exit error'}, fmt([[
     throw new Error('Exit'); 
     {}
@@ -25,7 +31,8 @@ return {
     )),
 
     s({ trig='/', name='Multi line comment'}, fmt([[
-    /*{}
+    /*
+    {}
     */ 
     ]],
     { i(0) }

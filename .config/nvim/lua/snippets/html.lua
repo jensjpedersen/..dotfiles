@@ -4,6 +4,17 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 return {
 
+s({ trig='/', name='Nice comment'}, fmt([[
+<!--------------- {} --------------->
+]], { i(0) })),
+
+
+--  ____                      _    _     
+-- |  _ \ _____   _____  __ _| |  (_)___ 
+-- | |_) / _ \ \ / / _ \/ _` | |  | / __|
+-- |  _ <  __/\ V /  __/ (_| | |_ | \__ \
+-- |_| \_\___| \_/ \___|\__,_|_(_)/ |___/
+--                              |__/     
 
 s({ trig='col', name='column'}, fmt([[
 <div class="container">

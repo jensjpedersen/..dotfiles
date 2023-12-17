@@ -7,7 +7,7 @@ local opts2 = { noremap=true, silent=true }
 -- FZF --
 -- Redifine Rg to exclude file search
 vim.cmd[[ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0) ]]
-vim.keymap.set('n', '<leader>sr', '<cmd>Rg!<CR>', opts)
+vim.keymap.set('n', '<leader>sg', '<cmd>Rg!<CR>', opts)
 
 -- Telescope --
 vim.keymap.set('n', '<leader>p', '<cmd>Telescope find_files<CR>', opts)
