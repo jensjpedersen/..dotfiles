@@ -2,9 +2,6 @@ local opts = { noremap=true, silent=true }
 -- Git mappings 
 --
 
--- vim diff mode
-vim.keymap.set('n', 'gj', ':diffget<CR>', opts)
-vim.keymap.set('n', 'gk', ':diffput<CR>', opts)
 
 -- Octo mappings
 vim.keymap.set('n', '<leader>sp', ':Octo pr list<CR>', opts)
@@ -41,9 +38,11 @@ vim.keymap.set('n', '<localleader>q', function ()
 end, opts)
 -- vim.keymap.set('n', '<localleader>q', ':bdelete fugitive:*<C-a><CR>', opts)
 
-
-
 -- Vimdiff
+-- vim diff mode
+vim.keymap.set('n', 'gj', ':diffget<CR>', opts)
+vim.keymap.set('n', 'gk', ':diffput<CR>', opts)
+
 vim.keymap.set('n', '<localleader>v', ':Gdiffsplit!<CR>', opts)
 vim.keymap.set('v', '<localleader>v', ':diffput<CR>', opts)
 vim.keymap.set('v', '<localleader>l', ':Linediff<CR>', opts)
