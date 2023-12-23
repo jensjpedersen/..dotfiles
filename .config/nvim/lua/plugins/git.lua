@@ -9,12 +9,13 @@ vim.keymap.set('n', '<leader>si', ':Octo issue list<CR>', opts)
 vim.keymap.set('n', '<localleader>C', ':Octo pr checkout<CR> :DiffviewOpen main<CR>', opts)
 
 -- Git fugitive mappings
-vim.keymap.set('n', '<localleader>b', ':Git branch<CR>', opts)
+vim.keymap.set('n', '<localleader>b', ':Git branch -avv<CR>', opts)
 vim.keymap.set('n', '<localleader>B', ':Git blame<CR>', opts)
 vim.keymap.set('n', '<localleader>g', ':Git<CR>', opts)
 vim.keymap.set('n', '<localleader>i', ':Git status<CR>', opts)
 vim.keymap.set('n', '<localleader>p', ':Git push<CR>', opts)
 vim.keymap.set('n', '<localleader>P', ':Git pull<CR>', opts)
+vim.keymap.set('n', '<localleader>F', ':Git fetch -v<CR>', opts)
 vim.keymap.set('n', '<localleader>c', ':Git commit<CR>', opts)
 vim.keymap.set('n', '<localleader>a', ':Git add %<CR>', opts)
 vim.keymap.set('n', '<localleader>A', ':Git reset %<CR>', opts)
@@ -40,9 +41,6 @@ end, opts)
 
 -- Vimdiff
 -- vim diff mode
-vim.keymap.set('n', 'gj', ':diffget<CR>', opts)
-vim.keymap.set('n', 'gk', ':diffput<CR>', opts)
-
 vim.keymap.set('n', '<localleader>v', ':Gdiffsplit!<CR>', opts)
 vim.keymap.set('v', '<localleader>v', ':diffput<CR>', opts)
 vim.keymap.set('v', '<localleader>l', ':Linediff<CR>', opts)
