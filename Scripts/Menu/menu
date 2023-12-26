@@ -105,7 +105,7 @@ while true; do
                 case "$opt2" in 
                     o)
                         setsid -f firefox-esr localhost:32400 &>/dev/null &
-                        sleep 2; xdotool key 'F11'
+                        # sleep 2; xdotool key 'F11'
                         ;;
                     k) 
                         pkill firefox-esr
