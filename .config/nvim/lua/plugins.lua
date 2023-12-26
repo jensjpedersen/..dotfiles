@@ -70,8 +70,15 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'             -- git plugin
     use 'lewis6991/gitsigns.nvim'
     use {
-        'ldelossa/gh.nvim',
-        requires = { { 'ldelossa/litee.nvim' } }
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'nvim-tree/nvim-web-devicons',
+        },
+        config = function ()
+            require"octo".setup()
+        end
     }
     use 'sindrets/diffview.nvim'
     use 'rbong/vim-flog' -- git log graph

@@ -183,6 +183,16 @@ s({ trig="sc", name="Begin scss block" }, fmt([[
     { i(1), i(0) }
 )),
 
+s({ trig="xm", name="Begin xml block" }, fmt([[
+    ```xml
+    {}
+    ```
+    {}
+    ]],
+    { i(1), i(0) }
+)),
+
+
 s({ trig="js", name="Begin javascript block" }, fmt([[
     ```javascript
     {}

@@ -86,11 +86,13 @@ alias mlab="matlab -nosplash -nodesktop -r 'beep off'"
 alias t="task"
 alias to="taskopen"
 alias am="arduino-cli monitor -p /dev/ttyACM3"
-alias live="live-server --port=3000 --browser=firefox"
+alias live="killall firefox; pkill --full '/usr/bin/live-server'; live-server --port=3000 --browser=firefox --no-css-inject"
+
+alias sass_live="sass --watch scss/style.scss style.css"
 
 # ========================= Ssh =========================
-alias ssht="ssh -i ~/.ssh/thinkcentre jensjp@10.0.0.7"
-alias sshtk="ssh -Y -i ~/.ssh/thinkcentre jensjp@10.0.0.7 x2x -west -to :0"
+alias ssht="ssh -i ~/.ssh/thinkcentre jensjp@10.0.0.22"
+alias sshtk="ssh -Y -i ~/.ssh/thinkcentre jensjp@10.0.0.22 x2x -west -to :0"
 
 # Julia
 alias jun="julia --project=. -e 'using Pkg; Pkg.instantiate()'" # New julia project
