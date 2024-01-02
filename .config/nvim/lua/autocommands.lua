@@ -68,6 +68,16 @@ vim.cmd[[autocmd BufNewFile,BufRead *.csv set filetype=csv]]
 -- })
 
 
+-- Reduce tab size for html and css
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+    pattern = {"*.css", "*.html"},
+    callback = function() 
+        vim.o.tabstop = 2
+        vim.o.softtabstop = 2
+        vim.o.shiftwidth = 2
+    end,
+})
+
 
 
 --------------- Firefox DevTools - html | css | javascript ----------------
