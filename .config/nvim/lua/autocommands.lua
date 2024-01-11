@@ -72,9 +72,11 @@ vim.cmd[[autocmd BufNewFile,BufRead *.csv set filetype=csv]]
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
     pattern = {"*.css", "*.html"},
     callback = function() 
-        vim.o.tabstop = 2
-        vim.o.softtabstop = 2
-        vim.o.shiftwidth = 2
+        -- vim.cmd[[setlocal tabstop=2 softtabstop=2 shiftwidth=2]]
+        -- vim.o.tabstop = 2
+        -- vim.o.softtabstop = 2
+        -- vim.o.shiftwidth = 2
+        
     end,
 })
 
@@ -82,7 +84,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 
 --------------- Firefox DevTools - html | css | javascript ----------------
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-    pattern = {"*.css", "*.html", "*.js"},
+    pattern = {"*.css", "*.html", "*.js", "*.jsx"},
     callback = function() 
         -- Firefox keybindings
         vim.keymap.set('n', '<leader>dd', [[:call jobstart('xdotool search "Mozilla Firefox" key --clearmodifiers ctrl+shift+z')<CR>]], opts)

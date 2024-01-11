@@ -62,7 +62,7 @@ super+ctrl+{n,m, comma, period}
     alacritty --working-directory=$HOME -e {ranger /mnt/ssd, nvim -c VimwikiIndex, nvim -c "2 VimwikiIndex", htop}
 
 super+space;{a, f, h, p}
-    {arandr, thunar, hardinfo, gpick -s -c color_css_hsl}
+    {arandr, thunar, hardinfo, gpick -o -s -c color_css_hsl | xclip -sel c}
 
 super+space;{n, r}
     alacritty --working-directory=$HOME -e {nethogs, newsboat}

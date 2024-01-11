@@ -1,7 +1,8 @@
 #!/bin/sh
-wiki=$HOME/vimwiki
-files=$(fd "index.md" ~/vimwiki)
-dir=$(echo "$files" | awk -F "/" '{print $(NF-1)}')
-vimwiki_choice=$(echo "${dir}" | fzf)
-vimwiki_file=$(echo "${files}" | grep "${vimwiki_choice}/index.md")
-[ -e ${vimwiki_file} ] && nvim ${vimwiki_file} 
+# wiki=$HO#!/bin/bash
+path=~/vimwiki
+absolute_path=$(realpath $path)
+files=$(fd "index.md" $path)
+choice=$(echo "$files" | sed "s|${absolute_path}/||g" | sed 's|/index.md||g' | fzf)
+file_path="$absolute_path/$choice/index.md"
+[ -e ${vimwiki_file} ] && nvim ${file_path} 

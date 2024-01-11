@@ -29,6 +29,8 @@ vim.keymap.set('n', '<leader>x', ':w<CR>:!bash % <CR>', opts)
 -- vim.keymap.set('n', '<leader>d, '_d)
 vim.keymap.set('v', 'P', '"_dP', opts) -- Paste without yanking / replacing the current register
 
+-- Yank current file abs path to clipboard
+vim.keymap.set('n', 'yp', [[<cmd>let @+ = expand('%:p')<CR>]], opts)
 
 vim.keymap.set('c', 'w!!', 'w !sudo tee > /dev/null %', opts)
 -- vim.cmd[[command! -nargs=0 Sudo execute ':silent w !sudo tee % > /dev/null' | edit!]]
