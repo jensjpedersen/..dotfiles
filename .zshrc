@@ -127,8 +127,9 @@ export FZF_ALT_C_COMMAND="fd -H -t d . $HOME"
 # ======================== pdf nvim backward serach =========================
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 # ========================= Python =========================
-# export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
-export PYTHONBREAKPOINT=ipdb.set_trace
+export PYTHONSTARTUP='/home/jensjp/.config/ptpython/ipython_startup.py'
+# export PYTHONBREAKPOINT=ipdb.set_trace
+export PYTHONBREAKPOINT=IPython.terminal.debugger.set_trace
 
 # ========================= Tabcompletion =========================
 autoload -U compinit
@@ -193,3 +194,4 @@ eval "$(starship init zsh)" # Prompt
 
 export TERM="alacritty" # fix for tmux (underline)
 export PATH=/home/jensjp/.cargo/bin:/home/jensjp/Scripts/Executables/:$PATH
+export PATH=$PATH:/usr/local/go/bin # Add go to path

@@ -61,6 +61,7 @@ return require('packer').startup(function(use)
     use 'wellle/targets.vim'             -- better text objects
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
+    use 'JoosepAlviste/nvim-ts-context-commentstring' -- ts context aware comments | compatible with vim-commentary
     use 'tpope/vim-repeat'
     use 'adelarsq/vim-matchit'
     use 'tpope/vim-unimpaired'
@@ -113,6 +114,7 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate' }
     use 'nvim-treesitter/nvim-treesitter-context'
+    use 'nanotee/sqls.nvim'  -- SQL
 
     -- Writing
     use 'lervag/vimtex'		           -- Latex

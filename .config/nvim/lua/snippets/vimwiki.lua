@@ -192,6 +192,14 @@ s({ trig="xm", name="Begin xml block" }, fmt([[
     { i(1), i(0) }
 )),
 
+s({ trig="pp", name="Begin php block" }, fmt([[
+    ```php
+    {}
+    ```
+    {}
+    ]],
+    { i(1), i(0) }
+)),
 
 s({ trig="js", name="Begin javascript block" }, fmt([[
     ```javascript

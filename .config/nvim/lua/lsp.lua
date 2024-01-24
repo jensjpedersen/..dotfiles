@@ -182,3 +182,26 @@ require'lspconfig'.arduino_language_server.setup {
         "-clangd", "/usr/bin/clangd"
     }
 }
+
+require'lspconfig'.sqls.setup{}
+-- require('lspconfig').sqls.setup{
+--     on_attach = function(client, bufnr)
+--         require('sqls').on_attach(client, bufnr)
+
+--     end
+-- }
+
+-- require'lspconfig'.sqls.setup{
+--   settings = {
+--     sqls = {
+--       connections = {
+--         {
+--           driver = 'mysql',
+--           dataSourceName = 'sql11678836:sql11678836@tcp(sql11.freesqldatabase.com:3306)/sql11678836',
+--         },
+--       },
+--     },
+--   },
+-- }
+
+

@@ -102,6 +102,7 @@ let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.lua'},
                            \ {'p': '~/vimwiki2/index.md'}, 
                            \ {'a': '~/vimwiki2/Jobb/index.md'}, 
                            \ {'m': '~/vimwiki2/Mål/index.md'},
+                           \ {'e': '~/vimwiki2/EasyAd/index.md'},
                            \ ]
 
 let g:startify_commands = [ {'d' : 'VimwikiMakeDiaryNote 2'},
