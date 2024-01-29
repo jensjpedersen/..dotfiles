@@ -31,6 +31,89 @@ s({trig="sssec", name="Sub sub section"}, fmt([[
 )),
 
 
+s({trig="par", name="Paragraph"}, fmt([[
+\paragraph{<>} <>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="bf", name="bold text"}, fmt([[
+\textbf{<>} <> 
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="bfm", name="Bold symbol"}, fmt([[
+\bm{<>} <>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="it", name="italic text"}, fmt([[
+\textit{<>}<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="str", name="math sring"}, fmt([[
+\texorpdfstring{\$\bm{<> }\$}{MATH}<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+
+s({trig="ref", name="cross referance"}, fmt([[
+\ref{<>} <>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="ci", name="cite"}, fmt([[
+\cite{<>} <>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="te", name="Text"}, fmt([[
+\text{<>}<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="ov", name="Overset"}, fmt([[
+\overset{<>}<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="boxed", name="Begin box"}, fmt([[
+\boxed{<>} <>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="box", name="Box"}, fmt([[
+\fbox{\begin{minipage}{41em}
+<>
+\end{minipage}}
+<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
 
 -- Templates
 s({ trig="article", name="Article template"}, fmt([[
@@ -85,6 +168,197 @@ s({ trig="article", name="Article template"}, fmt([[
 { i(1), i(2) },
 { delimiters='<>' }
 )),
+
+s({trig="==", name="align sign"}, fmt([[
+&= <>
+]],
+{ i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="ma", name="Begin matrix"}, fmt([[
+\begin{bmatrix}
+    <>	
+\end{bmatrix}
+]],
+{ i(0) },
+{ delimiters='<>' }
+)),
+
+-- Figure
+s({trig="fig", name="Figure"}, fmt([[
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Figures/<>}
+\end{figure}
+<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="lab", name="label"}, fmt([[
+\label{<>} <> 
+]],
+{ i(0), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="py", name="Begin python lstlisting"}, fmt([[
+\begin{lstlisting}[language=Python]
+<>
+\end{lstlisting}
+<>
+]],
+{ i(0), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="code", name="import kode"}, fmt([[
+\lstinputlisting[language=<>]{<>}
+<>
+]],
+{ i(1), i(2), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="ver", name="verbatim"}, fmt([[
+\begin{verbatim}
+    <>	
+\end{verbatim}
+<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="eqb", name="Begin equation box"}, fmt([[
+\begin{equation*}
+	\boxed{<>}
+\end{equation*}
+<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="item", name="Begin itemize"}, fmt([[
+\begin{itemize}
+	<>
+\end{itemize}
+<>
+]],
+{ i(0), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="ii", name="Item"}, fmt([[
+\item<>
+]],
+{ i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="tab", name="Begin tabular"}, fmt([[
+\begin{table}[H]
+	\centering
+	\begin{tabular}{<>}
+		\hline
+		<> 
+	\end{tabular} 
+\end{table}
+<>
+]],
+{ i(1), i(2), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="tt", name="row"}, fmt([[
+<> \\\\
+\hline
+<>
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="cap", name="caption"}, fmt([[
+\caption{<>} <> 
+]],
+{ i(0), i(0) },
+{ delimiters='<>' }
+)),
+
+
+
+s({trig="enum", name="Begin enumerate"}, fmt([[
+\begin{enumerate}
+    <>	
+\end{enumerate}
+<>
+]],
+{ i(0), i(0) },
+{ delimiters='<>' }
+)),
+
+
+-- ========================= Environments =========================
+s({trig="beg", name="Begin environment"}, fmt([[
+\begin{<>}
+	$0
+\end{<>}
+]],
+{ i(1), i(0) },
+{ delimiters='<>' }
+)),
+
+
+s({trig="eq", name="Begin equation"}, fmt([[
+\begin{equation*}
+    <>
+\end{equation*}
+]],
+{ i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="eqn", name="Begin equation"}, fmt([[
+\begin{equation}
+	$<>
+\end{equation}
+]],
+{ i(0) },
+{ delimiters='<>' }
+)),
+
+s({trig="ali", name="begin align"}, fmt([[
+\begin{align*}
+	<>
+\end{align*}
+]],
+{ i(0) },
+{ delimiters='<>' }
+)),
+
+--[[
+--
+  ____          _      
+ / ___|___   __| | ___ 
+| |   / _ \ / _` |/ _ \
+| |__| (_) | (_| |  __/
+ \____\___/ \__,_|\___|
+                                                                 
+--]]
+
+
 
 --[[
 
