@@ -4,6 +4,34 @@ local fmt = require("luasnip.extras.fmt").fmt
 return {
 
 
+s({trig="sec", name="Section"}, fmt([[
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{<>}
+    <>
+    ]],
+    { i(1), i(0) },
+    { delimiters='<>' }
+)),
+
+s({trig="ssec", name="Sub section"}, fmt([[
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{<>}
+    <>
+    ]],
+    { i(1), i(0) },
+    { delimiters='<>' }
+)),
+
+s({trig="sssec", name="Sub sub section"}, fmt([[
+    \subsubsection{<>}
+    <>
+    ]],
+    { i(1), i(0) },
+    { delimiters='<>' }
+)),
+
+
+
 -- Templates
 s({ trig="article", name="Article template"}, fmt([[
 % {{{
