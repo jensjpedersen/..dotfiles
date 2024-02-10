@@ -54,8 +54,8 @@ config.bind('<Ctrl-l>', 'tab-focus last', mode='normal')
 # next/prev tab
 config.bind('E', 'tab-prev')
 config.bind('R', 'tab-next')
-config.bind('<Shift>-k', 'tab-prev')
-config.bind('<Shift>-j', 'tab-next')
+# config.bind('<Shift>-k', 'tab-prev')
+# config.bind('<Shift>-j', 'tab-next')
 
 # Passthrough
 # config.bind('<Ctrl-v>', 'enter-mode passthrough', mode='normal')

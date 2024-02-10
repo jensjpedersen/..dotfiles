@@ -1,0 +1,14 @@
+/* * { */
+/*   border-color: #657b83 !important; */
+/* } */
+a {
+  color: #268bd2 !important;
+}
+a:visited {
+  color: #6ae810 !important;
+}
+
+/*  White mathjax color */
+.MJX-TEX{
+    color: white !important;
+}
