@@ -1,0 +1,6 @@
+shell:
+  program: /bin/bash
+  args:
+    - -c
+    - export QUTE_FIFO; read -n 2 search; notify-send $l; echo "search $search" >> "$QUTE_FIFO"
+
