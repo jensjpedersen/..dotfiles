@@ -169,7 +169,7 @@ ranger() {
 source $HOME/Extra/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh # Use history substring search
 source $HOME/Extra/zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/Projects/fzf_widgets/fzf_widgets.zsh
+source ~/Scripts/Fzf/fzf_widgets.zsh
 
 # Auto suggestion
 # source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
