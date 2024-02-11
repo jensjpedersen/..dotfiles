@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#  Capture ctrl-c
+trap ctrl_c INT
+function ctrl_c() {
+    echo "Exiting"
+    exit 1
+}
+
+
 if command -v pacman &> /dev/null; then
     echo "Using pacman package manager"
 
@@ -10,10 +18,37 @@ if command -v pacman &> /dev/null; then
 elif command -v apt-get &> /dev/null; then
     echo "Using apt package manager"
 
+    # Install alacritty
+    if ! command -v alacritty &> /dev/null; then
+        cd ~ && git clone https://github.com/alacritty/alacritty.git
+        cd alacritty
+
+        # Install rust compiler
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        rustup override set stable
+        rustup update stable
+
+        # Dependencies
+        apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+
+        # Build
+        cargo build --release
+
+        # Terminfo
+        infocmp alacritty || sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+        # Check INSTALL.md for alacritty flag completion, desktop entry, man page 
+    fi
+
+
+    if ! command -v alacritty &> /dev/null; then
+        echo "--------------- Exiting ---------------"
+        echo "Alacritty is required, can not continue with the installation."
+    fi
+
 
 
     # Awesome setup
-    sudo apt install awesome alacritty polybar feh zsh
+    sudo apt install awesome polybar feh zsh
 
     # Tools
     #
@@ -25,7 +60,7 @@ elif command -v apt-get &> /dev/null; then
     # then; pip install ipython numpy pandas matplotlib seaborn pyarrow rich
 
 
-    sudo apt install syncthing qutebrowser
+    sudo apt install syncthing qutebrowser arandr
 
     sudo apt install taskwarrior timewarrior
 
