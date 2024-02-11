@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
     use 'BurntSushi/ripgrep'
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+    use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
     -- Vim extensions

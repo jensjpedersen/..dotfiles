@@ -13,7 +13,7 @@ elif command -v apt-get &> /dev/null; then
 
 
     # Awesome setup
-    sudo apt install awesome alacritty polybar feh
+    sudo apt install awesome alacritty polybar feh zsh
 
     # Tools
     #
@@ -150,8 +150,10 @@ elif command -v apt-get &> /dev/null; then
         curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
     fi
 
-
-
+    # Change shell to zsh
+    if [ ! "$SHELL" = "$(which zsh)" ]; then 
+        chsh -s "$(which zsh)"
+    fi
 
 
 
