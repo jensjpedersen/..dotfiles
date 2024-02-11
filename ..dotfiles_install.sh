@@ -57,7 +57,7 @@ elif command -v apt-get &> /dev/null; then
 
 
     # Awesome setup
-    sudo apt -y install awesome polybar feh zsh tmux xlcip xdotool
+    sudo apt -y install awesome polybar feh zsh tmux xlcip xdotool ranger sxhkd
 
     # Tools
     #
