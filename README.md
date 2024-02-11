@@ -11,4 +11,6 @@ c checkout
 2. Install packages
 ```bash
 $HOME/..dotfiles_install.sh
-``
+```
+
+
