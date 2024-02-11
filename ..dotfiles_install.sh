@@ -18,26 +18,35 @@ if command -v pacman &> /dev/null; then
 elif command -v apt-get &> /dev/null; then
     echo "Using apt package manager"
 
+    sudo apt -y install curl
+
+
+    # 1. Install snap alacritty
+    sudo apt -y install snapd
+    sudo snap install --classic alacritty
+
+    # 2. Install alacirtty from source
     # Install alacritty
-    if ! command -v alacritty &> /dev/null; then
-        cd ~ && git clone https://github.com/alacritty/alacritty.git
-        cd alacritty
+    # if ! command -v alacritty &> /dev/null; then
+    #     cd ~ && git clone https://github.com/alacritty/alacritty.git
+    #     cd alacritty
 
-        # Install rust compiler
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        rustup override set stable
-        rustup update stable
+    #     # Install rust compiler
+    #     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    #     rustup override set stable
+    #     rustup update stable
 
-        # Dependencies
-        apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    #     # Dependencies
+    #     apt -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
-        # Build
-        cargo build --release
+    #     # Build
+    #     cargo build --release
 
-        # Terminfo
-        infocmp alacritty || sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-        # Check INSTALL.md for alacritty flag completion, desktop entry, man page 
-    fi
+    #     # Terminfo
+    #     infocmp alacritty || sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+    #     # Check INSTALL.md for alacritty flag completion, desktop entry, man page 
+    #     cd ~ 
+    # fi
 
 
     if ! command -v alacritty &> /dev/null; then
@@ -48,28 +57,28 @@ elif command -v apt-get &> /dev/null; then
 
 
     # Awesome setup
-    sudo apt install awesome polybar feh zsh
+    sudo apt -y install awesome polybar feh zsh tmux xlcip xdotool
 
     # Tools
     #
     # Dev tools
-    sudo apt install nodejs npm git 
+    sudo apt -y install nodejs npm
 
-    sudo apt install python3 python3-pip ptpython pipx
+    sudo apt -y install python3 python3-pip ptpython pipx
     # source pipx
     # then; pip install ipython numpy pandas matplotlib seaborn pyarrow rich
 
 
-    sudo apt install syncthing qutebrowser arandr
+    sudo apt -y install syncthing qutebrowser arandr
 
-    sudo apt install taskwarrior timewarrior
+    sudo apt -y install taskwarrior timewarrior
 
-    sudo apt install pulsemixer playerctl
+    sudo apt -y install pulsemixer playerctl
 
 
     # Install dmneu with height patch 
     if ! command -v dmenu &> /dev/null; then 
-        sudo apt-get install libx11-dev libxinerama-dev
+        sudo apt-get -y install libx11-dev libxft-dev libxinerama-dev build-essential
         cd ~  && git clone https://git.suckless.org/dmenu
         cd dmenu 
         wget "https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff"
@@ -81,9 +90,9 @@ elif command -v apt-get &> /dev/null; then
 
     # Install clipmenu
     if ! command -v clipmenud &> /dev/null; then
-        sudo apt install xsel libxfixes-dev
+        sudo apt -y install xsel libxfixes-dev
         cd ~ && git clone "https://github.com/cdown/clipnotify.git"
-        cd clipmenu && sudo make install
+        cd clipnotify && sudo make install
 
         cd ~ && git clone "https://github.com/cdown/clipmenu.git"
         cd clipmenu && sudo make install
@@ -91,11 +100,13 @@ elif command -v apt-get &> /dev/null; then
 
 
 
-    command ! -v starship &> /dev/null && curl -sS https://starship.rs/install.sh | sh
+    if command ! -v starship &> /dev/null; then
+       curl -sS "https://starship.rs/install.sh" | sh
+    fi
 
 
     # Dependecies fzf widgets 
-    sudo apt install ripgrep fd-find fzf bat exa
+    sudo apt -y install ripgrep fd-find fzf bat exa
     [ ! -f ~/.local/bin/bat ] && ln -s /usr/bin/batcat ~/.local/bin/bat
     [ ! -f ~/.local/bin/fd ] && ln -s /usr/bin/fdfind ~/.local/bin/fd
 
@@ -142,7 +153,7 @@ elif command -v apt-get &> /dev/null; then
 	# Install neovim
 	if ! command -v nvim &> /dev/null; then
 		echo "--------------- Installing neovim ---------------" 
-		sudo apt-get install ninja-build gettext cmake unzip curl
+		sudo apt-get -y install ninja-build gettext cmake unzip curl
 		cd ~ && git clone https://github.com/neovim/neovim
 		cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 		cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
@@ -157,7 +168,7 @@ elif command -v apt-get &> /dev/null; then
     if ! command -v docker &> /dev/null; then
         # Add Docker's official GPG key:
         sudo apt-get update
-        sudo apt-get install ca-certificates curl
+        sudo apt-get -y install ca-certificates curl
         sudo install -m 0755 -d /etc/apt/keyrings
         sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
         sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -170,7 +181,7 @@ elif command -v apt-get &> /dev/null; then
         sudo apt-get update
 
         # Install Docker
-        sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
         sudo systemctl start docker
 
