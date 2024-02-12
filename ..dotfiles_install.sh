@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# TODO: 
+# * rofi emoji
+# * resurrect tmux setup
 
 #  Capture ctrl-c
 trap ctrl_c INT
@@ -57,7 +61,7 @@ elif command -v apt-get &> /dev/null; then
 
 
     # Awesome setup
-    sudo apt -y install awesome polybar feh zsh tmux xclip xdotool ranger sxhkd
+    sudo apt -y install awesome polybar feh zsh tmux xclip xdotool ranger sxhkd rofi
 
     # Tools
     #
@@ -69,7 +73,7 @@ elif command -v apt-get &> /dev/null; then
     # then; pip install ipython numpy pandas matplotlib seaborn pyarrow rich
 
 
-    sudo apt -y install syncthing qutebrowser arandr
+    sudo apt -y install syncthing qutebrowser arandr tldr texlive-full zathura
 
     sudo apt -y install taskwarrior timewarrior
 
@@ -161,6 +165,9 @@ elif command -v apt-get &> /dev/null; then
 
         # Copilot
         git clone https://github.com/github/copilot.vim.git ~/.config/nvim/pack/github/start/copilot.vim
+
+        # Conf Dependecies
+        sudo apt -y install exuberant-ctags
 
 	fi	
 
