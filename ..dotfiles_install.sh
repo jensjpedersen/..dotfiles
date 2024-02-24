@@ -138,9 +138,6 @@ elif command -v apt-get &> /dev/null; then
     fi
 
 
-
-
-
     # Install gh 
     if ! command -v gh &> /dev/null; then
         echo "--------------- Installing gh-cli ---------------" 
@@ -170,6 +167,17 @@ elif command -v apt-get &> /dev/null; then
         sudo apt -y install exuberant-ctags
 
 	fi	
+
+
+    # Download Install tmux plugins 
+    [ ! -d ~/.tmux/plugins ] && mkdir -p ~/.tmux/plugins]
+
+    ## Resurrect
+    if [ ! -d ~/.tmux/plugins/tmux-resurrect ]; then
+        cd ~/.tmux/plugins || (echo "Could not find tmux plugins directory. Exit; tmux-resurrect install. " 1>&2 && exit 1)
+        mkdir -p ~/.config/tmux/plugins
+        git clone https://github.com/tmux-plugins/tmux-resurrect
+    fi
 
 
     if ! command -v docker &> /dev/null; then
