@@ -2,7 +2,7 @@
 set -o errexit
 set -o nounset
 
-keystroke="CTRL+R"
+keystroke="ctrl+r"
 
 # set to whatever's given as argument, defaults to firefox
 BROWSER="${1:-firefox}"

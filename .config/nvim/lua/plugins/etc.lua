@@ -196,3 +196,13 @@ vim.keymap.set('n', '<leader>du', ':DBUIToggle<CR>', opts)
 
 
 
+
+-- vimux mappings
+vim.keymap.set('n', '<Leader>vp', ':w<CR>:VimuxPromptCommand<CR>', opts)
+vim.keymap.set('n', '<Leader>vl', ':w<CR>:VimuxRunLastCommand<CR>', opts)
+vim.keymap.set('n', '<Leader>vi', ':VimuxInspectRunner<CR>', opts)
+vim.keymap.set('n', '<Leader>vk', ':VimuxInterruptRunner<CR>', opts)
+vim.keymap.set('n', '<Leader>vz', ':VimuxZoomRunner<CR>', opts)
+vim.keymap.set('n', '<Leader>vc', ':VimuxClearTerminalScreen<CR>', opts)
+vim.keymap.set('n', '<Leader>vo', ':VimuxOpenRunner<CR>', opts)
+

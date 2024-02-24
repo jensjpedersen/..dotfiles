@@ -68,6 +68,7 @@ vim.keymap.set('n', '<leader>sr', function ()
                [[call jobstart("tmux send -t left 'bash ]] .. buf ..  [[' Enter")]],
                [[call jobstart("tmux send -t left 'lua ]] .. buf ..  [[' Enter")]],
                [[call jobstart("tmux send -t left 'node ]] .. buf ..  [[' Enter")]],
+               [[call jobstart("tmux send -t left 'php -f ]] .. buf ..  [[' Enter")]],
                [[call jobstart("tmux send -t left 'NODE_INSPECT_RESUME_ON_START=1 nodemon inspect ]] .. buf .. [[' Enter")]],
                [[call jobstart("tmux send -t left 'arduino-cli compile --fqbn arduino:avr:mega ]] .. buf ..  [[ && arduino-cli upload -p /dev/ttyACM3 --fqbn arduino:avr:mega ]] .. buf .. [[ && arduino-cli monitor -p /dev/ttyACM3' Enter")]]
 
