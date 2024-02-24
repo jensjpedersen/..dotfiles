@@ -2,7 +2,6 @@
 #
 # TODO: 
 # * rofi emoji
-# * resurrect tmux setup
 
 #  Capture ctrl-c
 trap ctrl_c INT
@@ -75,7 +74,16 @@ elif command -v apt-get &> /dev/null; then
 
     sudo apt -y install syncthing qutebrowser arandr tldr texlive-full zathura
 
+
     sudo apt -y install taskwarrior timewarrior
+
+    # hook for timetracking
+    if [ ! -x ~/.task/hooks/on-modify.timewarrior ]; then
+        chmod +x ~/.task/hooks/on-modify.timewarrior
+        task diagnostics | grep -q "Active: on-modify.timewarrior (executable)" || (echo "Error:Timewarrior hook not active && exit 1)"
+    fi
+
+
 
     sudo apt -y install pulsemixer playerctl
 
