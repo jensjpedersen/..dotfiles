@@ -154,6 +154,7 @@ return require('packer').startup(function(use)
     -- use 'liuchengxu/vista.vim'
     use 'kshenoy/vim-signature'
     use 'AndrewRadev/linediff.vim'
+    use 'norcalli/nvim-colorizer.lua'
 
 
 
@@ -166,17 +167,17 @@ return require('packer').startup(function(use)
     -- }
     --
     -- AI
-    -- use({
-    --     "jackMort/ChatGPT.nvim",
-    --     config = function()
-    --         require("chatgpt").setup()
-    --     end,
-    --     requires = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim"
-    --     }
-    -- })
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
 
     -- use "Bryley/neoai.nvim"
     -- use "MunifTanjim/nui.nvim"
