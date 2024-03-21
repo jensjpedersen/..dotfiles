@@ -7,7 +7,7 @@ naughty = require("naughty")
 gears = require("gears")
 
 
-local screen_name = 'LVDS-1'
+local screen_name = 'DP-2'
 local function create_scratch(name, cmd)
 
     -- TODO: check if already exists 

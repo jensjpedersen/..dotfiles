@@ -79,3 +79,9 @@ config.bind('pd', 'hint links spawn yt-dlp {hint-url}')
 config.bind('<Ctrl-v>', 'insert-text {primary}', mode='insert')
 # delte word
 
+# Fix copy button in codeblocks
+# Enable javascript can access clipboard
+c.content.javascript.clipboard = "access"
+
+
+

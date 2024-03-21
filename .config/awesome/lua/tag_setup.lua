@@ -4,8 +4,8 @@ local gears = require("gears")
 
 
 sort_order = {
-    ['LVDS-1'] = 1,
-    ['DP-2'] = 2,
+    ['LVDS-1'] = 2,
+    ['DP-2'] = 1,
 }
 
 -- Save screen objects in table
