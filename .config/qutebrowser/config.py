@@ -67,6 +67,8 @@ config.bind('eu', 'edit-url', mode='normal')
 
 # User scripts
 config.bind('I', 'spawn --userscript open_in_nvim.sh', mode='normal')
+config.bind('<Ctrl-i>', 'edit-text', mode='insert')
+config.bind('<Ctrl-i>', 'edit-text', mode='normal')
 config.bind('ø', 'spawn --userscript quick_search.sh', mode='normal')
 config.bind('<Ctrl-s>', 'spawn --userscript nvim_append_clipboard.sh', mode='normal')
 

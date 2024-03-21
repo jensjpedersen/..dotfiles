@@ -106,6 +106,7 @@ return require('packer').startup(function(use)
     use 'benmills/vimux'                 -- vim tmux compatibility
     -- use 'nathanaelkane/vim-indent-guides'
     use 'christoomey/vim-tmux-navigator' -- Navigation between vim and tmux
+    use 'tpope/vim-obsession' --  Required (???) for tmux-resurrect
     use 'yinflying/matlab.vim'
     use 'mattn/emmet-vim'
     use 'tpope/vim-dadbod' -- Interact with databases 
@@ -130,6 +131,7 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+
     -- Styling
     use 'nvim-lualine/lualine.nvim'
     use 'kyazdani42/nvim-web-devicons'
@@ -152,6 +154,8 @@ return require('packer').startup(function(use)
     -- use 'liuchengxu/vista.vim'
     use 'kshenoy/vim-signature'
     use 'AndrewRadev/linediff.vim'
+    use 'norcalli/nvim-colorizer.lua'
+
 
 
 
@@ -163,17 +167,17 @@ return require('packer').startup(function(use)
     -- }
     --
     -- AI
-    -- use({
-    --     "jackMort/ChatGPT.nvim",
-    --     config = function()
-    --         require("chatgpt").setup()
-    --     end,
-    --     requires = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim"
-    --     }
-    -- })
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
 
     -- use "Bryley/neoai.nvim"
     -- use "MunifTanjim/nui.nvim"

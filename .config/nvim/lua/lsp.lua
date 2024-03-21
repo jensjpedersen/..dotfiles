@@ -47,6 +47,7 @@ require('lspconfig')['pyright'].setup {
     filetypes = { "python", "pyrex" }
 }
 
+-- Install: npm install -g typescript typescript-language-server
 require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
@@ -119,6 +120,7 @@ Neovim does not currently include built-in snippets. vscode-css-language-server 
 --]]
 
 
+-- Install: npm i -g vscode-langservers-extracted
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -163,10 +165,6 @@ require'lspconfig'.grammarly.setup{
     filetypes = { "tex" },
 }
 
-require'lspconfig'.tsserver.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
 
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
@@ -205,3 +203,7 @@ require'lspconfig'.sqls.setup{}
 -- }
 
 
+require'lspconfig'.phpactor.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
